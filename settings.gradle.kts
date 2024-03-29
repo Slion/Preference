@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Preference"
 include(":app")
-include(":preference")
+include(":lib")
