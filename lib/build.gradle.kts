@@ -44,19 +44,74 @@ android {
     }
 }
 
+
+// Run task publishAllPublicationsToMavenRepository
+// Zip up the content of \Preference\lib\build\maven\net\slions\android\preference\0.0.1
+// Upload it to https://central.sonatype.com/publishing/deployments
+// See: https://developer.android.com/build/publish-library/upload-library#create-pub
+// See: https://docs.gradle.org/current/userguide/publishing_maven.html
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "net.slions"
+            groupId = "net.slions.android"
             artifactId = "preference"
             version = "0.0.1"
+
+            pom {
+                name = "Preference"
+                description = "Android preference extensions"
+                url = "https://github.com/Slion/Preference"
+                /*properties = mapOf(
+                    "myProp" to "value",
+                    "prop.with.dots" to "anotherValue"
+                )*/
+                licenses {
+                    license {
+                        name = "GNU Lesser General Public License v3.0"
+                        url = "https://github.com/Slion/Preference/blob/main/LICENSE"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "Slion"
+                        name = "Stéphane Lenclud"
+                        email = "github@lenclud.com"
+                    }
+                }
+                scm {
+                    //connection = "scm:git:git://example.com/my-library.git"
+                    //developerConnection = "scm:git:ssh://example.com/my-library.git"
+                    url = "https://github.com/Slion/Preference"
+                }
+            }
 
             afterEvaluate {
                 from(components["release"])
             }
         }
     }
+
+    // That gives us a task named publishAllPublicationsToMavenRepository
+    repositories {
+        maven {
+            name = "maven"
+            url = uri("${project.buildDir}/maven")
+        }
+    }
 }
+
+// Trying to zip it up but not working so far
+tasks.register<Zip>("generateRepo") {
+    //val publishTask = tasks.named(
+       // "publishAllPublicationsToMavenRepository",
+      //  PublishToMavenRepository::class.java)
+    from(layout.buildDirectory.dir("mavem/net/slions/android/preference/0.0.1"))
+    //from(publishTask.map { it.repository.url })
+    into("preference")
+    archiveFileName.set("preference.zip")
+    destinationDirectory.set(layout.buildDirectory.dir("dist"))
+}
+
 
 dependencies {
     implementation("androidx.preference:preference-ktx:1.2.1")
