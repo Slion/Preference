@@ -106,9 +106,9 @@ tasks.register<Zip>("generateRepo") {
        // "publishAllPublicationsToMavenRepository",
       //  PublishToMavenRepository::class.java)
     //from(layout.buildDirectory.dir("mavem/net/slions/android/preference/0.0.1"))
-    from("${project.buildDir}/maven")
+    from("${project.buildDir}/maven/net/slions/android/preference/0.0.1")
     //from(publishTask.map { it.repository.url })
-    into("preference")
+    into("net/slions/android/preference/0.0.1")
     archiveFileName.set("preference.zip")
     destinationDirectory.set(layout.buildDirectory.dir("dist"))
 }
