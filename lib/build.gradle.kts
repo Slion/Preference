@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("maven-publish")
+    id("signing")
 }
 
 android {
@@ -44,10 +45,7 @@ android {
     }
 }
 
-
-// Run task publishAllPublicationsToMavenRepository
-// Zip up the content of \Preference\lib\build\maven\net\slions\android\preference\0.0.1
-// Upload it to https://central.sonatype.com/publishing/deployments
+// Define our publishing tasks which will generate our upload archive folder layout and content
 // See: https://developer.android.com/build/publish-library/upload-library#create-pub
 // See: https://docs.gradle.org/current/userguide/publishing_maven.html
 publishing {
@@ -100,17 +98,34 @@ publishing {
     }
 }
 
-// Trying to zip it up but not working so far
-tasks.register<Zip>("generateRepo") {
-    //val publishTask = tasks.named(
-       // "publishAllPublicationsToMavenRepository",
-      //  PublishToMavenRepository::class.java)
-    //from(layout.buildDirectory.dir("mavem/net/slions/android/preference/0.0.1"))
-    from("${project.buildDir}/maven/net/slions/android/preference/0.0.1")
-    //from(publishTask.map { it.repository.url })
-    into("net/slions/android/preference/0.0.1")
+// Take care of signing our build artifacts.
+// For each of our AAR, JAR, POM and MODULE files it will create a corresponding ASC file.
+// For this to work you should setup your user level gradle.properties as explained there:
+// https://docs.gradle.org/7.4.2/userguide/signing_plugin.html#sec:using_gpg_agent
+// Should just specify key ID and password like that:
+// signing.gnupg.keyName=<key-id>
+// signing.gnupg.passphrase=<key-password>
+signing {
+    // Use installed GPG rather than built-in outdated version
+    useGpgCmd()
+    // Sign all publications I guess
+    sign(publishing.publications)
+    //sign(publishing.publications["release"])
+}
+
+// Define a task to generate the ZIP we can upload to Maven Central
+// It will create a file named preference.zip inside \build\distributions folder
+// Upload it to https://central.sonatype.com/publishing/deployments
+tasks.register<Zip>("generateUploadArchive") {
+    // Take the output of our publishing
+    val publishTask = tasks.named(
+        "publishReleasePublicationToMavenRepository",
+        PublishToMavenRepository::class.java)
+    from(publishTask.map { it.repository.url })
+    // Exclude maven-metadata.xml as Sonatype fails upload validation otherwise
+    exclude { it.name.contains("maven-metadata.xml")}
+    // Name our zip file
     archiveFileName.set("preference.zip")
-    destinationDirectory.set(layout.buildDirectory.dir("dist"))
 }
 
 
