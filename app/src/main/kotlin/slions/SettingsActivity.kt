@@ -8,6 +8,9 @@ import slions.pref.demo.R
 
 private const val TITLE_TAG = "settingsActivityTitle"
 
+/**
+ *
+ */
 class SettingsActivity : AppCompatActivity(),
     PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 

@@ -1,12 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.PrefDemo" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.App.Base" parent="Theme.Material3.DayNight.NoActionBar">
 
-        <item name="sliderPreferenceStyle">@style/Preference.SliderPreference</item>
 
     </style>
 
-    <style name="Theme.PrefDemo" parent="Base.Theme.PrefDemo" />
+
+    <style name="Theme.App.Preference" parent="Theme.App.Base">
+
+<!--        <item name="sliderPreferenceStyle">@style/Preference.SliderPreference</item>-->
+
+<!--        Needed otherwise slider preference is broken-->
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.Slions</item>
+
+    </style>
+
+    <style name="Theme.App.Light" parent="Theme.App.Preference" >
+        <!-- Customize your light theme here. -->
+        <!--        <item name="colorPrimary">#FF0000</item>-->
+    </style>
+
+    <style name="Theme.App.Dark" parent="Theme.App.Preference" >
+        <!-- Customize your dark theme here. -->
+        <!--        <item name="colorPrimary">#FF0000</item>-->
+    </style>
+
+    <style name="Theme.App.DayNight" parent="Theme.App.Light" />
 </resources>
