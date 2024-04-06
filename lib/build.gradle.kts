@@ -6,7 +6,8 @@ plugins {
 }
 
 android {
-    namespace = "net.slions.preference"
+    // Notably define R class namespace
+    namespace = "slions.pref"
     compileSdk = 34
 
     defaultConfig {

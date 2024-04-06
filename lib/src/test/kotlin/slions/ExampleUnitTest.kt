@@ -1,4 +1,4 @@
-package net.slions.preference
+package net.slions.slions
 
 import org.junit.Test
 

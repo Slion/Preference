@@ -6,7 +6,7 @@
         app:key="messages_header"
         app:title="@string/messages_header" />
 
-    <pref.Basic
+    <slions.BasicPreference
         app:fragment="net.slions.preference.demo.SettingsActivity$SyncFragment"
         app:icon="@drawable/sync"
         app:key="sync_header"

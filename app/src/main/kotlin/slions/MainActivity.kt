@@ -1,4 +1,4 @@
-package net.slions.preference.demo
+package slions
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import net.slions.preference.demo.R
-import net.slions.preference.demo.databinding.ActivityMainBinding
+import slions.pref.demo.R
+import slions.pref.demo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
