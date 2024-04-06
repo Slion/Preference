@@ -3,9 +3,10 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("maven-publish")
     id("signing")
+    id ("kotlin-kapt")
 }
 
-val libVersion = "0.0.2"
+val libVersion = "0.0.3"
 
 android {
     // Notably define R class namespace
@@ -45,6 +46,11 @@ android {
             allVariants()
             withJavadocJar()
         }
+    }
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
 }
 

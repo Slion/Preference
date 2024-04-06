@@ -15,7 +15,9 @@
         <activity
             android:name="slions.SettingsActivity"
             android:exported="false"
-            android:label="@string/title_activity_settings" />
+            android:label="@string/title_activity_settings"
+            android:theme="@style/Theme.PrefDemo"
+            />
         <activity
             android:name="slions.MainActivity"
             android:exported="true"

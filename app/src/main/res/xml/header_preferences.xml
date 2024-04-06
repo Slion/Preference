@@ -1,15 +1,35 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Preference
-        app:fragment="net.slions.preference.demo.SettingsActivity$MessagesFragment"
-        app:icon="@drawable/messages"
-        app:key="messages_header"
-        app:title="@string/messages_header" />
+        a:fragment="net.slions.preference.demo.SettingsActivity$MessagesFragment"
+        a:icon="@drawable/messages"
+        a:key="messages_header"
+        a:title="@string/messages_header" />
 
     <slions.BasicPreference
-        app:fragment="net.slions.preference.demo.SettingsActivity$SyncFragment"
-        app:icon="@drawable/sync"
-        app:key="sync_header"
-        app:title="@string/sync_header" />
+        a:fragment="net.slions.preference.demo.SettingsActivity$SyncFragment"
+        a:icon="@drawable/sync"
+        a:key="sync_header"
+        a:title="@string/sync_header" />
+
+    <slions.SliderPreference
+        a:key="SliderPreference"
+        a:title="Slider preference title"
+        a:summary="Slider preference summary"
+        a:icon="@drawable/sync"
+        a:seekBarIncrement="25"
+        a:showSeekBarValue="true"
+        a:iconSpaceReserved="false"
+        a:updatesContinuously="true"
+        android:valueFrom="100"
+        android:valueTo="400"
+        android:stepSize="25"
+        android:value="200"
+        android:layout="@layout/preference_slider"
+        a:labelBehavior="gone"
+        a:format="%.0f%%"
+        a:singleLineTitle="false"
+        />
 
 </PreferenceScreen>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PreferenceSlionsThemeOverlay" parent="PreferenceThemeOverlay">
+        <item name="sliderPreferenceStyle">@style/Preference.SliderPreference</item>
+    </style>
+
+</resources>
