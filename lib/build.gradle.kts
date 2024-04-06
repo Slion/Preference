@@ -5,6 +5,8 @@ plugins {
     id("signing")
 }
 
+val libVersion = "0.0.2"
+
 android {
     // Notably define R class namespace
     namespace = "slions.pref"
@@ -54,7 +56,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "net.slions.android"
             artifactId = "preference"
-            version = "0.0.1"
+            version = libVersion
 
             pom {
                 name = "Preference"
@@ -116,7 +118,7 @@ signing {
 
 // Define a task to generate the ZIP we can upload to Maven Central
 // It will create a file named preference.zip inside \build\distributions folder
-// Upload it to https://central.sonatype.com/publishing/deployments
+// You can then upload it to https://central.sonatype.com/publishing/deployments for publishing
 tasks.register<Zip>("generateUploadArchive") {
     // Take the output of our publishing
     val publishTask = tasks.named(
@@ -124,7 +126,22 @@ tasks.register<Zip>("generateUploadArchive") {
         PublishToMavenRepository::class.java)
     from(publishTask.map { it.repository.url })
     // Exclude maven-metadata.xml as Sonatype fails upload validation otherwise
-    exclude { it.name.contains("maven-metadata.xml")}
+    exclude {
+        // Exclude left over directories not matching current version
+        // That was needed otherwise older versions empty directories would be include in our ZIP
+        if (it.file.isDirectory && it.path.matches(Regex(""".*\d+\.\d+.\d+$""")) && !it.path.contains(libVersion)) {
+//            project.logger.lifecycle("Exclude version ${it.name}")
+//            project.logger.lifecycle(it.path)
+//            project.logger.lifecycle(it.name)
+//            project.logger.lifecycle("--------")
+            return@exclude true
+        }
+
+        // Only take files inside current version directory
+        // Notably excludes maven-metadata.xml which Maven Central upload validation does not like
+        (it.file.isFile && !it.path.contains(libVersion))
+    }
+
     // Name our zip file
     archiveFileName.set("preference.zip")
 }
