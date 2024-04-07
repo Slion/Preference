@@ -1,16 +1,15 @@
-package slions
+package slions.pref.demo
 
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
-import slions.pref.demo.R
+import com.google.android.material.snackbar.Snackbar
 import slions.pref.demo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
