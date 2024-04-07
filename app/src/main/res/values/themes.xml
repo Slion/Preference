@@ -10,8 +10,12 @@
 
 <!--        <item name="sliderPreferenceStyle">@style/Preference.SliderPreference</item>-->
 
-<!--        Needed otherwise slider preference is broken-->
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.Slions</item>
+<!--
+    Was needed otherwise slider preference broke.
+    However this was fixed with our PreferenceFragmentBase.
+    You can still use this attribute to override the preference themes.
+-->
+<!--        <item name="preferenceTheme">@style/PreferenceThemeOverlay.Slions</item>-->
 
     </style>
 

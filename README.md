@@ -12,6 +12,16 @@ dependencies {
 }
 ```
 
+## Usage
+
+Make sure your preference fragments are derived from `slions.pref.PreferenceFragmentBase`.
+This will notably take care of using a compatible `preferenceTheme` if none was specified in your theme styles. Failing to do so or using an incompatible `preferenceTheme` can lead to crashes.
+
+## Customisation
+
+You can define your own `preferenceTheme` attribute in your theme styles. Like so:
+`<item name="preferenceTheme">@style/PreferenceThemeOverlay.Slions.Custom</item>`
+
 ## Features
 
 Run and explore the demo application and code documentation for more information.

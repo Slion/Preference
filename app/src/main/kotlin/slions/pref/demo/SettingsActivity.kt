@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import slions.pref.PreferenceFragmentBase
 
 private const val TITLE_TAG = "settingsActivityTitle"
 
@@ -67,19 +68,19 @@ class SettingsActivity : AppCompatActivity(),
         return true
     }
 
-    class HeaderFragment : PreferenceFragmentCompat() {
+    class HeaderFragment : PreferenceFragmentBase() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.header_preferences, rootKey)
         }
     }
 
-    class MessagesFragment : PreferenceFragmentCompat() {
+    class MessagesFragment : PreferenceFragmentBase() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.messages_preferences, rootKey)
         }
     }
 
-    class SyncFragment : PreferenceFragmentCompat() {
+    class SyncFragment : PreferenceFragmentBase() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.sync_preferences, rootKey)
         }
