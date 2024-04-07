@@ -30,7 +30,7 @@ Preference using a [Material Slider](https://m2.material.io/components/sliders#u
 
 ## Release 
 
-Increase the library version number from [`lib\build.gradle.kts`](lib\build.grdle.kts).
+Increase the library version number from [`lib/build.gradle.kts`](lib/build.gradle.kts).
 
 Generate your upload package by running:<br> 
 `.\gradlew generateUploadPackage`
