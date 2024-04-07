@@ -1,21 +1,21 @@
-package slions
+package slions.pref
 
 
 import android.annotation.SuppressLint
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.commit
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceHeaderFragmentCompat
-import slions.pref.BasicPreference
+import slions.BaseSettingsActivity
 import timber.log.Timber
 
 
 /**
  * Give us single pane on narrow screens and two pane settings on wider screens.
  */
-class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
+class ResponsiveSettingsFragment(private var iRootSettingsFragment: PreferenceFragmentBase) : PreferenceHeaderFragmentCompat() {
 
-    private lateinit var iRootSettingsFragment: PreferenceFragmentCompat //RootSettingsFragment()
     // Keep track of the settings fragment we are currently showing
     // Notably used to remain in the proper settings page after screen rotation
     var iPreference: Preference? = null
@@ -38,14 +38,12 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
     override fun onPreferenceStartFragment(caller: PreferenceFragmentCompat, pref: Preference): Boolean {
         //super.onPreferenceStartFragment(caller, pref)
 
-        /*
-        if (caller.id == R.id.preferences_header) {
+
+        if (caller.id == androidx.preference.R.id.preferences_header) {
             // A preference was selected in our root/header
             // That means our breadcrumbs need to be reset to the root level
             resetBreadcrumbs()
         }
-
-         */
 
         iPreference = pref
 
@@ -72,16 +70,16 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
         // Trigger title update on next layout
         (activity as? BaseSettingsActivity)?.updateTitleOnLayout()
 
-        /*
+
         // Launch specified fragment
         // NOTE: This code is taken from the super implementation to which we added the animations
-        if (caller.id == R.id.preferences_header) {
+        if (caller.id == androidx.preference.R.id.preferences_header) {
             Timber.d("onPreferenceStartFragment: caller is header")
             // Opens the preference header.
             openPreferenceHeader(pref)
             return true
         }
-        if (caller.id == R.id.preferences_detail) {
+        if (caller.id == androidx.preference.R.id.preferences_detail) {
             Timber.d("onPreferenceStartFragment: caller is detail")
             // Opens an preference in detail pane.
             val frag = childFragmentManager.fragmentFactory.instantiate(
@@ -92,17 +90,18 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
 
             childFragmentManager.commit {
                 setReorderingAllowed(true)
+                /*
                 setCustomAnimations(R.anim.slide_in_from_right,
                     R.anim.slide_out_to_left,
                     R.anim.slide_in_from_left,
-                    R.anim.slide_out_to_right)
-                replace(R.id.preferences_detail, frag)
+                    R.anim.slide_out_to_right)*/
+                replace(androidx.preference.R.id.preferences_detail, frag)
                 addToBackStack(null)
             }
             return true
         }
 
-         */
+
         return false
 
     }
@@ -135,23 +134,23 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
             val entry = childFragmentManager.getBackStackEntryAt(0)
             childFragmentManager.popBackStack(entry.id, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         }
-/*
+
         childFragmentManager.commit {
             setReorderingAllowed(true)
             // Don't do animation when the pane is not open
             // The opening of the pane itself is the animation
             if (slidingPaneLayout.isOpen) {
                 // Define animations when opening settings from our root left pane
+                /*
                 setCustomAnimations(R.anim.slide_in_from_right,
                     R.anim.slide_out_to_left,
                     R.anim.slide_in_from_left,
-                    R.anim.slide_out_to_right)
+                    R.anim.slide_out_to_right)*/
             }
-            replace(R.id.preferences_detail, fragment!!)
+            replace(androidx.preference.R.id.preferences_detail, fragment!!)
             slidingPaneLayout.openPane()
         }
 
- */
     }
 
     /**

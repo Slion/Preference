@@ -4,23 +4,33 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import slions.pref.ResponsiveSettingsFragment
 import slions.pref.PreferenceFragmentBase
 
 private const val TITLE_TAG = "settingsActivityTitle"
 
 /**
- *
+ * TODO: Move core features to base class in library
  */
 class SettingsActivity : AppCompatActivity(),
     PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
+    var responsive = ResponsiveSettingsFragment(HeaderFragment())
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.settings_activity)
+        // Load our layout
+        setContentView(slions.pref.R.layout.activity_settings)
+        // Setup our toolbar
+        setSupportActionBar(findViewById(slions.pref.R.id.settings_toolbar))
+        title = "Settings"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Load our preference entry point
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.settings, HeaderFragment())
+                .replace(slions.pref.R.id.settings, responsive)
                 .commit()
         } else {
             title = savedInstanceState.getCharSequence(TITLE_TAG)
@@ -30,7 +40,6 @@ class SettingsActivity : AppCompatActivity(),
                 setTitle(R.string.title_activity_settings)
             }
         }
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

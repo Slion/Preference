@@ -10,6 +10,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
+import slions.pref.ResponsiveSettingsFragment
 import timber.log.Timber
 
 const val SETTINGS_CLASS_NAME = "ClassName"
@@ -29,7 +30,7 @@ class BaseSettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_settings)
 
-        responsive = ResponsiveSettingsFragment()
+        //responsive = ResponsiveSettingsFragment()
 
         // That could be useful at some point
         /*
