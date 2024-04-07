@@ -125,7 +125,7 @@ signing {
 // Define a task to generate the ZIP we can upload to Maven Central
 // It will create a file named preference.zip inside \build\distributions folder
 // You can then upload it to https://central.sonatype.com/publishing/deployments for publishing
-tasks.register<Zip>("generateUploadArchive") {
+tasks.register<Zip>("generateUploadPackage") {
     // Take the output of our publishing
     val publishTask = tasks.named(
         "publishReleasePublicationToMavenRepository",
