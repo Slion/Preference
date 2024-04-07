@@ -6,7 +6,7 @@ plugins {
     id ("kotlin-kapt")
 }
 
-val libVersion = "0.0.5"
+val libVersion = "0.1.0"
 
 android {
     // Notably define R class namespace
