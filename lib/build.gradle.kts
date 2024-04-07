@@ -6,7 +6,7 @@ plugins {
     id ("kotlin-kapt")
 }
 
-val libVersion = "0.0.4"
+val libVersion = "0.0.5"
 
 android {
     // Notably define R class namespace
@@ -102,7 +102,7 @@ publishing {
     repositories {
         maven {
             name = "maven"
-            url = uri("${project.buildDir}/maven")
+            url = uri(layout.buildDirectory.dir("maven"))
         }
     }
 }
