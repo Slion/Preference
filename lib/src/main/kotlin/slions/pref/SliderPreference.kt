@@ -20,10 +20,9 @@
  * All Rights Reserved.
  */
 
-package slions
+package slions.pref
 
 import android.annotation.SuppressLint
-import slions.pref.R
 import com.google.android.material.R as MR
 import androidx.preference.R as PR
 import android.content.Context
@@ -41,6 +40,7 @@ import androidx.preference.PreferenceViewHolder
 import androidx.preference.SeekBarPreference
 import com.google.android.material.slider.LabelFormatter
 import com.google.android.material.slider.Slider
+import slions.px
 import timber.log.Timber
 import java.lang.Float.max
 import java.lang.Float.min

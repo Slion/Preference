@@ -3,7 +3,7 @@
  * All Rights Reserved.
  */
 
-package slions
+package slions.pref
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -12,7 +12,6 @@ import android.widget.TextView
 import androidx.core.content.res.TypedArrayUtils
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
-import slions.pref.R
 
 /**
  * Basic preference adding the following features:

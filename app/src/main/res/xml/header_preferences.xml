@@ -7,13 +7,13 @@
         a:key="messages_header"
         a:title="@string/messages_header" />
 
-    <slions.BasicPreference
+    <slions.pref.BasicPreference
         a:fragment="slions.pref.demo.SettingsActivity$SyncFragment"
         a:icon="@drawable/sync"
         a:key="sync_header"
         a:title="@string/sync_header" />
 
-    <slions.SliderPreference
+    <slions.pref.SliderPreference
         a:key="SliderPreference"
         a:title="Slider preference title"
         a:summary="Slider preference summary"

@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceHeaderFragmentCompat
+import slions.pref.BasicPreference
 import timber.log.Timber
 
 

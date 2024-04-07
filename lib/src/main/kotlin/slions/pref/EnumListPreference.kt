@@ -20,9 +20,8 @@
  * All Rights Reserved.
  */
 
-package slions
+package slions.pref
 
-import slions.pref.R
 import android.content.Context
 import android.util.AttributeSet
 import androidx.preference.ListPreference
