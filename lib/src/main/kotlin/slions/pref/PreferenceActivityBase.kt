@@ -1,16 +1,24 @@
 /*
  * Copyright 2014 A.C.R. Development
  */
-package slions
+package fulguris.activity
+
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceFragmentCompat
+import slions.pref.PreferenceFragmentBase
+import slions.pref.R
 import slions.pref.ResponsiveSettingsFragment
+
 import timber.log.Timber
 
 const val SETTINGS_CLASS_NAME = "ClassName"
@@ -20,41 +28,44 @@ const val SETTINGS_CLASS_NAME = "ClassName"
  * Currently it only really works for single pane.
  * Meaning when you go to Portrait or Landscape settings in dual pane mode you don't know where you are.
  */
-
-class BaseSettingsActivity : AppCompatActivity() {
+abstract class PreferenceActivityBase : AppCompatActivity() {
 
     lateinit var responsive: ResponsiveSettingsFragment
     private var iFragmentClassName: String? = null
 
+    abstract fun onCreatePreferenceHeader(): PreferenceFragmentBase
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_settings)
+        setContentView(R.layout.activity_settings)
 
-        //responsive = ResponsiveSettingsFragment()
+        responsive = ResponsiveSettingsFragment(onCreatePreferenceHeader())
 
         // That could be useful at some point
-        /*
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.settings, responsive)
-                .runOnCommit {
-                    responsive.childFragmentManager.addOnBackStackChangedListener {
-                        // Triggers when a sub menu is opened, portrait and Landscape settings for instance
-                        //updateTitle()
-                    }
+            .runOnCommit {
+                responsive.childFragmentManager.addOnBackStackChangedListener {
+                    // Triggers when a sub menu is opened, portrait and Landscape settings for instance
+                    //updateTitle()
                 }
+            }
             .commit()
 
         // Set our toolbar as action bar so that our title is displayed
         // See: https://stackoverflow.com/questions/27665018/what-is-the-difference-between-action-bar-and-newly-introduced-toolbar
         setSupportActionBar(findViewById(R.id.settings_toolbar))
-        setTitle(R.string.settings)
+        // TODO
+        setTitle("Settings")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         //supportActionBar?.setDisplayShowTitleEnabled(true)
 
         iFragmentClassName = savedInstanceState?.getString(SETTINGS_CLASS_NAME)
 
         // Truncate title in the middle
+        /*
         findViewById<ViewGroup>(R.id.settings_toolbar).findViewsByType(TextView::class.java).forEach {
             //Timber.d("Toolbar text: ${it.text}")
             it.ellipsize = TextUtils.TruncateAt.MIDDLE
@@ -62,8 +73,8 @@ class BaseSettingsActivity : AppCompatActivity() {
             // it.marqueeRepeatLimit = -1
             // it.isSelected = true
         }
-        */
 
+         */
     }
 
 
@@ -71,7 +82,7 @@ class BaseSettingsActivity : AppCompatActivity() {
      *
      */
     override fun onResume() {
-        //Timber.d("$ihs : onResume")
+        Timber.d("onResume")
         super.onResume()
 
         // At this stage our preferences have been created
@@ -99,7 +110,7 @@ class BaseSettingsActivity : AppCompatActivity() {
      *
      */
     override fun onDestroy() {
-        //Timber.d("$ihs : onDestroy")
+        Timber.d("onDestroy")
         super.onDestroy()
 
         //responsive = null
@@ -130,8 +141,7 @@ class BaseSettingsActivity : AppCompatActivity() {
         } else if (responsive.childFragmentManager.fragments.isNotEmpty() && responsive.slidingPaneLayout.isOpen && !responsive.slidingPaneLayout.isSlideable) {
             responsive.childFragmentManager.fragments.first()
         } else {
-            //supportFragmentManager.findFragmentById(R.id.settings)
-            null
+            supportFragmentManager.findFragmentById(R.id.settings)
         }
 
     }
@@ -151,6 +161,8 @@ class BaseSettingsActivity : AppCompatActivity() {
         }
 
         if (!responsive.slidingPaneLayout.isOpen /*|| !responsive.slidingPaneLayout.isSlideable*/) {
+            //TODO:ResponsiveSettingsFragment
+            setTitle("Settings")
             //setTitle(R.string.settings)
         } else {
             // Make sure title is also set properly when coming back from second level preference screen
@@ -167,13 +179,10 @@ class BaseSettingsActivity : AppCompatActivity() {
     {
         Timber.d("updateTitle")
         // Needed to update title after language change
-        /*
-        (aFragment as? AbstractSettingsFragment)?.let {
+        (aFragment as? PreferenceFragmentBase)?.let {
             Timber.d("updateTitle done")
             title = it.title()
         }
-
-         */
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -243,14 +252,15 @@ class BaseSettingsActivity : AppCompatActivity() {
      */
     private fun startFragment(aClass: Class<*>) {
         // We need to find the preference that's associated with that fragment, before we can start it.
+        //TODO
         /*
         (currentFragment() as? RootSettingsFragment)?.let {
             it.preferenceScreen.findPreference(aClass)?.let { pref ->
                 it.onPreferenceTreeClick(pref)
             }
         }
+        */
 
-         */
     }
 
     /**

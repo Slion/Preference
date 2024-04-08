@@ -7,7 +7,7 @@ import androidx.fragment.app.commit
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceHeaderFragmentCompat
-import slions.BaseSettingsActivity
+import fulguris.activity.PreferenceActivityBase
 import timber.log.Timber
 
 
@@ -58,7 +58,7 @@ class ResponsiveSettingsFragment(private var iRootSettingsFragment: PreferenceFr
                 childFragmentManager.popBackStack()
                 // Adjust and update our breadcrumb
                 iTitleStack.removeLast()
-                (activity as? BaseSettingsActivity)?.updateTitleOnLayout()
+                (activity as? PreferenceActivityBase)?.updateTitleOnLayout()
             }
 
             return true
@@ -71,7 +71,7 @@ class ResponsiveSettingsFragment(private var iRootSettingsFragment: PreferenceFr
         }
 
         // Trigger title update on next layout
-        (activity as? BaseSettingsActivity)?.updateTitleOnLayout()
+        (activity as? PreferenceActivityBase)?.updateTitleOnLayout()
 
 
         // Launch specified fragment
