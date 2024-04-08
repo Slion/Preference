@@ -1,11 +1,16 @@
 package slions.pref.demo
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.doOnLayout
+import androidx.fragment.app.Fragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import slions.pref.ResponsiveSettingsFragment
 import slions.pref.PreferenceFragmentBase
+import timber.log.Timber
 
 private const val TITLE_TAG = "settingsActivityTitle"
 
@@ -15,7 +20,7 @@ private const val TITLE_TAG = "settingsActivityTitle"
 class SettingsActivity : AppCompatActivity(),
     PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
-    var responsive = ResponsiveSettingsFragment(HeaderFragment())
+    lateinit var responsive: ResponsiveSettingsFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +28,10 @@ class SettingsActivity : AppCompatActivity(),
         setContentView(slions.pref.R.layout.activity_settings)
         // Setup our toolbar
         setSupportActionBar(findViewById(slions.pref.R.id.settings_toolbar))
-        title = "Settings"
+        //title = "Settings"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        responsive = ResponsiveSettingsFragment(HeaderFragment())
 
         // Load our preference entry point
         if (savedInstanceState == null) {
@@ -40,6 +47,36 @@ class SettingsActivity : AppCompatActivity(),
                 setTitle(R.string.title_activity_settings)
             }
         }
+    }
+
+    /**
+     *
+     */
+    override fun onResume() {
+        Timber.d("onResume")
+        super.onResume()
+/*
+        // At this stage our preferences have been created
+        try {
+            // Start specified fragment if any
+            if (iFragmentClassName == null) {
+                val className = intent.extras!!.getString(SETTINGS_CLASS_NAME)
+                val classType = Class.forName(className!!)
+                startFragment(classType)
+            } else {
+                val classType = Class.forName(iFragmentClassName)
+                startFragment(classType)
+            }
+            // Prevent switching back to that settings page after screen rotation
+            //intent = null
+        }
+        catch(ex: Exception) {
+            // Just ignore
+        }
+        */
+
+
+        updateTitleOnLayout()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -77,19 +114,128 @@ class SettingsActivity : AppCompatActivity(),
         return true
     }
 
+    /**
+     *
+     */
+    fun updateTitleOnLayout(aGoingBack: Boolean = false) {
+        findViewById<View>(android.R.id.content).doOnLayout {
+            if (aGoingBack) {
+                // This code path is not actually being used
+                // TODO: clean it up
+                updateTitle()
+            } else {
+                title = responsive.title()
+            }
+        }
+    }
+
+    /**
+     * Update activity title as define by the current fragment
+     * Also still does not work properly on wide screens.
+     * TODO: This is not actually being used anymore, consider a clean up
+     */
+    private fun updateTitle()
+    {
+        // TODO: could just be defensive, test rotation without it and remove if not needed
+        if (responsive.view==null) {
+            // Prevent crash upon screen rotation
+            return
+        }
+
+        if (!responsive.slidingPaneLayout.isOpen /*|| !responsive.slidingPaneLayout.isSlideable*/) {
+            setTitle("Settings")
+        } else {
+            // Make sure title is also set properly when coming back from second level preference screen
+            // Notably needed for portrait and landscape configuration settings
+            updateTitle(currentFragment())
+            //title = responsive.iPreference?.title
+        }
+    }
+
+    /**
+     * Update activity title as defined by the given [aFragment].
+     */
+    private fun updateTitle(aFragment : Fragment?)
+    {
+        Timber.d("updateTitle")
+        // Needed to update title after language change
+        (aFragment as? PreferenceFragmentBase)?.let {
+            Timber.d("updateTitle done")
+            title = it.title()
+        }
+    }
+
+    /**
+     * Fetch the currently loaded settings fragment.
+     */
+    private fun currentFragment() : Fragment? {
+
+        return if (responsive.childFragmentManager.fragments.isNotEmpty() && ((responsive.slidingPaneLayout.isOpen && responsive.slidingPaneLayout.isSlideable) /*||responsive.childFragmentManager.backStackEntryCount>0*/)) {
+            responsive.childFragmentManager.fragments.last()
+        } else if (responsive.childFragmentManager.fragments.isNotEmpty() && responsive.slidingPaneLayout.isOpen && !responsive.slidingPaneLayout.isSlideable) {
+            responsive.childFragmentManager.fragments.first()
+        } else {
+            supportFragmentManager.findFragmentById(R.id.settings)
+        }
+
+    }
+
+    /**
+     *
+     */
+    @SuppressLint("MissingSuperCall")
+    override fun onBackPressed() {
+        doOnBackPressed()
+    }
+
+    /**
+     *
+     */
+    private fun doOnBackPressed() {
+
+        // Deploy workaround to make sure we exit this activity when user hits back from top level fragments
+        // You can reproduce that issue by disabling that workaround and going in a nested settings fragment such as Look & Feel > Portrait
+        // Then hit back button twice won't exit the settings activity. You can't exit the settings activity anymore.
+        val doFinish = (responsive.childFragmentManager.backStackEntryCount==0 && (!responsive.slidingPaneLayout.isOpen || !responsive.slidingPaneLayout.isSlideable))
+        //val doFinish = !responsive.slidingPaneLayout.isOpen
+        super.onBackPressed()
+        if (doFinish) {
+            finish()
+        } else {
+            // Do not update title if we exit the activity to avoid showing broken title before exit
+            responsive.popBreadcrumbs()
+            updateTitleOnLayout()
+        }
+    }
+
     class HeaderFragment : PreferenceFragmentBase() {
+
+        override fun titleResourceId(): Int {
+            return R.string.title_activity_settings
+        }
+
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.header_preferences, rootKey)
         }
     }
 
     class MessagesFragment : PreferenceFragmentBase() {
+
+        override fun titleResourceId(): Int {
+            return R.string.messages_header
+        }
+
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.messages_preferences, rootKey)
         }
     }
 
     class SyncFragment : PreferenceFragmentBase() {
+
+        override fun titleResourceId(): Int {
+            return R.string.sync_header
+        }
+
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.sync_preferences, rootKey)
         }

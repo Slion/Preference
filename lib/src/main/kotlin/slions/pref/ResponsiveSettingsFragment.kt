@@ -24,9 +24,12 @@ class ResponsiveSettingsFragment(private var iRootSettingsFragment: PreferenceFr
     private var iTitleStack: ArrayList<String> = ArrayList<String>()
 
 
-
+    /**
+     *
+     */
     override fun onCreatePreferenceHeader(): PreferenceFragmentCompat {
-        //iTitleStack.add(requireContext().getString(R.string.settings))
+        //iTitleStack.add(iRootSettingsFragment.title())
+        iTitleStack.add("Settings")
         // Provide left pane headers fragment
         return iRootSettingsFragment
     }

@@ -31,4 +31,15 @@ abstract class PreferenceFragmentBase : PreferenceFragmentCompat() {
         super.onCreate(savedInstanceState)
     }
 
+    /**
+     * Must provide a resource id to load this preference page title.
+     * Just return null if you don't want to use it and provide an hardcoded title instead.
+     */
+    abstract fun titleResourceId() : Int
+
+    /**
+     * Provide this page title. Default implementation just loads it from resources.
+     */
+    open fun title() : String = resources.getString(titleResourceId())
+
 }
