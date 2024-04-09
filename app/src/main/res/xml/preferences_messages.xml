@@ -1,0 +1,21 @@
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res-auto">
+
+    <EditTextPreference
+        a:key="signature"
+        a:title="@string/signature_title"
+        a:useSimpleSummaryProvider="true" />
+
+    <ListPreference
+        a:defaultValue="reply"
+        a:entries="@array/reply_entries"
+        a:entryValues="@array/reply_values"
+        a:key="reply"
+        a:title="@string/reply_title"
+        a:useSimpleSummaryProvider="true" />
+
+    <Preference
+        a:fragment="slions.pref.demo.PreferenceFragmentProperties"
+        a:title="Properties"
+        a:summary="Click to go deeper"/>
+
+</PreferenceScreen>

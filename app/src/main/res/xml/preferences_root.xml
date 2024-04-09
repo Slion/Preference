@@ -2,13 +2,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Preference
-        a:fragment="slions.pref.demo.SettingsActivity$MessagesFragment"
+        a:fragment="slions.pref.demo.PreferenceFragmentMessages"
         a:icon="@drawable/messages"
         a:key="messages_header"
         a:title="@string/messages_header" />
 
     <slions.pref.BasicPreference
-        a:fragment="slions.pref.demo.SettingsActivity$SyncFragment"
+        a:fragment="slions.pref.demo.PreferenceFragmentSync"
         a:icon="@drawable/sync"
         a:key="sync_header"
         a:title="@string/sync_header" />

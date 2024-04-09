@@ -10,6 +10,6 @@ class PreferenceFragmentMessages : PreferenceFragmentBase() {
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.messages_preferences, rootKey)
+        setPreferencesFromResource(R.xml.preferences_messages, rootKey)
     }
 }

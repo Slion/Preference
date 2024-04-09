@@ -10,6 +10,6 @@ class PreferenceFragmentSync : PreferenceFragmentBase() {
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.sync_preferences, rootKey)
+        setPreferencesFromResource(R.xml.preferences_sync, rootKey)
     }
 }

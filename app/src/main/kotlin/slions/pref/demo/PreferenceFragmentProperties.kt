@@ -3,13 +3,13 @@ package slions.pref.demo
 import android.os.Bundle
 import slions.pref.PreferenceFragmentBase
 
-class PreferenceFragmentRoot : PreferenceFragmentBase() {
+class PreferenceFragmentProperties : PreferenceFragmentBase() {
 
     override fun titleResourceId(): Int {
-        return R.string.title_activity_settings
+        return R.string.pref_title_properties
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.preferences_root, rootKey)
+        setPreferencesFromResource(R.xml.preferences_properties, rootKey)
     }
 }
