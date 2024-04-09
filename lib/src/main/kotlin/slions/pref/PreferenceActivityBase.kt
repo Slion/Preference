@@ -9,6 +9,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
+import slions.findPreference
 
 import timber.log.Timber
 
@@ -28,6 +29,7 @@ abstract class PreferenceActivityBase : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Timber.d("onCreate")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
@@ -48,12 +50,12 @@ abstract class PreferenceActivityBase : AppCompatActivity() {
         // Set our toolbar as action bar so that our title is displayed
         // See: https://stackoverflow.com/questions/27665018/what-is-the-difference-between-action-bar-and-newly-introduced-toolbar
         setSupportActionBar(findViewById(R.id.settings_toolbar))
-        // TODO
-        setTitle("Settings")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         //supportActionBar?.setDisplayShowTitleEnabled(true)
 
         iFragmentClassName = savedInstanceState?.getString(SETTINGS_CLASS_NAME)
+        Timber.d("Fragment class name: $iFragmentClassName")
+
 
         // Truncate title in the middle
         /*
@@ -153,7 +155,7 @@ abstract class PreferenceActivityBase : AppCompatActivity() {
 
         if (!responsive.slidingPaneLayout.isOpen /*|| !responsive.slidingPaneLayout.isSlideable*/) {
             //TODO:ResponsiveSettingsFragment
-            setTitle("Settings")
+            title = responsive.iPreferenceFragmentRoot.title()
             //setTitle(R.string.settings)
         } else {
             // Make sure title is also set properly when coming back from second level preference screen
@@ -213,15 +215,18 @@ abstract class PreferenceActivityBase : AppCompatActivity() {
         }
     }
 
-
+    /**
+     *
+     */
     override fun onSaveInstanceState(outState: Bundle) {
+        Timber.d("onSaveInstanceState")
         // Save current activity title so we can set it again after a configuration change
         //outState.putCharSequence(TITLE_TAG, title)
         super.onSaveInstanceState(outState)
 
         // Persist current fragment to restore it after screen rotation for instance
-        // TODO: For some reason that does not work with Portrait and Landscape pages
-        responsive.iPreference?.fragment.let {
+        responsive.iPreference?.fragment?.let {
+            Timber.d("Save class name $it")
             outState.putString(SETTINGS_CLASS_NAME, it)
         }
 
@@ -239,19 +244,19 @@ abstract class PreferenceActivityBase : AppCompatActivity() {
 
     /**
      * Start fragment matching the given type.
-     * That should only work if the currently loaded fragment is our root/header fragment.
+     * That should only work if the currently loaded fragment is our root/header fragment
+     * and the target fragment can be launched from the root preference page.
+     *
+     * Used to restore current preference page after configuration change and activity recreation.
      */
     private fun startFragment(aClass: Class<*>) {
+        Timber.d("startFragment: ${aClass.name}")
         // We need to find the preference that's associated with that fragment, before we can start it.
-        //TODO
-        /*
-        (currentFragment() as? RootSettingsFragment)?.let {
-            it.preferenceScreen.findPreference(aClass)?.let { pref ->
-                it.onPreferenceTreeClick(pref)
+        if (currentFragment()==responsive.iPreferenceFragmentRoot) {
+            responsive.iPreferenceFragmentRoot.preferenceScreen.findPreference(aClass)?.let { pref ->
+                responsive.iPreferenceFragmentRoot.onPreferenceTreeClick(pref)
             }
         }
-        */
-
     }
 
     /**

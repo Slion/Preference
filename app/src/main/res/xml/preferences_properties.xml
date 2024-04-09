@@ -3,7 +3,7 @@
     xmlns:a="http://schemas.android.com/apk/res-auto">
 
     <Preference
-        a:title="No where to go"
+        a:title="Nowhere to go"
         a:summary="Just go back then"
         />
 

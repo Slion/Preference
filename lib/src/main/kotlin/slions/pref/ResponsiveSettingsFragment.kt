@@ -16,7 +16,7 @@ import timber.log.Timber
 class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
 
     // The root of our preference tree, notably shown in the left pane
-    private lateinit var iPreferenceFragmentRoot: PreferenceFragmentBase
+    lateinit var iPreferenceFragmentRoot: PreferenceFragmentBase
 
     // Keep track of the settings fragment we are currently showing
     // Notably used to remain in the proper settings page after screen rotation
@@ -58,6 +58,7 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
         }
 
         iPreference = pref
+        Timber.d("Fragment name: ${iPreference?.fragment}")
 
         // No actual fragment specified, just a back action
         // Notably used when deleting custom configuration
