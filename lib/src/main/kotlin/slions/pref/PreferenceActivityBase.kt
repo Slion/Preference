@@ -1,23 +1,14 @@
-/*
- * Copyright 2014 A.C.R. Development
- */
-package fulguris.activity
+
+package slions.pref
 
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
-import androidx.preference.PreferenceFragmentCompat
-import slions.pref.PreferenceFragmentBase
-import slions.pref.R
-import slions.pref.ResponsiveSettingsFragment
 
 import timber.log.Timber
 
@@ -40,7 +31,7 @@ abstract class PreferenceActivityBase : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        responsive = ResponsiveSettingsFragment(onCreatePreferenceHeader())
+        responsive = ResponsiveSettingsFragment()
 
         // That could be useful at some point
         supportFragmentManager

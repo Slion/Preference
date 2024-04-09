@@ -12,6 +12,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.snackbar.Snackbar
 import slions.pref.demo.databinding.ActivityMainBinding
 
+/**
+ *
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration

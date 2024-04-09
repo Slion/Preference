@@ -1,5 +1,6 @@
 package slions.pref
 
+import android.content.Context
 import android.os.Bundle
 import android.util.TypedValue
 import androidx.preference.PreferenceFragmentCompat
@@ -40,6 +41,12 @@ abstract class PreferenceFragmentBase : PreferenceFragmentCompat() {
     /**
      * Provide this page title. Default implementation just loads it from resources.
      */
-    open fun title() : String = resources.getString(titleResourceId())
+    open fun title() : String = title(requireContext())
+
+    /**
+     * Allow to fetch title before we are attached to our own context.
+     * Was needed during creation.
+     */
+    open fun title(aContext: Context) : String = aContext.resources.getString(titleResourceId())
 
 }

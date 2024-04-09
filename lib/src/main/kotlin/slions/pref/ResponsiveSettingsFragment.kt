@@ -7,14 +7,16 @@ import androidx.fragment.app.commit
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceHeaderFragmentCompat
-import fulguris.activity.PreferenceActivityBase
 import timber.log.Timber
 
 
 /**
  * Give us single pane on narrow screens and two pane settings on wider screens.
  */
-class ResponsiveSettingsFragment(private var iRootSettingsFragment: PreferenceFragmentBase) : PreferenceHeaderFragmentCompat() {
+class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
+
+    // The root of our preference tree, notably shown in the left pane
+    private lateinit var iPreferenceFragmentRoot: PreferenceFragmentBase
 
     // Keep track of the settings fragment we are currently showing
     // Notably used to remain in the proper settings page after screen rotation
@@ -23,15 +25,22 @@ class ResponsiveSettingsFragment(private var iRootSettingsFragment: PreferenceFr
     // Breadcrumbs management
     private var iTitleStack: ArrayList<String> = ArrayList<String>()
 
-
     /**
-     *
+     * Called when we need to create our root preference fragment
      */
     override fun onCreatePreferenceHeader(): PreferenceFragmentCompat {
-        //iTitleStack.add(iRootSettingsFragment.title())
-        iTitleStack.add("Settings")
+        Timber.d("onCreatePreferenceHeader")
+
+        (requireActivity() as? PreferenceActivityBase)?.let {
+            Timber.d("Found compatible activity")
+            iPreferenceFragmentRoot = it.onCreatePreferenceHeader()
+        }
+
+        // Load our title stack with our root title
+        iTitleStack.add(iPreferenceFragmentRoot.title(requireContext()))
+
         // Provide left pane headers fragment
-        return iRootSettingsFragment
+        return iPreferenceFragmentRoot
     }
 
     /**
@@ -40,7 +49,7 @@ class ResponsiveSettingsFragment(private var iRootSettingsFragment: PreferenceFr
     @SuppressLint("MissingSuperCall")
     override fun onPreferenceStartFragment(caller: PreferenceFragmentCompat, pref: Preference): Boolean {
         //super.onPreferenceStartFragment(caller, pref)
-
+        Timber.d("onPreferenceStartFragment")
 
         if (caller.id == androidx.preference.R.id.preferences_header) {
             // A preference was selected in our root/header
@@ -186,7 +195,7 @@ class ResponsiveSettingsFragment(private var iRootSettingsFragment: PreferenceFr
 
         Timber.d("titles: $iTitleStack")
 
-        return if (iRootSettingsFragment.isVisible && !slidingPaneLayout.isSlideable && iTitleStack.count()>1) {
+        return if (iPreferenceFragmentRoot.isVisible && !slidingPaneLayout.isSlideable && iTitleStack.count()>1) {
             // We effectively disabled that algorithm using 100 for full crumb at start and end
             // We are simply using TextView ellipsis in the middle instead
             // Build our breadcrumbs
