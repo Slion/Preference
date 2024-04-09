@@ -13,7 +13,6 @@ import slions.findPreference
 
 import timber.log.Timber
 
-const val SETTINGS_CLASS_NAME = "ClassName"
 
 /**
  * TODO: Review title update implementation for both single and dual pane modes
@@ -21,6 +20,8 @@ const val SETTINGS_CLASS_NAME = "ClassName"
  * Meaning when you go to Portrait or Landscape settings in dual pane mode you don't know where you are.
  */
 abstract class PreferenceActivityBase : AppCompatActivity() {
+
+    private val SETTINGS_CLASS_NAME = "ClassName"
 
     lateinit var responsive: ResponsiveSettingsFragment
     private var iFragmentClassName: String? = null
