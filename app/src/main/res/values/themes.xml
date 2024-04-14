@@ -8,14 +8,14 @@
 
     <style name="Theme.App.Preference" parent="Theme.App.Base">
 
+<!-- This is specified by our theme below. But we could also specify thus if for some reason we did not want to use the whole theme -->
 <!--        <item name="sliderPreferenceStyle">@style/Preference.SliderPreference</item>-->
 
 <!--
-    Was needed otherwise slider preference broke.
-    However this was fixed with our PreferenceFragmentBase.
-    You can still use this attribute to override the preference themes.
+    Needed for Android Studio preference preview to work, notably when using SliderPreference.
+    However not strictly needed at runtime as PreferenceFragmentBase will apply that theme if none found
 -->
-<!--        <item name="preferenceTheme">@style/PreferenceThemeOverlay.Slions</item>-->
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.Slions</item>
 
     </style>
 

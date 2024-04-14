@@ -24,7 +24,7 @@ abstract class PreferenceFragmentBase : PreferenceFragmentCompat() {
         var theme = tv.resourceId
         if (theme == 0) {
             // Fallback to default theme.
-            theme = slions.pref.R.style.PreferenceThemeOverlay_Slions
+            theme = R.style.PreferenceThemeOverlay_Slions
         }
 
         requireContext().theme.applyStyle(theme, false)
