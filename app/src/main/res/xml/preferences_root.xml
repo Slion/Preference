@@ -31,4 +31,11 @@
         a:singleLineTitle="false"
         />
 
+    <slions.pref.SwitchPreference
+        a:icon="@drawable/sync"
+        a:key="switch_demo"
+        a:title="@string/sync_header"
+        a:summaryOn="On"
+        a:summaryOff="Off"/>
+
 </PreferenceScreen>

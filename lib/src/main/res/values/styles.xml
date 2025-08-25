@@ -11,4 +11,11 @@
         <item name="iconSpaceReserved">true</item>
     </style>
 
+
+    <!-- Define default values for our SliderPreference, notably the layout -->
+    <style name="Preference.SwitchPreference">
+        <item name="android:layout">@layout/preference_switch</item>
+        <item name="iconSpaceReserved">true</item>
+    </style>
+
 </resources>

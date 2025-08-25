@@ -3,6 +3,7 @@
 
     <style name="PreferenceThemeOverlay.Slions" parent="PreferenceThemeOverlay">
         <item name="sliderPreferenceStyle">@style/Preference.SliderPreference</item>
+        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference</item>
     </style>
 
 </resources>

@@ -15,4 +15,9 @@
         <attr name="enumClassName" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="SwitchPreference">
+        <!-- Default style for slider preferences. -->
+        <attr name="switchPreferenceStyle" format="reference" />
+    </declare-styleable>
+
 </resources>
