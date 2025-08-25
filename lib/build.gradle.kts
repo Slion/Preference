@@ -44,6 +44,10 @@ android {
             withSourcesJar()
             withJavadocJar()
         }
+        singleVariant("debug") {
+            withSourcesJar()
+            withJavadocJar()
+        }
         multipleVariants {
             allVariants()
             withJavadocJar()
