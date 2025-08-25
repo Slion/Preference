@@ -1,10 +1,13 @@
 package slions.pref.demo
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -13,7 +16,7 @@ import com.google.android.material.snackbar.Snackbar
 import slions.pref.demo.databinding.ActivityMainBinding
 
 /**
- *
+ * I don't think we use that
  */
 class MainActivity : AppCompatActivity() {
 
@@ -36,6 +39,17 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+
+        // From API 35 we need to make room for system bars ourselves
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Handle window insets to add padding for system bars
+            ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, windowInsets ->
+                val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+                view.setPadding(insets.left, insets.top, insets.right, insets.bottom)
+                WindowInsetsCompat.CONSUMED
+            }
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

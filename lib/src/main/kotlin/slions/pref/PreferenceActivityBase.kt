@@ -3,10 +3,13 @@ package slions.pref
 
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.doOnLayout
 import androidx.fragment.app.Fragment
 import slions.findPreference
@@ -69,6 +72,16 @@ abstract class PreferenceActivityBase : AppCompatActivity() {
         }
 
          */
+
+        // From API 35 we need to make room for status bars ourselves
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Handle window insets to add padding for system bars
+            ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content)) { view, windowInsets ->
+                val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+                view.setPadding(insets.left, insets.top, insets.right, insets.bottom)
+                WindowInsetsCompat.CONSUMED
+            }
+        }
     }
 
 

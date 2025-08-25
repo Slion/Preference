@@ -11,7 +11,7 @@ val libVersion = "0.1.0"
 android {
     // Notably define R class namespace
     namespace = "slions.pref"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 21
@@ -33,12 +33,10 @@ android {
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     publishing {
@@ -152,13 +150,16 @@ tasks.register<Zip>("generateUploadPackage") {
     archiveFileName.set("preference.zip")
 }
 
+kotlin {
+    jvmToolchain(17) // Or your desired compatible JDK version
+}
 
 dependencies {
     implementation("androidx.preference:preference-ktx:1.2.1")
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.core:core-ktx:1.16.0")
+    implementation("androidx.appcompat:appcompat:1.7.1")
     implementation("androidx.preference:preference-ktx:1.2.1")
-    implementation("com.google.android.material:material:1.11.0")
+    implementation("com.google.android.material:material:1.12.0")
     // Logs
     implementation("com.jakewharton.timber:timber:5.0.1")
 
@@ -166,3 +167,4 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
+
