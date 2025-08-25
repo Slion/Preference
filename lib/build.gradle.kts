@@ -40,6 +40,10 @@ android {
     }
 
     publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
         multipleVariants {
             allVariants()
             withJavadocJar()
@@ -56,6 +60,7 @@ android {
 // See: https://developer.android.com/build/publish-library/upload-library#create-pub
 // See: https://docs.gradle.org/current/userguide/publishing_maven.html
 publishing {
+
     publications {
         register<MavenPublication>("release") {
             groupId = "net.slions.android"
