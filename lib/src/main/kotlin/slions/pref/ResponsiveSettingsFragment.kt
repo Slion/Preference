@@ -67,7 +67,7 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
                 // Go back to previous fragment if any
                 childFragmentManager.popBackStack()
                 // Adjust and update our breadcrumb
-                iTitleStack.removeLast()
+                popBreadcrumbs()
                 (activity as? PreferenceActivityBase)?.updateTitleOnLayout()
             }
 
@@ -173,7 +173,8 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
         Timber.d("resetBreadcrumbs: ${iTitleStack.count()}")
         // Only keep our root title
         while (iTitleStack.count()>1) {
-            iTitleStack.removeLast()
+                //iTitleStack.removeLast()
+                iTitleStack.removeAt(iTitleStack.size - 1)            
         }
     }
 
@@ -183,7 +184,8 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
     fun popBreadcrumbs() {
         Timber.d("popBreadcrumbs: ${iTitleStack.count()}")
         if (iTitleStack.count()>1) {
-            iTitleStack.removeLast()
+                //iTitleStack.removeLast()
+                iTitleStack.removeAt(iTitleStack.size - 1)
         }
     }
 
