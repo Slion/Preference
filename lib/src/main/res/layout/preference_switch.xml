@@ -25,6 +25,4 @@
     android:focusable="false"
     android:clickable="false"
     android:background="@null"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp"
     />

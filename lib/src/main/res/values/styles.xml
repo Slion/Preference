@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Define default values for our SliderPreference, notably the layout -->
     <style name="Preference.SliderPreference">
@@ -14,6 +14,7 @@
 
     <!-- Define default values for our SliderPreference, notably the layout -->
     <style name="Preference.SwitchPreference">
+        <item name="android:layout" tools:ignore="PrivateResource">@layout/preference_material</item>
         <item name="android:widgetLayout">@layout/preference_switch</item>
         <item name="allowDividerAbove">false</item>
         <item name="allowDividerBelow">true</item>
