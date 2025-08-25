@@ -15,6 +15,8 @@
     <!-- Define default values for our SliderPreference, notably the layout -->
     <style name="Preference.SwitchPreference">
         <item name="android:widgetLayout">@layout/preference_switch</item>
+        <item name="allowDividerAbove">false</item>
+        <item name="allowDividerBelow">true</item>
         <item name="iconSpaceReserved">true</item>
     </style>
 
