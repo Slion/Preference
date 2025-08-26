@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:a="http://schemas.android.com/apk/res-auto">
+
+    <slions.pref.SwitchPreference
+        a:icon="@drawable/ic_check_circle_outline"
+        a:key="switch_demo"
+        a:title="With summary"
+        a:summaryOn="That switch is on"
+        a:summaryOff="That switch is off"/>
+
+    <slions.pref.SwitchPreference
+        a:title="With summary no icon"
+        a:summaryOn="That switch is on"
+        a:summaryOff="That switch is off"
+        a:iconSpaceReserved="false"
+        />
+
+    <slions.pref.SwitchPreference
+        a:title="Long single line title should be truncated"
+        a:summaryOn="That switch is on"
+        a:summaryOff="That switch is off"
+        a:iconSpaceReserved="false"
+        a:singleLineTitle="true"
+        />
+
+    <slions.pref.SwitchPreference
+        a:iconSpaceReserved="true"
+        a:title="No summary"
+        />
+
+    <SwitchPreferenceCompat
+        a:title="Legacy switch"
+        a:summary="Should not be using SwitchPreferenceCompat anymore"
+        a:iconSpaceReserved="false"
+        />
+
+</PreferenceScreen>

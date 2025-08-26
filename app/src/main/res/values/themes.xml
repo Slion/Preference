@@ -1,30 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.App.Base" parent="Theme.Material3.DayNight.NoActionBar">
 
-
-    </style>
-
-
-    <style name="Theme.App.Preference" parent="Theme.App.Base">
-
-<!-- This is specified by our theme below. But we could also specify thus if for some reason we did not want to use the whole theme -->
-<!--        <item name="sliderPreferenceStyle">@style/Preference.SliderPreference</item>-->
-
-<!--
-    Needed for Android Studio preference preview to work, notably when using SliderPreference.
-    However not strictly needed at runtime as PreferenceFragmentBase will apply that theme if none found
--->
-        <item name="preferenceTheme">@style/PreferenceThemeOverlay.Slions</item>
-
-    </style>
-
-    <style name="Theme.App.Light" parent="Theme.App.Preference" >
+    <style name="Theme.App.Light" parent="Theme.Slions.Preference" >
         <!-- Customize your light theme here. -->
         <!--        <item name="colorPrimary">#FF0000</item>-->
     </style>
 
-    <style name="Theme.App.Dark" parent="Theme.App.Preference" >
+    <style name="Theme.App.Dark" parent="Theme.Slions.Preference" >
         <!-- Customize your dark theme here. -->
         <!--        <item name="colorPrimary">#FF0000</item>-->
     </style>

@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Base application theme. -->
+    <style name="Theme.Slions.Base" parent="Theme.Material3.DayNight.NoActionBar">
+
+    </style>
+
+    <style name="Theme.Slions.Preference" parent="Theme.Slions.Base">
+
+        <!-- This is specified by our theme below. But we could also specify thus if for some reason we did not want to use the whole theme -->
+        <!--        <item name="sliderPreferenceStyle">@style/Preference.SliderPreference</item>-->
+
+        <!--
+            Needed for Android Studio preference preview to work, notably when using SliderPreference.
+            However not strictly needed at runtime as PreferenceFragmentBase will apply that theme if none found
+        -->
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay.Slions</item>
+        <!--
+        Used in preference_material.xml layout for the title text
+        See: https://android.googlesource.com/platform/frameworks/support/+/HEAD/preference/preference/src/main/res/layout/preference_material.xml
+        Works from here but not from the parent theme for some reason
+        -->
+        <item name="android:textAppearanceListItem">@style/TextAppearance.Material3.TitleLarge</item>
+        <!--
+        Define summary text appearance
+        -->
+        <item name="android:textAppearanceListItemSecondary">@style/TextAppearance.Material3.BodyLarge</item>
+    </style>
+
+<!--    Define styles for each of our custom preferences-->
     <style name="PreferenceThemeOverlay.Slions" parent="PreferenceThemeOverlay">
-        <item name="sliderPreferenceStyle">@style/Preference.SliderPreference</item>
-        <item name="switchPreferenceStyle">@style/Preference.SwitchPreference</item>
+        <item name="sliderPreferenceStyle">@style/Slions.Preference.SliderPreference</item>
+        <item name="switchPreferenceStyle">@style/Slions.Preference.SwitchPreference</item>
+<!--        We hoped we could change the layout from all preference on the screen by setting this item, but it doesn't work.-->
+<!--        <item name="preferenceScreenStyle">@style/Slions.Preference.PreferenceScreen</item>-->
+
+<!--        Was also not working from here for some reason so we put it in the theme above-->
+<!--        <item name="android:textAppearanceListItem">@style/TextAppearance.Material3.TitleLarge</item>-->
+
     </style>
 
 </resources>
