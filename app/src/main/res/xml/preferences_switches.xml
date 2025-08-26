@@ -29,6 +29,38 @@
         a:title="No summary"
         />
 
+
+    <slions.pref.SwitchPreference
+        a:iconSpaceReserved="false"
+        a:title="Master switch"
+        a:key="master_switch"
+        a:summaryOn="Dependencies are enabled"
+        a:summaryOff="Dependencies are disabled"
+        />
+
+    <slions.pref.SwitchPreference
+        a:iconSpaceReserved="false"
+        a:title="Depends on the above"
+        a:dependency="master_switch"
+        />
+
+    <slions.pref.SwitchPreference
+        a:iconSpaceReserved="false"
+        a:title="Master switch reverse"
+        a:key="master_switch_reverse"
+        a:disableDependentsState="true"
+        a:summaryOn="Dependencies are disabled"
+        a:summaryOff="Dependencies are enabled"
+        />
+
+
+    <slions.pref.SwitchPreference
+        a:iconSpaceReserved="false"
+        a:title="Depends on the above"
+        a:dependency="master_switch_reverse"
+        />
+
+
     <SwitchPreferenceCompat
         a:title="Legacy switch"
         a:summary="Should not be using SwitchPreferenceCompat anymore"
