@@ -43,7 +43,7 @@ import androidx.preference.R as PR
  * @attr name android:disableDependentsState
  */
 @SuppressLint("RestrictedApi", "PrivateResource")
-class SwitchPreference @JvmOverloads constructor(
+open class SwitchPreference @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.switchPreferenceStyle, defStyleRes: Int = 0
 ) : TwoStatePreference(context, attrs, defStyleAttr, defStyleRes) {
