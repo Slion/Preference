@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:a="http://schemas.android.com/apk/res-auto">
+
+    <slions.pref.SwitchPreference
+        a:iconSpaceReserved="false"
+        a:title="Master switch"
+        a:key="master_switch"
+        a:summaryOn="Dependencies are enabled"
+        a:summaryOff="Dependencies are disabled"
+        />
+
+    <slions.pref.SliderPreference
+        a:key="slider_preference_persisted"
+        a:title="Slider persistent"
+        a:summary="Specify a key to persist the value"
+        a:seekBarIncrement="25"
+        a:showSeekBarValue="true"
+        a:iconSpaceReserved="false"
+        a:updatesContinuously="true"
+        android:valueFrom="100"
+        android:valueTo="400"
+        android:stepSize="25"
+        android:value="200"
+        a:labelBehavior="gone"
+        a:format="%.0f%%"
+        a:singleLineTitle="false"
+        a:dependency="master_switch"
+        />
+
+    <slions.pref.SliderPreference
+        a:title="Slider no summary"
+        a:seekBarIncrement="25"
+        a:showSeekBarValue="true"
+        a:iconSpaceReserved="false"
+        a:updatesContinuously="true"
+        android:valueFrom="100"
+        android:valueTo="400"
+        android:stepSize="25"
+        android:value="200"
+        a:labelBehavior="gone"
+        a:format="%.0f%%"
+        a:singleLineTitle="false"
+        a:dependency="master_switch"
+        />
+
+    <slions.pref.SliderPreference
+        a:title="Slider icon"
+        a:icon="@drawable/ic_sliders_outline"
+        a:seekBarIncrement="25"
+        a:showSeekBarValue="true"
+        a:iconSpaceReserved="false"
+        a:updatesContinuously="true"
+        android:valueFrom="100"
+        android:valueTo="400"
+        android:stepSize="25"
+        android:value="200"
+        a:labelBehavior="gone"
+        a:format="%.0f%%"
+        a:singleLineTitle="false"
+        a:dependency="master_switch"
+        />
+
+    <slions.pref.SliderPreference
+        a:title="Slider no value"
+        a:seekBarIncrement="25"
+        a:showSeekBarValue="false"
+        a:iconSpaceReserved="false"
+        a:updatesContinuously="true"
+        android:valueFrom="100"
+        android:valueTo="400"
+        android:stepSize="25"
+        android:value="200"
+        a:labelBehavior="gone"
+        a:format="%.0f%%"
+        a:singleLineTitle="false"
+        a:dependency="master_switch"
+        />
+
+    <slions.pref.SliderPreference
+        a:title="Slider floating value"
+        a:seekBarIncrement="25"
+        a:showSeekBarValue="false"
+        a:iconSpaceReserved="false"
+        a:updatesContinuously="true"
+        android:valueFrom="100"
+        android:valueTo="400"
+        android:stepSize="25"
+        android:value="200"
+        a:labelBehavior="floating"
+        a:format="%.0f%%"
+        a:singleLineTitle="false"
+        a:dependency="master_switch"
+        />
+
+    <slions.pref.SliderPreference
+        a:title="Slider value within bounds"
+        a:seekBarIncrement="25"
+        a:showSeekBarValue="false"
+        a:iconSpaceReserved="false"
+        a:updatesContinuously="true"
+        android:valueFrom="100"
+        android:valueTo="400"
+        android:stepSize="25"
+        android:value="200"
+        a:labelBehavior="withinBounds"
+        a:format="%.0f%%"
+        a:singleLineTitle="false"
+        a:dependency="master_switch"
+        />
+
+    <slions.pref.SliderPreference
+        a:title="Slider value visible"
+        a:seekBarIncrement="25"
+        a:showSeekBarValue="false"
+        a:iconSpaceReserved="false"
+        a:updatesContinuously="true"
+        android:valueFrom="100"
+        android:valueTo="400"
+        android:stepSize="25"
+        android:value="200"
+        a:labelBehavior="visible"
+        a:format="%.0f%%"
+        a:singleLineTitle="false"
+        a:dependency="master_switch"
+        />
+
+
+    <slions.pref.SliderPreference
+        a:title="Slider smooth"
+        a:seekBarIncrement="25"
+        a:showSeekBarValue="false"
+        a:iconSpaceReserved="false"
+        a:updatesContinuously="true"
+        android:valueFrom="0"
+        android:valueTo="100"
+        android:stepSize="0"
+        android:value="25"
+        a:labelBehavior="floating"
+        a:format="%.0fμs"
+        a:singleLineTitle="false"
+        a:dependency="master_switch"
+        />
+
+
+</PreferenceScreen>

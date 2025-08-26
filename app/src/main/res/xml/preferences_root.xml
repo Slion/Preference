@@ -6,6 +6,11 @@
         a:icon="@drawable/ic_check_circle_outline"
         a:title="@string/fragment_switches_title" />
 
+    <slions.pref.BasicPreference
+        a:fragment="slions.pref.demo.PreferenceFragmentSliders"
+        a:icon="@drawable/ic_sliders_outline"
+        a:title="@string/fragment_sliders_title" />
+
     <Preference
         a:fragment="slions.pref.demo.PreferenceFragmentMessages"
         a:icon="@drawable/messages"
@@ -17,25 +22,6 @@
         a:icon="@drawable/sync"
         a:key="sync_header"
         a:title="@string/sync_header" />
-
-    <slions.pref.SliderPreference
-        a:key="SliderPreference"
-        a:title="Slider preference title"
-        a:summary="Slider preference summary"
-        a:icon="@drawable/sync"
-        a:seekBarIncrement="25"
-        a:showSeekBarValue="true"
-        a:iconSpaceReserved="false"
-        a:updatesContinuously="true"
-        android:valueFrom="100"
-        android:valueTo="400"
-        android:stepSize="25"
-        android:value="200"
-        a:labelBehavior="gone"
-        a:format="%.0f%%"
-        a:singleLineTitle="false"
-        />
-
 
 
 </PreferenceScreen>

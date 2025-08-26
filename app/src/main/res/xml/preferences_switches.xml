@@ -53,7 +53,6 @@
         a:summaryOff="Dependencies are enabled"
         />
 
-
     <slions.pref.SwitchPreference
         a:iconSpaceReserved="false"
         a:title="Depends on the above"
