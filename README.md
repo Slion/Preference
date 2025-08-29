@@ -45,4 +45,6 @@ Increase the library version number from [`lib/build.gradle.kts`](lib/build.grad
 Generate your upload package by running:<br> 
 `.\gradlew generateUploadPackage`
 
+If signing hangs and fails on Windows, launch Kleopatra to make sure `gpg-agent` is running.
+
 It outputs a file named `preference.zip` in the following folder `lib\build\distributions`. You can directly upload this ZIP file for publication on [Maven Central](https://central.sonatype.com/publishing).

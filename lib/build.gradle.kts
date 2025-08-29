@@ -6,7 +6,7 @@ plugins {
     id ("kotlin-kapt")
 }
 
-val libVersion = "0.1.0"
+val libVersion = "0.2.0"
 
 android {
     // Notably define R class namespace
@@ -110,9 +110,13 @@ publishing {
 // For each of our AAR, JAR, POM and MODULE files it will create a corresponding ASC file.
 // For this to work you should setup your user level gradle.properties as explained there:
 // https://docs.gradle.org/7.4.2/userguide/signing_plugin.html#sec:using_gpg_agent
+// See: %USERPROFILE%\.gradle\gradle.properties
 // Should just specify key ID and password like that:
 // signing.gnupg.keyName=<key-id>
 // signing.gnupg.passphrase=<key-password>
+// When the key expires all you should need to do is generate a new one and publish it as explained there:
+// https://slions.net/threads/publish-an-android-library-on-maven-central.116/#374-From%2Bcommand%2Bline
+// If signing fails on Windows make sure the gpg-agent is running by starting Kleopatra
 signing {
     // Use installed GPG rather than built-in outdated version
     useGpgCmd()
