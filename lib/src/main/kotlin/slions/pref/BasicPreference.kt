@@ -49,6 +49,9 @@ class BasicPreference :
 
     var breadcrumb: CharSequence = ""
 
+    // Needed if you want to sort by title but display something else
+    var displayedTitle: CharSequence = ""
+
     // Use this to swap texts of title and summary
     // Needed as preferences can only be sorted by titles but wanted them sorted by summary
     var swapTitleSummary = false
@@ -66,6 +69,11 @@ class BasicPreference :
             val tt = title.text
             title.text = summary.text
             summary.text = tt
+        }
+
+        // Set actual title if not empty
+        if (displayedTitle.isNotEmpty()) {
+            title.text = displayedTitle
         }
 
     }
