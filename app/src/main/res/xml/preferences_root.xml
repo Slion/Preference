@@ -2,6 +2,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <slions.pref.BasicPreference
+        a:fragment="slions.pref.demo.PreferenceFragmentBasics"
+        a:icon="@drawable/ic_check_circle_outline"
+        a:title="@string/fragment_basics_title" />
+
+    <slions.pref.BasicPreference
         a:fragment="slions.pref.demo.PreferenceFragmentSwitches"
         a:icon="@drawable/ic_check_circle_outline"
         a:title="@string/fragment_switches_title" />

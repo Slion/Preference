@@ -2,21 +2,67 @@
 <resources>
 
     <declare-styleable name="BasicPreference">
+        <!-- Custom breadcrumb text for navigation context. If empty, defaults to title or summary. -->
         <attr name="breadcrumb" format="string" />
+
+        <!-- Displayed title text. Use this to show a different title than the one used for sorting. -->
+        <attr name="displayedTitle" format="string|reference" />
+
+        <!-- Swap the title and summary texts. Useful when preferences are sorted by title but you want to display summary as title. -->
+        <attr name="swapTitleSummary" format="boolean" />
+
+        <!-- If true, summary text will be single line. If false, summary can wrap to multiple lines. -->
+        <attr name="isSingleLineSummary" format="boolean" />
+
+        <!-- Maximum number of lines for summary text. Default is 100. -->
+        <attr name="summaryMaxLines" format="integer" />
+
+        <!-- Maximum number of lines for title text. Default is 1. -->
+        <attr name="titleMaxLines" format="integer" />
+
+        <!-- Ellipsize mode for summary text when it exceeds max lines. -->
+        <attr name="summaryEllipsize">
+            <!-- Ellipsis at the end (e.g., "This is a long text...") -->
+            <enum name="end" value="0" />
+            <!-- Ellipsis at the start (e.g., "...is a long text") -->
+            <enum name="start" value="1" />
+            <!-- Ellipsis in the middle (e.g., "This is...long text") -->
+            <enum name="middle" value="2" />
+            <!-- Marquee scrolling effect for long text -->
+            <enum name="marquee" value="3" />
+            <!-- No ellipsis, text is just cut off -->
+            <enum name="none" value="-1" />
+        </attr>
+
+        <!-- Ellipsize mode for title text when it exceeds max lines. -->
+        <attr name="titleEllipsize">
+            <!-- Ellipsis at the end (e.g., "This is a long title...") -->
+            <enum name="end" value="0" />
+            <!-- Ellipsis at the start (e.g., "...is a long title") -->
+            <enum name="start" value="1" />
+            <!-- Ellipsis in the middle (e.g., "This is...long title") -->
+            <enum name="middle" value="2" />
+            <!-- Marquee scrolling effect for long text -->
+            <enum name="marquee" value="3" />
+            <!-- No ellipsis, text is just cut off -->
+            <enum name="none" value="-1" />
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="SliderPreference">
+        <!-- Format string for displaying the slider value. -->
         <attr name="format" format="string" />
         <!-- Default style for slider preferences. -->
         <attr name="sliderPreferenceStyle" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="EnumListPreference">
+        <!-- Fully qualified class name of the enum to use for list values. -->
         <attr name="enumClassName" format="string" />
     </declare-styleable>
 
     <declare-styleable name="SwitchPreference">
-        <!-- Default style for slider preferences. -->
+        <!-- Default style for switch preferences. -->
         <attr name="switchPreferenceStyle" format="reference" />
     </declare-styleable>
 
