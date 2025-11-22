@@ -53,6 +53,26 @@
 
         <!-- Number of times the title marquee animation repeats. Use -1 for infinite repeat. Default is -1. -->
         <attr name="titleMarqueeRepeatLimit" format="integer" />
+
+        <!-- Summary display mode. Controls how summary text is displayed and interacted with. -->
+        <attr name="summaryMode">
+            <!-- Normal mode with ellipsize (default) -->
+            <enum name="normal" value="0" />
+            <!-- Scrollable mode - horizontal for single line, vertical for multi-line. Ellipsize is disabled. -->
+            <enum name="scrollable" value="1" />
+            <!-- Selectable mode - enables text selection and scrolling. Ellipsize is disabled. -->
+            <enum name="selectable" value="2" />
+        </attr>
+
+        <!-- Title display mode. Controls how title text is displayed and interacted with. -->
+        <attr name="titleMode">
+            <!-- Normal mode with ellipsize (default) -->
+            <enum name="normal" value="0" />
+            <!-- Scrollable mode - horizontal for single line, vertical for multi-line. Ellipsize is disabled. -->
+            <enum name="scrollable" value="1" />
+            <!-- Selectable mode - enables text selection and scrolling. Ellipsize is disabled. -->
+            <enum name="selectable" value="2" />
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="SliderPreference">

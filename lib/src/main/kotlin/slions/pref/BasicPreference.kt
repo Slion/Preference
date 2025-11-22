@@ -24,6 +24,14 @@ import androidx.preference.PreferenceViewHolder
  */
 class BasicPreference :
     Preference {
+
+    // Mode constants
+    companion object {
+        const val MODE_NORMAL = 0
+        const val MODE_SCROLLABLE = 1
+        const val MODE_SELECTABLE = 2  // Selectable implies scrollable
+    }
+
     constructor(ctx: Context, attrs: AttributeSet?, defStyle: Int) : super(ctx, attrs, defStyle) {
         //Timber.d("constructor 3")
         construct(ctx,attrs)
@@ -51,23 +59,67 @@ class BasicPreference :
         summaryMarqueeRepeatLimit = a.getInt(R.styleable.BasicPreference_summaryMarqueeRepeatLimit, -1)
         titleMarqueeRepeatLimit = a.getInt(R.styleable.BasicPreference_titleMarqueeRepeatLimit, -1)
 
-        // Get ellipsize modes (0=END, 1=START, 2=MIDDLE, 3=MARQUEE, -1=NONE)
-        val summaryEllipsizeValue = a.getInt(R.styleable.BasicPreference_summaryEllipsize, 0)
-        summaryEllipsize = when (summaryEllipsizeValue) {
-            1 -> TextUtils.TruncateAt.START
-            2 -> TextUtils.TruncateAt.MIDDLE
-            3 -> TextUtils.TruncateAt.MARQUEE
-            -1 -> null
-            else -> TextUtils.TruncateAt.END
+        // Get mode attributes and set corresponding flags
+        val summaryModeValue = a.getInt(R.styleable.BasicPreference_summaryMode, MODE_NORMAL)
+        when (summaryModeValue) {
+            MODE_SCROLLABLE -> {
+                summaryScrollable = true
+                summaryTextSelectable = false
+            }
+            MODE_SELECTABLE -> {
+                // Selectable implies scrollable
+                summaryScrollable = true
+                summaryTextSelectable = true
+            }
+            else -> {
+                summaryScrollable = false
+                summaryTextSelectable = false
+            }
         }
 
-        val titleEllipsizeValue = a.getInt(R.styleable.BasicPreference_titleEllipsize, 0)
-        titleEllipsize = when (titleEllipsizeValue) {
-            1 -> TextUtils.TruncateAt.START
-            2 -> TextUtils.TruncateAt.MIDDLE
-            3 -> TextUtils.TruncateAt.MARQUEE
-            -1 -> null
-            else -> TextUtils.TruncateAt.END
+        val titleModeValue = a.getInt(R.styleable.BasicPreference_titleMode, MODE_NORMAL)
+        when (titleModeValue) {
+            MODE_SCROLLABLE -> {
+                titleScrollable = true
+                titleTextSelectable = false
+            }
+            MODE_SELECTABLE -> {
+                // Selectable implies scrollable
+                titleScrollable = true
+                titleTextSelectable = true
+            }
+            else -> {
+                titleScrollable = false
+                titleTextSelectable = false
+            }
+        }
+
+        // Get ellipsize modes (0=END, 1=START, 2=MIDDLE, 3=MARQUEE, -1=NONE)
+        // Only apply ellipsize if not in scrollable or selectable mode
+        if (summaryScrollable || summaryTextSelectable) {
+            summaryEllipsize = null
+        } else {
+            val summaryEllipsizeValue = a.getInt(R.styleable.BasicPreference_summaryEllipsize, 0)
+            summaryEllipsize = when (summaryEllipsizeValue) {
+                1 -> TextUtils.TruncateAt.START
+                2 -> TextUtils.TruncateAt.MIDDLE
+                3 -> TextUtils.TruncateAt.MARQUEE
+                -1 -> null
+                else -> TextUtils.TruncateAt.END
+            }
+        }
+
+        if (titleScrollable || titleTextSelectable) {
+            titleEllipsize = null
+        } else {
+            val titleEllipsizeValue = a.getInt(R.styleable.BasicPreference_titleEllipsize, 0)
+            titleEllipsize = when (titleEllipsizeValue) {
+                1 -> TextUtils.TruncateAt.START
+                2 -> TextUtils.TruncateAt.MIDDLE
+                3 -> TextUtils.TruncateAt.MARQUEE
+                -1 -> null
+                else -> TextUtils.TruncateAt.END
+            }
         }
 
         a.recycle()
@@ -107,6 +159,18 @@ class BasicPreference :
     // Marquee repeat limit for title (-1 = infinite, default: -1)
     var titleMarqueeRepeatLimit = -1
 
+    // Enable vertical scrolling for summary (default: false)
+    var summaryScrollable = false
+
+    // Enable vertical scrolling for title (default: false)
+    var titleScrollable = false
+
+    // Enable text selection for summary (default: false)
+    var summaryTextSelectable = false
+
+    // Enable text selection for title (default: false)
+    var titleTextSelectable = false
+
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
         val summary = holder.findViewById(android.R.id.summary) as TextView
@@ -116,6 +180,22 @@ class BasicPreference :
         summary.isSingleLine = isSingleLineSummary
         summary.maxLines = summaryMaxLines
         summary.ellipsize = summaryEllipsize
+
+        // Enable scrolling for summary if requested
+        if (summaryScrollable) {
+            if (isSingleLineSummary || summaryMaxLines == 1) {
+                // Single line: enable horizontal scrolling
+                summary.setHorizontallyScrolling(true)
+                summary.setHorizontalScrollBarEnabled(true)
+            } else {
+                // Multi-line: enable vertical scrolling
+                summary.setVerticalScrollBarEnabled(true)
+            }
+            summary.movementMethod = android.text.method.ScrollingMovementMethod.getInstance()
+        }
+
+        // Enable text selection for summary if requested
+        summary.setTextIsSelectable(summaryTextSelectable)
 
         // Marquee requires specific configuration
         if (summaryEllipsize == TextUtils.TruncateAt.MARQUEE) {
@@ -127,6 +207,22 @@ class BasicPreference :
         // Configure title
         title.maxLines = titleMaxLines
         title.ellipsize = titleEllipsize
+
+        // Enable scrolling for title if requested
+        if (titleScrollable) {
+            if (titleMaxLines == 1) {
+                // Single line: enable horizontal scrolling
+                title.setHorizontallyScrolling(true)
+                title.setHorizontalScrollBarEnabled(true)
+            } else {
+                // Multi-line: enable vertical scrolling
+                title.setVerticalScrollBarEnabled(true)
+            }
+            title.movementMethod = android.text.method.ScrollingMovementMethod.getInstance()
+        }
+
+        // Enable text selection for title if requested
+        title.setTextIsSelectable(titleTextSelectable)
 
         // Marquee requires specific configuration
         if (titleEllipsize == TextUtils.TruncateAt.MARQUEE) {
