@@ -271,6 +271,49 @@
 
     </PreferenceCategory>
 
+    <!-- =============== TITLE &amp; SUMMARY COMBINATIONS =============== -->
+
+    <PreferenceCategory
+        a:title="Title &amp; Summary Combinations">
+
+        <slions.pref.BasicPreference
+            a:key="both_title_summary"
+            a:title="With Both Title and Summary"
+            a:summary="This preference has both a title and a summary text" />
+
+        <slions.pref.BasicPreference
+            a:key="title_only"
+            a:title="Title Only - No Summary" />
+
+        <slions.pref.BasicPreference
+            a:key="summary_only"
+            a:summary="Summary Only - No Title" />
+
+        <slions.pref.BasicPreference
+            a:key="title_multiline_no_summary"
+            a:title="Multi-line Title without Summary: This is a long title that spans multiple lines to demonstrate how titles work when there is no summary text"
+            a:titleMaxLines="3"
+            a:titleEllipsize="end" />
+
+        <slions.pref.BasicPreference
+            a:key="summary_multiline_no_title"
+            a:summary="Multi-line Summary without Title: This is a long summary that spans multiple lines to demonstrate how summaries work when there is no title text provided"
+            a:isSingleLineSummary="false"
+            a:summaryMaxLines="3"
+            a:summaryEllipsize="end" />
+
+        <slions.pref.BasicPreference
+            a:key="title_with_icon_no_summary"
+            a:title="Title with Icon, No Summary"
+            a:icon="@drawable/ic_check_circle_outline" />
+
+        <slions.pref.BasicPreference
+            a:key="summary_with_icon_no_title"
+            a:summary="Summary with Icon, No Title"
+            a:icon="@drawable/ic_sliders_outline" />
+
+    </PreferenceCategory>
+
     <!-- =============== ICON TESTS =============== -->
 
     <PreferenceCategory
