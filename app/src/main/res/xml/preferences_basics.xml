@@ -5,7 +5,7 @@
     <!-- =============== SUMMARY ELLIPSIS TESTS =============== -->
 
     <PreferenceCategory
-        android:title="Summary Ellipsis Modes">
+        a:title="Summary Ellipsis Modes">
 
         <slions.pref.BasicPreference
             a:key="summary_ellipsize_end"
@@ -53,7 +53,7 @@
     <!-- =============== TITLE ELLIPSIS TESTS =============== -->
 
     <PreferenceCategory
-        android:title="Title Ellipsis Modes">
+        a:title="Title Ellipsis Modes">
 
         <slions.pref.BasicPreference
             a:key="title_ellipsize_end"
@@ -96,7 +96,7 @@
     <!-- =============== MULTI-LINE SUMMARY TESTS =============== -->
 
     <PreferenceCategory
-        android:title="Marquee Configuration">
+        a:title="Marquee Configuration">
 
         <slions.pref.BasicPreference
             a:key="marquee_summary_infinite"
@@ -146,7 +146,7 @@
     <!-- =============== MULTI-LINE SUMMARY TESTS =============== -->
 
     <PreferenceCategory
-        android:title="Summary Max Lines">
+        a:title="Summary Max Lines">
 
         <slions.pref.BasicPreference
             a:key="summary_max_lines_1"
@@ -185,7 +185,7 @@
     <!-- =============== MULTI-LINE TITLE TESTS =============== -->
 
     <PreferenceCategory
-        android:title="Title Max Lines">
+        a:title="Title Max Lines">
 
         <slions.pref.BasicPreference
             a:key="title_max_lines_1"
@@ -217,10 +217,58 @@
 
     </PreferenceCategory>
 
+    <!-- =============== ICON TESTS =============== -->
+
+    <PreferenceCategory
+        a:title="Icons">
+
+        <slions.pref.BasicPreference
+            a:key="icon_default"
+            a:title="Default Icon Behavior"
+            a:summary="Icon space is reserved by default even without an icon" />
+
+        <slions.pref.BasicPreference
+            a:key="icon_space_reserved_no_icon"
+            a:title="Icon Space Reserved, No Icon"
+            a:summary="Explicitly reserves icon space but displays no icon"
+            a:iconSpaceReserved="true" />
+
+        <slions.pref.BasicPreference
+            a:key="icon_with_icon"
+            a:title="With Icon"
+            a:summary="This preference has an icon displayed"
+            a:icon="@drawable/ic_check_circle_outline" />
+
+        <slions.pref.BasicPreference
+            a:key="icon_no_space_reserved"
+            a:title="No Icon Space Reserved"
+            a:summary="Icon space is not reserved, text uses full width"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="icon_with_icon_multiline"
+            a:title="Icon with Multi-line Summary"
+            a:summary="This preference has an icon and a multi-line summary. This demonstrates how icons work with longer text that wraps to multiple lines in the summary area."
+            a:icon="@drawable/ic_sliders_outline"
+            a:isSingleLineSummary="false"
+            a:summaryMaxLines="3"
+            a:summaryEllipsize="end" />
+
+        <slions.pref.BasicPreference
+            a:key="icon_no_space_multiline"
+            a:title="No Icon Space, Multi-line"
+            a:summary="No icon space reserved with multi-line summary. This demonstrates full width text usage when icon space is not reserved, allowing more content to be displayed."
+            a:iconSpaceReserved="false"
+            a:isSingleLineSummary="false"
+            a:summaryMaxLines="3"
+            a:summaryEllipsize="end" />
+
+    </PreferenceCategory>
+
     <!-- =============== SPECIAL FEATURES =============== -->
 
     <PreferenceCategory
-        android:title="Special Features">
+        a:title="Special Features">
 
         <slions.pref.BasicPreference
             a:key="example_displayed_title"
@@ -252,7 +300,7 @@
             a:key="example_no_icon_space"
             a:title="No Icon Space Reserved"
             a:summary="This preference demonstrates that icon space is not reserved, allowing text to use full width"
-            android:iconSpaceReserved="false" />
+            a:iconSpaceReserved="false" />
 
         <slions.pref.BasicPreference
             a:key="example_breadcrumb"
