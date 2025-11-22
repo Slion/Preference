@@ -45,7 +45,8 @@
             a:summary="This is a single line summary with marquee effect that will scroll continuously if the text is too long to fit on screen"
             a:isSingleLineSummary="true"
             a:summaryMaxLines="1"
-            a:summaryEllipsize="marquee" />
+            a:summaryEllipsize="marquee"
+            a:summaryMarqueeRepeatLimit="-1" />
 
     </PreferenceCategory>
 
@@ -87,7 +88,58 @@
             a:title="This is a very long title that will scroll with marquee effect continuously across the screen when too long"
             a:summary="Title: Marquee Scrolling"
             a:titleMaxLines="1"
-            a:titleEllipsize="marquee" />
+            a:titleEllipsize="marquee"
+            a:titleMarqueeRepeatLimit="-1" />
+
+    </PreferenceCategory>
+
+    <!-- =============== MULTI-LINE SUMMARY TESTS =============== -->
+
+    <PreferenceCategory
+        android:title="Marquee Configuration">
+
+        <slions.pref.BasicPreference
+            a:key="marquee_summary_infinite"
+            a:title="Marquee: Infinite Repeat"
+            a:summary="This summary will scroll infinitely with marquee repeat limit set to -1 which means it never stops scrolling"
+            a:isSingleLineSummary="true"
+            a:summaryMaxLines="1"
+            a:summaryEllipsize="marquee"
+            a:summaryMarqueeRepeatLimit="-1" />
+
+        <slions.pref.BasicPreference
+            a:key="marquee_summary_3times"
+            a:title="Marquee: Repeat 3 Times"
+            a:summary="This summary will scroll exactly 3 times then stop with marquee repeat limit set to 3"
+            a:isSingleLineSummary="true"
+            a:summaryMaxLines="1"
+            a:summaryEllipsize="marquee"
+            a:summaryMarqueeRepeatLimit="3" />
+
+        <slions.pref.BasicPreference
+            a:key="marquee_summary_1time"
+            a:title="Marquee: Repeat Once"
+            a:summary="This summary will scroll exactly once then stop with marquee repeat limit set to 1"
+            a:isSingleLineSummary="true"
+            a:summaryMaxLines="1"
+            a:summaryEllipsize="marquee"
+            a:summaryMarqueeRepeatLimit="1" />
+
+        <slions.pref.BasicPreference
+            a:key="marquee_title_infinite"
+            a:title="This title will scroll infinitely with marquee repeat limit set to -1 which means it never stops scrolling"
+            a:summary="Title Marquee: Infinite"
+            a:titleMaxLines="1"
+            a:titleEllipsize="marquee"
+            a:titleMarqueeRepeatLimit="-1" />
+
+        <slions.pref.BasicPreference
+            a:key="marquee_title_5times"
+            a:title="This title will scroll exactly 5 times then stop with marquee repeat limit set to 5"
+            a:summary="Title Marquee: 5 Times"
+            a:titleMaxLines="1"
+            a:titleEllipsize="marquee"
+            a:titleMarqueeRepeatLimit="5" />
 
     </PreferenceCategory>
 

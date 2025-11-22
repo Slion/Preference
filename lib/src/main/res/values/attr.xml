@@ -47,6 +47,12 @@
             <!-- No ellipsis, text is just cut off -->
             <enum name="none" value="-1" />
         </attr>
+
+        <!-- Number of times the summary marquee animation repeats. Use -1 for infinite repeat. Default is -1. -->
+        <attr name="summaryMarqueeRepeatLimit" format="integer" />
+
+        <!-- Number of times the title marquee animation repeats. Use -1 for infinite repeat. Default is -1. -->
+        <attr name="titleMarqueeRepeatLimit" format="integer" />
     </declare-styleable>
 
     <declare-styleable name="SliderPreference">

@@ -47,6 +47,10 @@ class BasicPreference :
         summaryMaxLines = a.getInt(R.styleable.BasicPreference_summaryMaxLines, 100)
         titleMaxLines = a.getInt(R.styleable.BasicPreference_titleMaxLines, 1)
 
+        // Get marquee repeat limits (-1 = infinite)
+        summaryMarqueeRepeatLimit = a.getInt(R.styleable.BasicPreference_summaryMarqueeRepeatLimit, -1)
+        titleMarqueeRepeatLimit = a.getInt(R.styleable.BasicPreference_titleMarqueeRepeatLimit, -1)
+
         // Get ellipsize modes (0=END, 1=START, 2=MIDDLE, 3=MARQUEE, -1=NONE)
         val summaryEllipsizeValue = a.getInt(R.styleable.BasicPreference_summaryEllipsize, 0)
         summaryEllipsize = when (summaryEllipsizeValue) {
@@ -97,16 +101,39 @@ class BasicPreference :
     // Ellipsize mode for title (default: END)
     var titleEllipsize: TextUtils.TruncateAt? = TextUtils.TruncateAt.END
 
+    // Marquee repeat limit for summary (-1 = infinite, default: -1)
+    var summaryMarqueeRepeatLimit = -1
+
+    // Marquee repeat limit for title (-1 = infinite, default: -1)
+    var titleMarqueeRepeatLimit = -1
+
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
         val summary = holder.findViewById(android.R.id.summary) as TextView
         val title = holder.findViewById(android.R.id.title) as TextView
-        // Enable multiple line support
+
+        // Configure summary
         summary.isSingleLine = isSingleLineSummary
         summary.maxLines = summaryMaxLines
         summary.ellipsize = summaryEllipsize
+
+        // Marquee requires specific configuration
+        if (summaryEllipsize == TextUtils.TruncateAt.MARQUEE) {
+            summary.isSingleLine = true
+            summary.isSelected = true
+            summary.marqueeRepeatLimit = summaryMarqueeRepeatLimit
+        }
+
+        // Configure title
         title.maxLines = titleMaxLines
         title.ellipsize = titleEllipsize
+
+        // Marquee requires specific configuration
+        if (titleEllipsize == TextUtils.TruncateAt.MARQUEE) {
+            title.isSingleLine = true
+            title.isSelected = true
+            title.marqueeRepeatLimit = titleMarqueeRepeatLimit
+        }
 
         if (swapTitleSummary) {
             // Just do it
