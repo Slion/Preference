@@ -257,8 +257,7 @@
         <slions.pref.BasicPreference
             a:key="mode_selectable_multi"
             a:title="Selectable Mode - Multi Line"
-            a:summary="Multi-line selectable text. Long press to select and copy. Also scrollable vertically. Line 1. Line 2. Line 3."
-            a:isSingleLineSummary="false"
+            a:summary="Multi-line selectable text.\nLong press to select and copy. Also scrollable vertically.\nLine 3: Swipe up and down.\nLine 4: More content here.\nLine 5: Keep scrolling.\nLine 6: Almost there.\nLine 7: One more line.\nLine 8: End of content."            a:isSingleLineSummary="false"
             a:summaryMaxLines="3"
             a:summaryMode="selectable" />
 

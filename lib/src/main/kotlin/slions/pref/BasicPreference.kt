@@ -72,6 +72,7 @@ class BasicPreference :
                 summaryTextSelectable = true
             }
             else -> {
+                // MODE_NORMAL or not set
                 summaryScrollable = false
                 summaryTextSelectable = false
             }
@@ -89,6 +90,7 @@ class BasicPreference :
                 titleTextSelectable = true
             }
             else -> {
+                // MODE_NORMAL or not set
                 titleScrollable = false
                 titleTextSelectable = false
             }
