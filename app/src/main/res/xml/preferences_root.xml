@@ -3,7 +3,7 @@
 
     <slions.pref.BasicPreference
         a:fragment="slions.pref.demo.PreferenceFragmentBasics"
-        a:icon="@drawable/ic_check_circle_outline"
+        a:icon="@drawable/ic_short_text_outline"
         a:title="@string/fragment_basics_title" />
 
     <slions.pref.BasicPreference
