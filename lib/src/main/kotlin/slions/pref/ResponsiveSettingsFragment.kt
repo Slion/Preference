@@ -2,11 +2,14 @@ package slions.pref
 
 
 import android.annotation.SuppressLint
+import androidx.core.view.doOnLayout
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceHeaderFragmentCompat
+import slions.ihs
 import timber.log.Timber
 
 
@@ -29,10 +32,10 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
      * Called when we need to create our root preference fragment
      */
     override fun onCreatePreferenceHeader(): PreferenceFragmentCompat {
-        Timber.d("onCreatePreferenceHeader")
+        Timber.d("$ihs onCreatePreferenceHeader")
 
         (requireActivity() as? PreferenceActivityBase)?.let {
-            Timber.d("Found compatible activity")
+            Timber.d("$ihs Found compatible activity")
             iPreferenceFragmentRoot = it.onCreatePreferenceHeader()
         }
 
@@ -44,12 +47,54 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
     }
 
     /**
-     *
+     * Called when we need to create our initial detail fragment.
+     * As it stands that's always called after configuration change even when we are restoring states.
+     * I reckon it has to do with the way we use the framework.
+     * If we were doing it properly it should not be called when restoring states after configuration change.
+     */
+    override fun onCreateInitialDetailFragment(): Fragment? {
+        Timber.d("$ihs onCreateInitialDetailFragment")
+
+        // Patch our breadcrumbs, needed until user selects a preference screen
+        slidingPaneLayout.doOnLayout {
+            // If we restored the detail pane or user selected one just bail out to avoid stacking the title twice
+            if (iPreference!=null) {
+                return@doOnLayout
+            }
+            // Only after layout are the panel states valid
+            // We need this to make sure the title breadcrumbs makes sense when onPreferenceStartFragment as not been called yet.
+            // Basically when the activity first started without restoring the detail pane
+            Timber.d("$ihs doOnLayout - isSlideable: ${slidingPaneLayout.isSlideable}, isOpen: ${slidingPaneLayout.isOpen}")
+            if (slidingPaneLayout.isSlideable) {
+                // Only showing one pane
+                if (slidingPaneLayout.isOpen) {
+                    // Showing only detail fragment
+                    (childFragmentManager.findFragmentById(androidx.preference.R.id.preferences_detail) as? PreferenceFragmentBase)?.apply {
+                        iTitleStack.add(title(requireContext()))
+                    }
+                } else {
+                    // Showing only header fragment
+                    resetBreadcrumbs()
+                }
+            } else {
+                // Showing two panes
+                (childFragmentManager.findFragmentById(androidx.preference.R.id.preferences_detail) as? PreferenceFragmentBase)?.apply {
+                    iTitleStack.add(title(requireContext()))
+                }
+            }
+        }
+
+        return super.onCreateInitialDetailFragment()
+    }
+
+    /**
+     * Called when user selects a preference screen.
+     * Also called through [PreferenceActivityBase.startFragment] when restoring states after configuration change.
      */
     @SuppressLint("MissingSuperCall")
     override fun onPreferenceStartFragment(caller: PreferenceFragmentCompat, pref: Preference): Boolean {
         //super.onPreferenceStartFragment(caller, pref)
-        Timber.d("onPreferenceStartFragment")
+        Timber.d("$ihs onPreferenceStartFragment")
 
         if (caller.id == androidx.preference.R.id.preferences_header) {
             // A preference was selected in our root/header
@@ -58,7 +103,7 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
         }
 
         iPreference = pref
-        Timber.d("Fragment name: ${iPreference?.fragment}")
+        Timber.d("$ihs Fragment name: ${iPreference?.fragment}")
 
         // No actual fragment specified, just a back action
         // Notably used when deleting custom configuration
@@ -113,9 +158,7 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
             return true
         }
 
-
         return false
-
     }
 
     /**
@@ -168,7 +211,7 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
      *
      */
     private fun resetBreadcrumbs() {
-        Timber.d("resetBreadcrumbs: ${iTitleStack.count()}")
+        Timber.d("$ihs resetBreadcrumbs: ${iTitleStack.count()}")
         // Only keep our root title
         while (iTitleStack.count()>1) {
                 //iTitleStack.removeLast()
@@ -180,7 +223,7 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
      * Called by the activity whenever we go back
      */
     fun popBreadcrumbs() {
-        Timber.d("popBreadcrumbs: ${iTitleStack.count()}")
+        Timber.d("$ihs popBreadcrumbs: ${iTitleStack.count()}")
         if (iTitleStack.count()>1) {
                 //iTitleStack.removeLast()
                 iTitleStack.removeAt(iTitleStack.size - 1)
@@ -194,7 +237,7 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
      */
     fun title(): String {
 
-        Timber.d("titles: $iTitleStack")
+        Timber.d("$ihs titles: $iTitleStack")
 
         return if (iPreferenceFragmentRoot.isVisible && !slidingPaneLayout.isSlideable && iTitleStack.count()>1) {
             // We effectively disabled that algorithm using 100 for full crumb at start and end
