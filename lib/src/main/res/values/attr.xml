@@ -73,6 +73,21 @@
             <!-- Selectable mode - enables text selection and scrolling. Ellipsize is disabled. -->
             <enum name="selectable" value="2" />
         </attr>
+
+        <!-- Drawable to display at the start of the title text (left in LTR, right in RTL). -->
+        <attr name="titleDrawableStart" format="reference" />
+
+        <!-- Drawable to display at the end of the title text (right in LTR, left in RTL). -->
+        <attr name="titleDrawableEnd" format="reference" />
+
+        <!-- Drawable to display at the top of the title text. -->
+        <attr name="titleDrawableTop" format="reference" />
+
+        <!-- Drawable to display at the bottom of the title text. -->
+        <attr name="titleDrawableBottom" format="reference" />
+
+        <!-- Padding between title drawables and text. Default is 8dp. -->
+        <attr name="titleDrawablePadding" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="SliderPreference">

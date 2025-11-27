@@ -124,6 +124,16 @@ class BasicPreference :
             }
         }
 
+        // Get title drawables
+        titleDrawableStart = a.getResourceId(R.styleable.BasicPreference_titleDrawableStart, 0)
+        titleDrawableEnd = a.getResourceId(R.styleable.BasicPreference_titleDrawableEnd, 0)
+        titleDrawableTop = a.getResourceId(R.styleable.BasicPreference_titleDrawableTop, 0)
+        titleDrawableBottom = a.getResourceId(R.styleable.BasicPreference_titleDrawableBottom, 0)
+
+        // Get title drawable padding (default 8dp)
+        val defaultPadding = (8 * context.resources.displayMetrics.density).toInt()
+        titleDrawablePadding = a.getDimensionPixelSize(R.styleable.BasicPreference_titleDrawablePadding, defaultPadding)
+
         a.recycle()
         if (breadcrumb.isEmpty()) {
             breadcrumb = title ?: summary ?: ""
@@ -172,6 +182,15 @@ class BasicPreference :
 
     // Enable text selection for title (default: false)
     var titleTextSelectable = false
+
+    // Drawables for title text
+    var titleDrawableStart: Int = 0
+    var titleDrawableEnd: Int = 0
+    var titleDrawableTop: Int = 0
+    var titleDrawableBottom: Int = 0
+
+    // Padding between title drawables and text (default 8dp)
+    var titleDrawablePadding: Int = 0
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
@@ -243,6 +262,16 @@ class BasicPreference :
         // Set actual title if not empty
         if (displayedTitle.isNotEmpty()) {
             title.text = displayedTitle
+        }
+
+        // Apply drawables to title
+        if (titleDrawableStart != 0 || titleDrawableEnd != 0 || titleDrawableTop != 0 || titleDrawableBottom != 0) {
+            val drawableStart = if (titleDrawableStart != 0) context.getDrawable(titleDrawableStart) else null
+            val drawableTop = if (titleDrawableTop != 0) context.getDrawable(titleDrawableTop) else null
+            val drawableEnd = if (titleDrawableEnd != 0) context.getDrawable(titleDrawableEnd) else null
+            val drawableBottom = if (titleDrawableBottom != 0) context.getDrawable(titleDrawableBottom) else null
+            title.setCompoundDrawablesRelativeWithIntrinsicBounds(drawableStart, drawableTop, drawableEnd, drawableBottom)
+            title.compoundDrawablePadding = titleDrawablePadding
         }
 
     }
