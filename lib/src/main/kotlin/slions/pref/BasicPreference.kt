@@ -131,8 +131,7 @@ class BasicPreference :
         titleDrawableBottom = a.getResourceId(R.styleable.BasicPreference_titleDrawableBottom, 0)
 
         // Get title drawable padding (default 8dp)
-        val defaultPadding = (8 * context.resources.displayMetrics.density).toInt()
-        titleDrawablePadding = a.getDimensionPixelSize(R.styleable.BasicPreference_titleDrawablePadding, defaultPadding)
+        titleDrawablePadding = a.getDimensionPixelSize(R.styleable.BasicPreference_titleDrawablePadding, titleDrawablePadding)
 
         a.recycle()
         if (breadcrumb.isEmpty()) {
@@ -190,7 +189,7 @@ class BasicPreference :
     var titleDrawableBottom: Int = 0
 
     // Padding between title drawables and text (default 8dp)
-    var titleDrawablePadding: Int = 0
+    var titleDrawablePadding: Int = (8 * context.resources.displayMetrics.density).toInt()
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
