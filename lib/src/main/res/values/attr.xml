@@ -88,6 +88,9 @@
 
         <!-- Padding between title drawables and text. Default is 8dp. -->
         <attr name="titleDrawablePadding" format="dimension" />
+
+        <!-- Custom text color for the title. If not set, uses the theme default. -->
+        <attr name="titleTextColor" format="color|reference" />
     </declare-styleable>
 
     <declare-styleable name="SliderPreference">

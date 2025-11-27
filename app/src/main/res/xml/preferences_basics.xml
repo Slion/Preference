@@ -544,5 +544,100 @@
 
     </PreferenceCategory>
 
+    <!-- =============== TITLE TEXT COLOR =============== -->
+
+    <PreferenceCategory
+        a:title="Title Text Color">
+
+        <!-- Hard-coded color examples -->
+        <slions.pref.BasicPreference
+            a:key="title_color_red"
+            a:title="Red Title Text"
+            a:summary="Hard-coded red color (#FFFF0000)"
+            a:titleTextColor="#FFFF0000" />
+
+        <slions.pref.BasicPreference
+            a:key="title_color_blue"
+            a:title="Blue Title Text"
+            a:summary="Hard-coded blue color (#FF0000FF)"
+            a:titleTextColor="#FF0000FF" />
+
+        <!-- Theme color examples -->
+        <slions.pref.BasicPreference
+            a:key="title_color_primary"
+            a:title="Theme Primary Color"
+            a:summary="Uses ?attr/colorPrimary from theme"
+            a:titleTextColor="?attr/colorPrimary" />
+
+        <slions.pref.BasicPreference
+            a:key="title_color_secondary"
+            a:title="Theme Secondary Color"
+            a:summary="Uses ?attr/colorSecondary from theme"
+            a:titleTextColor="?attr/colorSecondary" />
+
+        <slions.pref.BasicPreference
+            a:key="title_color_accent"
+            a:title="Theme Accent Color"
+            a:summary="Uses ?attr/colorAccent from theme"
+            a:titleTextColor="?attr/colorAccent" />
+
+        <slions.pref.BasicPreference
+            a:key="title_color_primary_variant"
+            a:title="Theme Primary Variant"
+            a:summary="Uses ?attr/colorPrimaryVariant from theme"
+            a:titleTextColor="?attr/colorPrimaryVariant" />
+
+        <slions.pref.BasicPreference
+            a:key="title_color_error"
+            a:title="Theme Error Color"
+            a:summary="Uses ?attr/colorError from theme"
+            a:titleTextColor="?attr/colorError" />
+
+        <slions.pref.BasicPreference
+            a:key="title_color_text_primary"
+            a:title="Theme Text Primary"
+            a:summary="Uses ?android:attr/textColorPrimary from theme"
+            a:titleTextColor="?android:attr/textColorPrimary" />
+
+        <slions.pref.BasicPreference
+            a:key="title_color_text_secondary"
+            a:title="Theme Text Secondary"
+            a:summary="Uses ?android:attr/textColorSecondary from theme"
+            a:titleTextColor="?android:attr/textColorSecondary" />
+
+        <!-- Combined with other features -->
+        <slions.pref.BasicPreference
+            a:key="title_color_theme_with_drawable"
+            a:title="Theme Color with Drawable"
+            a:summary="Combines theme color with drawables"
+            a:titleTextColor="?attr/colorPrimary"
+            a:titleDrawableStart="@drawable/ic_check_circle_outline"
+            a:titleDrawableEnd="@drawable/ic_sliders_outline" />
+
+        <slions.pref.BasicPreference
+            a:key="title_color_theme_multiline"
+            a:title="Multi-line Theme Colored Title that spans multiple lines to demonstrate how theme colors work with longer titles"
+            a:summary="Multi-line title with theme color"
+            a:titleMaxLines="2"
+            a:titleTextColor="?attr/colorSecondary" />
+
+        <slions.pref.BasicPreference
+            a:key="title_color_theme_with_icon"
+            a:title="Theme Color with Icon"
+            a:summary="Theme color combined with preference icon"
+            a:icon="@drawable/ic_sliders_outline"
+            a:titleTextColor="?attr/colorAccent" />
+
+        <slions.pref.BasicPreference
+            a:key="title_color_theme_marquee"
+            a:title="Theme Colored Marquee Title with very long scrolling text that demonstrates theme color with marquee effect"
+            a:summary="Theme color with marquee scrolling"
+            a:titleMaxLines="1"
+            a:titleEllipsize="marquee"
+            a:titleMarqueeRepeatLimit="-1"
+            a:titleTextColor="?attr/colorPrimary" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
 

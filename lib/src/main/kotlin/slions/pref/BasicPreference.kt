@@ -133,6 +133,9 @@ class BasicPreference :
         // Get title drawable padding (default 8dp)
         titleDrawablePadding = a.getDimensionPixelSize(R.styleable.BasicPreference_titleDrawablePadding, titleDrawablePadding)
 
+        // Get title text color (0 means not set, use theme default)
+        titleTextColor = a.getColor(R.styleable.BasicPreference_titleTextColor, 0)
+
         a.recycle()
         if (breadcrumb.isEmpty()) {
             breadcrumb = title ?: summary ?: ""
@@ -190,6 +193,47 @@ class BasicPreference :
 
     // Padding between title drawables and text (default 8dp)
     var titleDrawablePadding: Int = (8 * context.resources.displayMetrics.density).toInt()
+
+    // Custom text color for title (0 means not set, use theme default)
+    var titleTextColor: Int = 0
+
+    /**
+     * Set the title text color from a color resource.
+     * @param colorResId Color resource ID (e.g., R.color.my_color)
+     */
+    fun setTitleTextColorResource(colorResId: Int) {
+        titleTextColor = androidx.core.content.ContextCompat.getColor(context, colorResId)
+        notifyChanged()
+    }
+
+    /**
+     * Set the title text color from a theme attribute.
+     * @param attrResId Theme attribute resource ID (e.g., R.attr.colorPrimary, android.R.attr.textColorPrimary)
+     */
+    fun setTitleTextColorFromTheme(attrResId: Int) {
+        val typedValue = android.util.TypedValue()
+        if (context.theme.resolveAttribute(attrResId, typedValue, true)) {
+            titleTextColor = if (typedValue.type >= android.util.TypedValue.TYPE_FIRST_COLOR_INT &&
+                typedValue.type <= android.util.TypedValue.TYPE_LAST_COLOR_INT) {
+                // It's a color value
+                typedValue.data
+            } else if (typedValue.resourceId != 0) {
+                // It's a resource reference
+                androidx.core.content.ContextCompat.getColor(context, typedValue.resourceId)
+            } else {
+                0
+            }
+            notifyChanged()
+        }
+    }
+
+    /**
+     * Clear the custom title text color and use the default theme color.
+     */
+    fun clearTitleTextColor() {
+        titleTextColor = 0
+        notifyChanged()
+    }
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
@@ -261,6 +305,12 @@ class BasicPreference :
         // Set actual title if not empty
         if (displayedTitle.isNotEmpty()) {
             title.text = displayedTitle
+        }
+
+
+        // Apply custom title text color if set
+        if (titleTextColor != 0) {
+            title.setTextColor(titleTextColor)
         }
 
         // Apply drawables to title
