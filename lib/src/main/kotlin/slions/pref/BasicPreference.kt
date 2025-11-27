@@ -264,14 +264,8 @@ class BasicPreference :
         }
 
         // Apply drawables to title
-        if (titleDrawableStart != 0 || titleDrawableEnd != 0 || titleDrawableTop != 0 || titleDrawableBottom != 0) {
-            val drawableStart = if (titleDrawableStart != 0) context.getDrawable(titleDrawableStart) else null
-            val drawableTop = if (titleDrawableTop != 0) context.getDrawable(titleDrawableTop) else null
-            val drawableEnd = if (titleDrawableEnd != 0) context.getDrawable(titleDrawableEnd) else null
-            val drawableBottom = if (titleDrawableBottom != 0) context.getDrawable(titleDrawableBottom) else null
-            title.setCompoundDrawablesRelativeWithIntrinsicBounds(drawableStart, drawableTop, drawableEnd, drawableBottom)
-            title.compoundDrawablePadding = titleDrawablePadding
-        }
+        title.setCompoundDrawablesRelativeWithIntrinsicBounds(titleDrawableStart, titleDrawableTop, titleDrawableEnd, titleDrawableBottom)
+        title.compoundDrawablePadding = titleDrawablePadding
 
     }
 }
