@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:a="http://schemas.android.com/apk/res-auto">
+
+    <!-- =============== MULTI-LINE SUMMARY TESTS =============== -->
+
+    <PreferenceCategory
+        a:title="Summary Max Lines"
+        a:iconSpaceReserved="false">
+
+        <slions.pref.BasicPreference
+            a:key="summary_max_lines_1"
+            a:title="Summary Max Lines: 1"
+            a:summary="This is a single line summary that will be truncated with ellipsis at the end if the text is too long to fit on screen"
+            a:isSingleLineSummary="true"
+            a:summaryMaxLines="1"
+            a:summaryEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="summary_max_lines_2"
+            a:title="Summary Max Lines: 2"
+            a:summary="This is a two line summary example that demonstrates text wrapping with ellipsis applied at the end of the second line when text exceeds available space"
+            a:isSingleLineSummary="false"
+            a:summaryMaxLines="2"
+            a:summaryEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="summary_max_lines_3"
+            a:title="Summary Max Lines: 3"
+            a:summary="This is a three line summary example. This demonstrates how to display multiple lines of text in the summary area. It can wrap to show more detailed information to the user with proper ellipsis at the end."
+            a:isSingleLineSummary="false"
+            a:summaryMaxLines="3"
+            a:summaryEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="summary_max_lines_4"
+            a:title="Summary Max Lines: 4"
+            a:summary="Line one of this extended summary text. Line two continues with more information about this preference item. Line three adds even more details for demonstration purposes. Line four concludes this multi-line example with final remarks and ellipsis at the end."
+            a:isSingleLineSummary="false"
+            a:summaryMaxLines="4"
+            a:summaryEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <!-- =============== MULTI-LINE TITLE TESTS =============== -->
+
+    <PreferenceCategory
+        a:title="Title Max Lines"
+        a:iconSpaceReserved="false">
+
+        <slions.pref.BasicPreference
+            a:key="title_max_lines_1"
+            a:title="This is a very long title that will be truncated with ellipsis when max lines is set to 1"
+            a:summary="Title Max Lines: 1"
+            a:titleMaxLines="1"
+            a:titleEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="title_max_lines_2"
+            a:title="This is a long title that can span two lines to demonstrate how long titles can be displayed properly when max lines is 2"
+            a:summary="Title Max Lines: 2"
+            a:titleMaxLines="2"
+            a:titleEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="title_max_lines_3"
+            a:title="This is a very long title that can span up to three lines to demonstrate how long titles can be displayed properly across multiple lines with ellipsis at the end"
+            a:summary="Title Max Lines: 3"
+            a:titleMaxLines="3"
+            a:titleEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="title_max_lines_4"
+            a:title="This is an extremely long title that can span up to four lines to demonstrate how very long titles can be displayed properly across multiple lines showing all the text content with proper wrapping and ellipsis"
+            a:summary="Title Max Lines: 4"
+            a:titleMaxLines="4"
+            a:titleEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
+

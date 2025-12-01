@@ -2,640 +2,99 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:a="http://schemas.android.com/apk/res-auto">
 
-    <!-- =============== SUMMARY ELLIPSIS TESTS =============== -->
+    <!-- =============== TEXT BEHAVIOR =============== -->
 
     <PreferenceCategory
-        a:title="Summary Ellipsis Modes">
+        a:title="Text Behavior"
+        a:iconSpaceReserved="false">
 
-        <slions.pref.BasicPreference
-            a:key="summary_ellipsize_end"
-            a:title="Summary: Ellipsis at End"
-            a:summary="This is a single line summary that will be truncated with ellipsis at the end if the text is too long to fit on screen"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="summary_ellipsize_start"
-            a:title="Summary: Ellipsis at Start"
-            a:summary="This is a single line summary that will be truncated with ellipsis at the start if too long to fit on screen"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryEllipsize="start" />
-
-        <slions.pref.BasicPreference
-            a:key="summary_ellipsize_middle"
-            a:title="Summary: Ellipsis in Middle"
-            a:summary="This is a single line summary that will be truncated with ellipsis in the middle if too long to fit on screen"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryEllipsize="middle" />
-
-        <slions.pref.BasicPreference
-            a:key="summary_ellipsize_none"
-            a:title="Summary: No Ellipsis"
-            a:summary="This is a single line summary with no ellipsis, text will just be cut off without indication when too long"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryEllipsize="none" />
-
-        <slions.pref.BasicPreference
-            a:key="summary_ellipsize_marquee"
-            a:title="Summary: Marquee Scrolling"
-            a:summary="This is a single line summary with marquee effect that will scroll continuously if the text is too long to fit on screen"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryEllipsize="marquee"
-            a:summaryMarqueeRepeatLimit="-1" />
-
-    </PreferenceCategory>
-
-    <!-- =============== TITLE ELLIPSIS TESTS =============== -->
-
-    <PreferenceCategory
-        a:title="Title Ellipsis Modes">
-
-        <slions.pref.BasicPreference
-            a:key="title_ellipsize_end"
-            a:title="This is a very long title that will be truncated with ellipsis at the end if it's too long to fit"
-            a:summary="Title: Ellipsis at End"
-            a:titleMaxLines="1"
-            a:titleEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="title_ellipsize_start"
-            a:title="This is a very long title that will be truncated with ellipsis at the start if it's too long to fit"
-            a:summary="Title: Ellipsis at Start"
-            a:titleMaxLines="1"
-            a:titleEllipsize="start" />
-
-        <slions.pref.BasicPreference
-            a:key="title_ellipsize_middle"
-            a:title="This is a very long title that will be truncated with ellipsis in the middle if it's too long to fit"
-            a:summary="Title: Ellipsis in Middle"
-            a:titleMaxLines="1"
-            a:titleEllipsize="middle" />
-
-        <slions.pref.BasicPreference
-            a:key="title_ellipsize_none"
-            a:title="This is a very long title with no ellipsis that will just be cut off without indication when too long"
-            a:summary="Title: No Ellipsis"
-            a:titleMaxLines="1"
-            a:titleEllipsize="none" />
-
-        <slions.pref.BasicPreference
-            a:key="title_ellipsize_marquee"
-            a:title="This is a very long title that will scroll with marquee effect continuously across the screen when too long"
-            a:summary="Title: Marquee Scrolling"
-            a:titleMaxLines="1"
-            a:titleEllipsize="marquee"
-            a:titleMarqueeRepeatLimit="-1" />
-
-    </PreferenceCategory>
-
-    <!-- =============== MULTI-LINE SUMMARY TESTS =============== -->
-
-    <PreferenceCategory
-        a:title="Marquee Configuration">
-
-        <slions.pref.BasicPreference
-            a:key="marquee_summary_infinite"
-            a:title="Marquee: Infinite Repeat"
-            a:summary="This summary will scroll infinitely with marquee repeat limit set to -1 which means it never stops scrolling"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryEllipsize="marquee"
-            a:summaryMarqueeRepeatLimit="-1" />
-
-        <slions.pref.BasicPreference
-            a:key="marquee_summary_3times"
-            a:title="Marquee: Repeat 3 Times"
-            a:summary="This summary will scroll exactly 3 times then stop with marquee repeat limit set to 3"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryEllipsize="marquee"
-            a:summaryMarqueeRepeatLimit="3" />
-
-        <slions.pref.BasicPreference
-            a:key="marquee_summary_1time"
-            a:title="Marquee: Repeat Once"
-            a:summary="This summary will scroll exactly once then stop with marquee repeat limit set to 1"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryEllipsize="marquee"
-            a:summaryMarqueeRepeatLimit="1" />
-
-        <slions.pref.BasicPreference
-            a:key="marquee_title_infinite"
-            a:title="This title will scroll infinitely with marquee repeat limit set to -1 which means it never stops scrolling"
-            a:summary="Title Marquee: Infinite"
-            a:titleMaxLines="1"
-            a:titleEllipsize="marquee"
-            a:titleMarqueeRepeatLimit="-1" />
-
-        <slions.pref.BasicPreference
-            a:key="marquee_title_5times"
-            a:title="This title will scroll exactly 5 times then stop with marquee repeat limit set to 5"
-            a:summary="Title Marquee: 5 Times"
-            a:titleMaxLines="1"
-            a:titleEllipsize="marquee"
-            a:titleMarqueeRepeatLimit="5" />
-
-    </PreferenceCategory>
-
-    <!-- =============== MULTI-LINE SUMMARY TESTS =============== -->
-
-    <PreferenceCategory
-        a:title="Summary Max Lines">
-
-        <slions.pref.BasicPreference
-            a:key="summary_max_lines_1"
-            a:title="Summary Max Lines: 1"
-            a:summary="This is a single line summary that will be truncated with ellipsis at the end if the text is too long to fit on screen"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="summary_max_lines_2"
-            a:title="Summary Max Lines: 2"
-            a:summary="This is a two line summary example that demonstrates text wrapping with ellipsis applied at the end of the second line when text exceeds available space"
-            a:isSingleLineSummary="false"
-            a:summaryMaxLines="2"
-            a:summaryEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="summary_max_lines_3"
-            a:title="Summary Max Lines: 3"
-            a:summary="This is a three line summary example. This demonstrates how to display multiple lines of text in the summary area. It can wrap to show more detailed information to the user with proper ellipsis at the end."
-            a:isSingleLineSummary="false"
-            a:summaryMaxLines="3"
-            a:summaryEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="summary_max_lines_4"
-            a:title="Summary Max Lines: 4"
-            a:summary="Line one of this extended summary text. Line two continues with more information about this preference item. Line three adds even more details for demonstration purposes. Line four concludes this multi-line example with final remarks and ellipsis at the end."
-            a:isSingleLineSummary="false"
-            a:summaryMaxLines="4"
-            a:summaryEllipsize="end" />
-
-    </PreferenceCategory>
-
-    <!-- =============== MULTI-LINE TITLE TESTS =============== -->
-
-    <PreferenceCategory
-        a:title="Title Max Lines">
-
-        <slions.pref.BasicPreference
-            a:key="title_max_lines_1"
-            a:title="This is a very long title that will be truncated with ellipsis when max lines is set to 1"
-            a:summary="Title Max Lines: 1"
-            a:titleMaxLines="1"
-            a:titleEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="title_max_lines_2"
-            a:title="This is a long title that can span two lines to demonstrate how long titles can be displayed properly when max lines is 2"
-            a:summary="Title Max Lines: 2"
-            a:titleMaxLines="2"
-            a:titleEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="title_max_lines_3"
-            a:title="This is a very long title that can span up to three lines to demonstrate how long titles can be displayed properly across multiple lines with ellipsis at the end"
-            a:summary="Title Max Lines: 3"
-            a:titleMaxLines="3"
-            a:titleEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="title_max_lines_4"
-            a:title="This is an extremely long title that can span up to four lines to demonstrate how very long titles can be displayed properly across multiple lines showing all the text content with proper wrapping and ellipsis"
-            a:summary="Title Max Lines: 4"
-            a:titleMaxLines="4"
-            a:titleEllipsize="end" />
-
-    </PreferenceCategory>
-
-    <!-- =============== TEXT MODES =============== -->
-
-    <PreferenceCategory
-        a:title="Text Modes">
-
-        <slions.pref.BasicPreference
-            a:key="mode_normal"
-            a:title="Normal Mode (Default)"
-            a:summary="Default mode with ellipsis truncation when text is too long"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryMode="normal" />
-
-        <slions.pref.BasicPreference
-            a:key="mode_scrollable_single"
-            a:title="Scrollable Mode - Single Line"
-            a:summary="This is a very long single line that you can scroll horizontally by swiping left and right"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryMode="scrollable" />
-
-        <slions.pref.BasicPreference
-            a:key="mode_scrollable_multi"
-            a:title="Scrollable Mode - Multi Line"
-            a:summary="Line 1: Multi-line scrollable text.\nLine 2: You can scroll vertically.\nLine 3: Swipe up and down.\nLine 4: More content here.\nLine 5: Keep scrolling.\nLine 6: Almost there.\nLine 7: One more line.\nLine 8: End of content."
-            a:isSingleLineSummary="false"
-            a:summaryMaxLines="3"
-            a:summaryMode="scrollable" />
-
-        <slions.pref.BasicPreference
-            a:key="mode_selectable_single"
-            a:title="Selectable Mode - Single Line"
-            a:summary="Single line selectable text - long press to select and copy (also horizontally scrollable)"
-            a:isSingleLineSummary="true"
-            a:summaryMaxLines="1"
-            a:summaryMode="selectable" />
-
-        <slions.pref.BasicPreference
-            a:key="mode_selectable_multi"
-            a:title="Selectable Mode - Multi Line"
-            a:summary="Multi-line selectable text.\nLong press to select and copy. Also scrollable vertically.\nLine 3: Swipe up and down.\nLine 4: More content here.\nLine 5: Keep scrolling.\nLine 6: Almost there.\nLine 7: One more line.\nLine 8: End of content."            a:isSingleLineSummary="false"
-            a:summaryMaxLines="3"
-            a:summaryMode="selectable" />
-
-        <slions.pref.BasicPreference
-            a:key="mode_both_selectable"
-            a:title="This title is selectable - long press to select"
-            a:summary="Both title and summary in selectable mode (also scrollable)"
-            a:titleMaxLines="2"
-            a:titleMode="selectable"
-            a:summaryMode="selectable" />
-
-    </PreferenceCategory>
-
-    <!-- =============== TITLE &amp; SUMMARY COMBINATIONS =============== -->
-
-    <PreferenceCategory
-        a:title="Title &amp; Summary Combinations">
-
-        <slions.pref.BasicPreference
-            a:key="both_title_summary"
-            a:title="With Both Title and Summary"
-            a:summary="This preference has both a title and a summary text" />
-
-        <slions.pref.BasicPreference
-            a:key="title_only"
-            a:title="Title Only - No Summary" />
-
-        <slions.pref.BasicPreference
-            a:key="summary_only"
-            a:summary="Summary Only - No Title" />
-
-        <slions.pref.BasicPreference
-            a:key="title_multiline_no_summary"
-            a:title="Multi-line Title without Summary: This is a long title that spans multiple lines to demonstrate how titles work when there is no summary text"
-            a:titleMaxLines="3"
-            a:titleEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="summary_multiline_no_title"
-            a:summary="Multi-line Summary without Title: This is a long summary that spans multiple lines to demonstrate how summaries work when there is no title text provided"
-            a:isSingleLineSummary="false"
-            a:summaryMaxLines="3"
-            a:summaryEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="title_with_icon_no_summary"
-            a:title="Title with Icon, No Summary"
-            a:icon="@drawable/ic_check_circle_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="summary_with_icon_no_title"
-            a:summary="Summary with Icon, No Title"
-            a:icon="@drawable/ic_sliders_outline" />
-
-    </PreferenceCategory>
-
-    <!-- =============== ICON TESTS =============== -->
-
-    <PreferenceCategory
-        android:title="Icons">
-
-        <slions.pref.BasicPreference
-            a:key="icon_default"
-            a:title="Default Icon Behavior"
-            a:summary="Icon space is reserved by default even without an icon" />
-
-        <slions.pref.BasicPreference
-            a:key="icon_space_reserved_no_icon"
-            a:title="Icon Space Reserved, No Icon"
-            a:summary="Explicitly reserves icon space but displays no icon"
-            a:iconSpaceReserved="true" />
-
-        <slions.pref.BasicPreference
-            a:key="icon_with_icon"
-            a:title="With Icon"
-            a:summary="This preference has an icon displayed"
-            a:icon="@drawable/ic_check_circle_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="icon_no_space_reserved"
-            a:title="No Icon Space Reserved"
-            a:summary="Icon space is not reserved, text uses full width"
+        <Preference
+            a:key="nav_ellipsis"
+            a:title="Ellipsis Modes"
+            a:summary="Test different ellipsis behaviors for title and summary"
+            a:fragment="slions.pref.demo.PreferenceFragmentBasicsEllipsis"
+            a:breadcrumb="Basics > Ellipsis"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
-            a:key="icon_with_icon_multiline"
-            a:title="Icon with Multi-line Summary"
-            a:summary="This preference has an icon and a multi-line summary. This demonstrates how icons work with longer text that wraps to multiple lines in the summary area."
-            a:icon="@drawable/ic_sliders_outline"
-            a:isSingleLineSummary="false"
-            a:summaryMaxLines="3"
-            a:summaryEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="icon_no_space_multiline"
-            a:title="No Icon Space, Multi-line"
-            a:summary="No icon space reserved with multi-line summary. This demonstrates full width text usage when icon space is not reserved, allowing more content to be displayed."
-            a:iconSpaceReserved="false"
-            a:isSingleLineSummary="false"
-            a:summaryMaxLines="3"
-            a:summaryEllipsize="end" />
-
-    </PreferenceCategory>
-
-    <!-- =============== SPECIAL FEATURES =============== -->
-
-    <PreferenceCategory
-        a:title="Special Features">
-
-        <slions.pref.BasicPreference
-            a:key="example_displayed_title"
-            a:title="Sort Key Title"
-            a:summary="This preference uses displayedTitle to show a different title than the one used for sorting"
-            a:displayedTitle="Displayed Title (Different from Sort Key)" />
-
-        <slions.pref.BasicPreference
-            a:key="example_swap"
-            a:title="This becomes the summary"
-            a:summary="This becomes the title"
-            a:swapTitleSummary="true" />
-
-        <slions.pref.BasicPreference
-            a:key="example_swap_with_ellipsis"
-            a:title="Short title"
-            a:summary="This very long text becomes the title after swapping and will be truncated with ellipsis at the end"
-            a:swapTitleSummary="true"
-            a:titleMaxLines="1"
-            a:titleEllipsize="end" />
-
-        <slions.pref.BasicPreference
-            a:key="example_title_max_lines"
-            a:title="This is a very long title that would normally be truncated but now can span multiple lines"
-            a:summary="This demonstrates titleMaxLines property"
-            a:titleMaxLines="2" />
-
-        <slions.pref.BasicPreference
-            a:key="example_no_icon_space"
-            a:title="No Icon Space Reserved"
-            a:summary="This preference demonstrates that icon space is not reserved, allowing text to use full width"
+        <Preference
+            a:key="nav_marquee"
+            a:title="Marquee Configuration"
+            a:summary="Configure marquee scrolling repeat counts and behavior"
+            a:fragment="slions.pref.demo.PreferenceFragmentBasicsMarquee"
+            a:breadcrumb="Basics > Marquee"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
-            a:key="example_breadcrumb"
-            a:title="Breadcrumb Example"
-            a:summary="Custom breadcrumb set for navigation context"
-            a:breadcrumb="Home > Settings > Display > Basics" />
+        <Preference
+            a:key="nav_maxlines"
+            a:title="Max Lines"
+            a:summary="Test maximum line settings for title and summary"
+            a:fragment="slions.pref.demo.PreferenceFragmentBasicsMaxLines"
+            a:breadcrumb="Basics > Max Lines"
+            a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
-            a:key="example_all_properties"
-            a:title="Original Title"
-            a:summary="This is a comprehensive example showing all available properties working together: displayedTitle, multi-line summary, custom max lines, breadcrumb, and more features."
-            a:displayedTitle="Custom Display Title"
-            a:breadcrumb="Settings > Basics > Examples"
-            a:isSingleLineSummary="false"
-            a:summaryMaxLines="4"
-            a:titleMaxLines="2"
-            a:summaryEllipsize="end"
-            a:titleEllipsize="end"
-            a:swapTitleSummary="false" />
+        <Preference
+            a:key="nav_modes"
+            a:title="Text Modes"
+            a:summary="Normal, scrollable, and selectable text modes"
+            a:fragment="slions.pref.demo.PreferenceFragmentBasicsModes"
+            a:breadcrumb="Basics > Text Modes"
+            a:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 
-    <!-- =============== TITLE DRAWABLES =============== -->
+    <!-- =============== VISUAL ELEMENTS =============== -->
 
     <PreferenceCategory
-        a:title="Title Drawables">
+        a:title="Visual Elements"
+        a:iconSpaceReserved="false">
 
-        <slions.pref.BasicPreference
-            a:key="title_drawable_start"
-            a:title="Drawable at Start"
-            a:summary="Title has a drawable at the start (left in LTR)"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline" />
+        <Preference
+            a:key="nav_icons"
+            a:title="Icons"
+            a:summary="Test icon behavior and space reservation"
+            a:fragment="slions.pref.demo.PreferenceFragmentBasicsIcons"
+            a:breadcrumb="Basics > Icons"
+            a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
-            a:key="title_drawable_end"
-            a:title="Drawable at End"
-            a:summary="Title has a drawable at the end (right in LTR)"
-            a:titleDrawableEnd="@drawable/ic_sliders_outline" />
+        <Preference
+            a:key="nav_drawables"
+            a:title="Title Drawables"
+            a:summary="Add drawables to title text (start, end, top, bottom)"
+            a:fragment="slions.pref.demo.PreferenceFragmentBasicsDrawables"
+            a:breadcrumb="Basics > Drawables"
+            a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
-            a:key="title_drawable_start_end"
-            a:title="Drawables at Both Ends"
-            a:summary="Title has drawables at both start and end"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline"
-            a:titleDrawableEnd="@drawable/ic_sliders_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_top"
-            a:title="Top Drawable"
-            a:summary="Title has a drawable at the top"
-            a:titleDrawableTop="@drawable/ic_check_circle_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_bottom"
-            a:title="Bottom Drawable"
-            a:summary="Title has a drawable at the bottom"
-            a:titleDrawableBottom="@drawable/ic_sliders_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_all"
-            a:title="All Drawables"
-            a:summary="Title has drawables on all four sides"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline"
-            a:titleDrawableTop="@drawable/messages"
-            a:titleDrawableEnd="@drawable/ic_sliders_outline"
-            a:titleDrawableBottom="@drawable/sync" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_multiline"
-            a:title="Multi-line Title with Start Drawable that spans multiple lines to demonstrate how drawables work with longer titles"
-            a:summary="Multi-line title with drawable at start"
-            a:titleMaxLines="2"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_no_summary"
-            a:title="Title with Drawable, No Summary"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline"
-            a:titleDrawableEnd="@drawable/ic_sliders_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_ellipsize"
-            a:title="Long Title with Drawable that will be truncated with ellipsis at the end when it's too long"
-            a:summary="Single-line title with drawable and ellipsis"
-            a:titleMaxLines="1"
-            a:titleEllipsize="end"
-            a:titleDrawableStart="@drawable/ic_short_text_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_marquee"
-            a:title="Long Scrolling Title with Drawable at Start using marquee effect to scroll continuously"
-            a:summary="Title with marquee and drawable"
-            a:titleMaxLines="1"
-            a:titleEllipsize="marquee"
-            a:titleMarqueeRepeatLimit="-1"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_selectable"
-            a:title="Selectable Title with Drawable"
-            a:summary="Long press the title to select and copy text"
-            a:titleMode="selectable"
-            a:titleDrawableStart="@drawable/messages"
-            a:titleDrawableEnd="@drawable/sync" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_with_icon"
-            a:title="Title Drawable with Preference Icon"
-            a:summary="Combines preference icon with title drawables"
-            a:icon="@drawable/ic_sliders_outline"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_no_icon_space"
-            a:title="Title Drawable, No Icon Space"
-            a:summary="Title drawable without reserving icon space"
-            a:iconSpaceReserved="false"
-            a:titleDrawableStart="@drawable/ic_short_text_outline"
-            a:titleDrawableEnd="@drawable/sync" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_custom_padding_16dp"
-            a:title="Custom Padding 16dp"
-            a:summary="Title drawable with 16dp padding (default is 8dp)"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline"
-            a:titleDrawableEnd="@drawable/ic_sliders_outline"
-            a:titleDrawablePadding="16dp" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_custom_padding_4dp"
-            a:title="Custom Padding 4dp"
-            a:summary="Title drawable with reduced 4dp padding"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline"
-            a:titleDrawableEnd="@drawable/ic_sliders_outline"
-            a:titleDrawablePadding="4dp" />
-
-        <slions.pref.BasicPreference
-            a:key="title_drawable_no_padding"
-            a:title="No Padding (0dp)"
-            a:summary="Title drawable with no padding between drawable and text"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline"
-            a:titleDrawableEnd="@drawable/ic_sliders_outline"
-            a:titleDrawablePadding="0dp" />
+        <Preference
+            a:key="nav_colors"
+            a:title="Title Text Colors"
+            a:summary="Customize title text colors with hard-coded or theme colors"
+            a:fragment="slions.pref.demo.PreferenceFragmentBasicsColors"
+            a:breadcrumb="Basics > Colors"
+            a:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 
-    <!-- =============== TITLE TEXT COLOR =============== -->
+    <!-- =============== ADVANCED FEATURES =============== -->
 
     <PreferenceCategory
-        a:title="Title Text Color">
+        a:title="Advanced Features"
+        a:iconSpaceReserved="false">
 
-        <!-- Hard-coded color examples -->
-        <slions.pref.BasicPreference
-            a:key="title_color_red"
-            a:title="Red Title Text"
-            a:summary="Hard-coded red color (#FFFF0000)"
-            a:titleTextColor="#FFFF0000" />
+        <Preference
+            a:key="nav_combinations"
+            a:title="Title &amp; Summary Combinations"
+            a:summary="Test different combinations of title, summary, and icons"
+            a:fragment="slions.pref.demo.PreferenceFragmentBasicsCombinations"
+            a:breadcrumb="Basics > Combinations"
+            a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
-            a:key="title_color_blue"
-            a:title="Blue Title Text"
-            a:summary="Hard-coded blue color (#FF0000FF)"
-            a:titleTextColor="#FF0000FF" />
-
-        <!-- Theme color examples -->
-        <slions.pref.BasicPreference
-            a:key="title_color_primary"
-            a:title="Theme Primary Color"
-            a:summary="Uses ?attr/colorPrimary from theme"
-            a:titleTextColor="?attr/colorPrimary" />
-
-        <slions.pref.BasicPreference
-            a:key="title_color_secondary"
-            a:title="Theme Secondary Color"
-            a:summary="Uses ?attr/colorSecondary from theme"
-            a:titleTextColor="?attr/colorSecondary" />
-
-        <slions.pref.BasicPreference
-            a:key="title_color_accent"
-            a:title="Theme Accent Color"
-            a:summary="Uses ?attr/colorAccent from theme"
-            a:titleTextColor="?attr/colorAccent" />
-
-        <slions.pref.BasicPreference
-            a:key="title_color_primary_variant"
-            a:title="Theme Primary Variant"
-            a:summary="Uses ?attr/colorPrimaryVariant from theme"
-            a:titleTextColor="?attr/colorPrimaryVariant" />
-
-        <slions.pref.BasicPreference
-            a:key="title_color_error"
-            a:title="Theme Error Color"
-            a:summary="Uses ?attr/colorError from theme"
-            a:titleTextColor="?attr/colorError" />
-
-        <slions.pref.BasicPreference
-            a:key="title_color_text_primary"
-            a:title="Theme Text Primary"
-            a:summary="Uses ?android:attr/textColorPrimary from theme"
-            a:titleTextColor="?android:attr/textColorPrimary" />
-
-        <slions.pref.BasicPreference
-            a:key="title_color_text_secondary"
-            a:title="Theme Text Secondary"
-            a:summary="Uses ?android:attr/textColorSecondary from theme"
-            a:titleTextColor="?android:attr/textColorSecondary" />
-
-        <!-- Combined with other features -->
-        <slions.pref.BasicPreference
-            a:key="title_color_theme_with_drawable"
-            a:title="Theme Color with Drawable"
-            a:summary="Combines theme color with drawables"
-            a:titleTextColor="?attr/colorPrimary"
-            a:titleDrawableStart="@drawable/ic_check_circle_outline"
-            a:titleDrawableEnd="@drawable/ic_sliders_outline" />
-
-        <slions.pref.BasicPreference
-            a:key="title_color_theme_multiline"
-            a:title="Multi-line Theme Colored Title that spans multiple lines to demonstrate how theme colors work with longer titles"
-            a:summary="Multi-line title with theme color"
-            a:titleMaxLines="2"
-            a:titleTextColor="?attr/colorSecondary" />
-
-        <slions.pref.BasicPreference
-            a:key="title_color_theme_with_icon"
-            a:title="Theme Color with Icon"
-            a:summary="Theme color combined with preference icon"
-            a:icon="@drawable/ic_sliders_outline"
-            a:titleTextColor="?attr/colorAccent" />
-
-        <slions.pref.BasicPreference
-            a:key="title_color_theme_marquee"
-            a:title="Theme Colored Marquee Title with very long scrolling text that demonstrates theme color with marquee effect"
-            a:summary="Theme color with marquee scrolling"
-            a:titleMaxLines="1"
-            a:titleEllipsize="marquee"
-            a:titleMarqueeRepeatLimit="-1"
-            a:titleTextColor="?attr/colorPrimary" />
+        <Preference
+            a:key="nav_features"
+            a:title="Special Features"
+            a:summary="displayedTitle, swapTitleSummary, breadcrumb, and more"
+            a:fragment="slions.pref.demo.PreferenceFragmentBasicsFeatures"
+            a:breadcrumb="Basics > Features"
+            a:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 

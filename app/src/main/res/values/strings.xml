@@ -51,6 +51,15 @@
     <string name="fragment_switches_title">Switches</string>
     <string name="fragment_sliders_title">Sliders</string>
     <string name="fragment_basics_title">Basics</string>
+    <string name="fragment_basics_ellipsis_title">Ellipsis Modes</string>
+    <string name="fragment_basics_marquee_title">Marquee Configuration</string>
+    <string name="fragment_basics_maxlines_title">Max Lines</string>
+    <string name="fragment_basics_modes_title">Text Modes</string>
+    <string name="fragment_basics_icons_title">Icons</string>
+    <string name="fragment_basics_drawables_title">Title Drawables</string>
+    <string name="fragment_basics_colors_title">Title Text Colors</string>
+    <string name="fragment_basics_combinations_title">Title &amp; Summary Combinations</string>
+    <string name="fragment_basics_features_title">Special Features</string>
     <string name="pref_title_properties">Properties</string>
 
     <!-- Messages Preferences -->

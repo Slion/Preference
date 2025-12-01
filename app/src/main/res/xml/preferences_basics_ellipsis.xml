@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:a="http://schemas.android.com/apk/res-auto">
+
+    <!-- =============== SUMMARY ELLIPSIS TESTS =============== -->
+
+    <PreferenceCategory
+        a:title="Summary Ellipsis Modes"
+        a:iconSpaceReserved="false">
+
+        <slions.pref.BasicPreference
+            a:key="summary_ellipsize_end"
+            a:title="Summary: Ellipsis at End"
+            a:summary="This is a single line summary that will be truncated with ellipsis at the end if the text is too long to fit on screen"
+            a:isSingleLineSummary="true"
+            a:summaryMaxLines="1"
+            a:summaryEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="summary_ellipsize_start"
+            a:title="Summary: Ellipsis at Start"
+            a:summary="This is a single line summary that will be truncated with ellipsis at the start if too long to fit on screen"
+            a:isSingleLineSummary="true"
+            a:summaryMaxLines="1"
+            a:summaryEllipsize="start"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="summary_ellipsize_middle"
+            a:title="Summary: Ellipsis in Middle"
+            a:summary="This is a single line summary that will be truncated with ellipsis in the middle if too long to fit on screen"
+            a:isSingleLineSummary="true"
+            a:summaryMaxLines="1"
+            a:summaryEllipsize="middle"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="summary_ellipsize_none"
+            a:title="Summary: No Ellipsis"
+            a:summary="This is a single line summary with no ellipsis, text will just be cut off without indication when too long"
+            a:isSingleLineSummary="true"
+            a:summaryMaxLines="1"
+            a:summaryEllipsize="none"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="summary_ellipsize_marquee"
+            a:title="Summary: Marquee Scrolling"
+            a:summary="This is a single line summary with marquee effect that will scroll continuously if the text is too long to fit on screen"
+            a:isSingleLineSummary="true"
+            a:summaryMaxLines="1"
+            a:summaryEllipsize="marquee"
+            a:summaryMarqueeRepeatLimit="-1"
+            a:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <!-- =============== TITLE ELLIPSIS TESTS =============== -->
+
+    <PreferenceCategory
+        a:title="Title Ellipsis Modes"
+        a:iconSpaceReserved="false">
+
+        <slions.pref.BasicPreference
+            a:key="title_ellipsize_end"
+            a:title="This is a very long title that will be truncated with ellipsis at the end if it's too long to fit"
+            a:summary="Title: Ellipsis at End"
+            a:titleMaxLines="1"
+            a:titleEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="title_ellipsize_start"
+            a:title="This is a very long title that will be truncated with ellipsis at the start if it's too long to fit"
+            a:summary="Title: Ellipsis at Start"
+            a:titleMaxLines="1"
+            a:titleEllipsize="start"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="title_ellipsize_middle"
+            a:title="This is a very long title that will be truncated with ellipsis in the middle if it's too long to fit"
+            a:summary="Title: Ellipsis in Middle"
+            a:titleMaxLines="1"
+            a:titleEllipsize="middle"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="title_ellipsize_none"
+            a:title="This is a very long title with no ellipsis that will just be cut off without indication when too long"
+            a:summary="Title: No Ellipsis"
+            a:titleMaxLines="1"
+            a:titleEllipsize="none"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="title_ellipsize_marquee"
+            a:title="This is a very long title that will scroll with marquee effect continuously across the screen when too long"
+            a:summary="Title: Marquee Scrolling"
+            a:titleMaxLines="1"
+            a:titleEllipsize="marquee"
+            a:titleMarqueeRepeatLimit="-1"
+            a:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
+

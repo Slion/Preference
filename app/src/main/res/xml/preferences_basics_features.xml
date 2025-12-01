@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:a="http://schemas.android.com/apk/res-auto">
+
+    <!-- =============== SPECIAL FEATURES =============== -->
+
+    <PreferenceCategory
+        a:title="Special Features"
+        a:iconSpaceReserved="false">
+
+        <slions.pref.BasicPreference
+            a:key="example_displayed_title"
+            a:title="Sort Key Title"
+            a:summary="This preference uses displayedTitle to show a different title than the one used for sorting"
+            a:displayedTitle="Displayed Title (Different from Sort Key)"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="example_swap"
+            a:title="This becomes the summary"
+            a:summary="This becomes the title"
+            a:swapTitleSummary="true"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="example_swap_with_ellipsis"
+            a:title="Short title"
+            a:summary="This very long text becomes the title after swapping and will be truncated with ellipsis at the end"
+            a:swapTitleSummary="true"
+            a:titleMaxLines="1"
+            a:titleEllipsize="end"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="example_title_max_lines"
+            a:title="This is a very long title that would normally be truncated but now can span multiple lines"
+            a:summary="This demonstrates titleMaxLines property"
+            a:titleMaxLines="2"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="example_no_icon_space"
+            a:title="No Icon Space Reserved"
+            a:summary="This preference demonstrates that icon space is not reserved, allowing text to use full width"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="example_breadcrumb"
+            a:title="Breadcrumb Example"
+            a:summary="Custom breadcrumb set for navigation context"
+            a:breadcrumb="Home > Settings > Display > Basics"
+            a:iconSpaceReserved="false" />
+
+        <slions.pref.BasicPreference
+            a:key="example_all_properties"
+            a:title="Original Title"
+            a:summary="This is a comprehensive example showing all available properties working together: displayedTitle, multi-line summary, custom max lines, breadcrumb, and more features."
+            a:displayedTitle="Custom Display Title"
+            a:breadcrumb="Settings > Basics > Examples"
+            a:isSingleLineSummary="false"
+            a:summaryMaxLines="4"
+            a:titleMaxLines="2"
+            a:summaryEllipsize="end"
+            a:titleEllipsize="end"
+            a:swapTitleSummary="false"
+            a:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
+
