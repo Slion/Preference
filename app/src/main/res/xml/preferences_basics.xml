@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:a="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
+    xmlns:x="http://schemas.android.com/apk/res-auto">
 
     <!-- =============== TEXT BEHAVIOR =============== -->
 
     <PreferenceCategory
         a:title="Text Behavior"
-        a:iconSpaceReserved="false">
+        x:iconSpaceReserved="false">
 
         <Preference
             a:key="nav_ellipsis"
             a:title="Ellipsis Modes"
             a:summary="Test different ellipsis behaviors for title and summary"
             a:fragment="slions.pref.demo.PreferenceFragmentBasicsEllipsis"
-            a:breadcrumb="Basics > Ellipsis"
-            a:iconSpaceReserved="false" />
+            x:iconSpaceReserved="false" />
 
         <Preference
             a:key="nav_marquee"
             a:title="Marquee Configuration"
             a:summary="Configure marquee scrolling repeat counts and behavior"
             a:fragment="slions.pref.demo.PreferenceFragmentBasicsMarquee"
-            a:breadcrumb="Basics > Marquee"
-            a:iconSpaceReserved="false" />
+            x:iconSpaceReserved="false" />
 
         <Preference
             a:key="nav_maxlines"
             a:title="Max Lines"
             a:summary="Test maximum line settings for title and summary"
             a:fragment="slions.pref.demo.PreferenceFragmentBasicsMaxLines"
-            a:breadcrumb="Basics > Max Lines"
-            a:iconSpaceReserved="false" />
+            x:iconSpaceReserved="false" />
 
         <Preference
             a:key="nav_modes"
             a:title="Text Modes"
             a:summary="Normal, scrollable, and selectable text modes"
             a:fragment="slions.pref.demo.PreferenceFragmentBasicsModes"
-            a:breadcrumb="Basics > Text Modes"
-            a:iconSpaceReserved="false" />
+            x:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 
@@ -46,31 +42,34 @@
 
     <PreferenceCategory
         a:title="Visual Elements"
-        a:iconSpaceReserved="false">
+        x:iconSpaceReserved="false">
 
         <Preference
             a:key="nav_icons"
             a:title="Icons"
             a:summary="Test icon behavior and space reservation"
             a:fragment="slions.pref.demo.PreferenceFragmentBasicsIcons"
-            a:breadcrumb="Basics > Icons"
-            a:iconSpaceReserved="false" />
+            x:iconSpaceReserved="false" />
 
         <Preference
             a:key="nav_drawables"
             a:title="Title Drawables"
             a:summary="Add drawables to title text (start, end, top, bottom)"
             a:fragment="slions.pref.demo.PreferenceFragmentBasicsDrawables"
-            a:breadcrumb="Basics > Drawables"
-            a:iconSpaceReserved="false" />
+            x:iconSpaceReserved="false" />
 
         <Preference
-            a:key="nav_colors"
-            a:title="Title Text Colors"
+            a:title="@string/fragment_basics_colors_title"
             a:summary="Customize title text colors with hard-coded or theme colors"
-            a:fragment="slions.pref.demo.PreferenceFragmentBasicsColors"
-            a:breadcrumb="Basics > Colors"
-            a:iconSpaceReserved="false" />
+            a:fragment="slions.pref.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_colors" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_colors_title" />
+        </Preference>
 
     </PreferenceCategory>
 
@@ -78,23 +77,21 @@
 
     <PreferenceCategory
         a:title="Advanced Features"
-        a:iconSpaceReserved="false">
+        x:iconSpaceReserved="false">
 
         <Preference
             a:key="nav_combinations"
             a:title="Title &amp; Summary Combinations"
             a:summary="Test different combinations of title, summary, and icons"
             a:fragment="slions.pref.demo.PreferenceFragmentBasicsCombinations"
-            a:breadcrumb="Basics > Combinations"
-            a:iconSpaceReserved="false" />
+            x:iconSpaceReserved="false" />
 
         <Preference
             a:key="nav_features"
             a:title="Special Features"
             a:summary="displayedTitle, swapTitleSummary, breadcrumb, and more"
             a:fragment="slions.pref.demo.PreferenceFragmentBasicsFeatures"
-            a:breadcrumb="Basics > Features"
-            a:iconSpaceReserved="false" />
+            x:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 
