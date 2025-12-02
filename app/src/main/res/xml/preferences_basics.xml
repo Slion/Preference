@@ -9,32 +9,56 @@
         x:iconSpaceReserved="false">
 
         <Preference
-            a:key="nav_ellipsis"
-            a:title="Ellipsis Modes"
+            a:title="@string/fragment_basics_ellipsis_title"
             a:summary="Test different ellipsis behaviors for title and summary"
-            a:fragment="slions.pref.demo.PreferenceFragmentBasicsEllipsis"
-            x:iconSpaceReserved="false" />
+            a:fragment="slions.pref.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_ellipsis" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_ellipsis_title" />
+        </Preference>
 
         <Preference
-            a:key="nav_marquee"
-            a:title="Marquee Configuration"
+            a:title="@string/fragment_basics_marquee_title"
             a:summary="Configure marquee scrolling repeat counts and behavior"
-            a:fragment="slions.pref.demo.PreferenceFragmentBasicsMarquee"
-            x:iconSpaceReserved="false" />
+            a:fragment="slions.pref.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_marquee" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_marquee_title" />
+        </Preference>
 
         <Preference
-            a:key="nav_maxlines"
-            a:title="Max Lines"
+            a:title="@string/fragment_basics_maxlines_title"
             a:summary="Test maximum line settings for title and summary"
-            a:fragment="slions.pref.demo.PreferenceFragmentBasicsMaxLines"
-            x:iconSpaceReserved="false" />
+            a:fragment="slions.pref.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_maxlines" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_maxlines_title" />
+        </Preference>
 
         <Preference
-            a:key="nav_modes"
-            a:title="Text Modes"
+            a:title="@string/fragment_basics_modes_title"
             a:summary="Normal, scrollable, and selectable text modes"
-            a:fragment="slions.pref.demo.PreferenceFragmentBasicsModes"
-            x:iconSpaceReserved="false" />
+            a:fragment="slions.pref.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_modes" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_modes_title" />
+        </Preference>
 
     </PreferenceCategory>
 
@@ -45,18 +69,30 @@
         x:iconSpaceReserved="false">
 
         <Preference
-            a:key="nav_icons"
-            a:title="Icons"
+            a:title="@string/fragment_basics_icons_title"
             a:summary="Test icon behavior and space reservation"
-            a:fragment="slions.pref.demo.PreferenceFragmentBasicsIcons"
-            x:iconSpaceReserved="false" />
+            a:fragment="slions.pref.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_icons" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_icons_title" />
+        </Preference>
 
         <Preference
-            a:key="nav_drawables"
-            a:title="Title Drawables"
+            a:title="@string/fragment_basics_drawables_title"
             a:summary="Add drawables to title text (start, end, top, bottom)"
-            a:fragment="slions.pref.demo.PreferenceFragmentBasicsDrawables"
-            x:iconSpaceReserved="false" />
+            a:fragment="slions.pref.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_drawables" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_drawables_title" />
+        </Preference>
 
         <Preference
             a:title="@string/fragment_basics_colors_title"
@@ -80,18 +116,30 @@
         x:iconSpaceReserved="false">
 
         <Preference
-            a:key="nav_combinations"
-            a:title="Title &amp; Summary Combinations"
+            a:title="@string/fragment_basics_combinations_title"
             a:summary="Test different combinations of title, summary, and icons"
-            a:fragment="slions.pref.demo.PreferenceFragmentBasicsCombinations"
-            x:iconSpaceReserved="false" />
+            a:fragment="slions.pref.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_combinations" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_combinations_title" />
+        </Preference>
 
         <Preference
-            a:key="nav_features"
-            a:title="Special Features"
+            a:title="@string/fragment_basics_features_title"
             a:summary="displayedTitle, swapTitleSummary, breadcrumb, and more"
-            a:fragment="slions.pref.demo.PreferenceFragmentBasicsFeatures"
-            x:iconSpaceReserved="false" />
+            a:fragment="slions.pref.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_features" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_features_title" />
+        </Preference>
 
     </PreferenceCategory>
 

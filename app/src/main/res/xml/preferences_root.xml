@@ -1,32 +1,40 @@
-<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
+    xmlns:x="http://schemas.android.com/apk/res-auto">
 
     <slions.pref.BasicPreference
-        a:fragment="slions.pref.demo.PreferenceFragmentBasics"
-        a:icon="@drawable/ic_short_text_outline"
-        a:title="@string/fragment_basics_title" />
+        x:fragment="slions.pref.PreferenceFragmentExtra"
+        x:icon="@drawable/ic_short_text_outline"
+        x:title="@string/fragment_basics_title">
+        <extra
+            a:name="screen"
+            a:value="@xml/preferences_basics" />
+        <extra
+            a:name="title"
+            a:value="@string/fragment_basics_title" />
+    </slions.pref.BasicPreference>
 
     <slions.pref.BasicPreference
-        a:fragment="slions.pref.demo.PreferenceFragmentSwitches"
-        a:icon="@drawable/ic_check_circle_outline"
-        a:title="@string/fragment_switches_title" />
+        x:fragment="slions.pref.demo.PreferenceFragmentSwitches"
+        x:icon="@drawable/ic_check_circle_outline"
+        x:title="@string/fragment_switches_title" />
 
     <slions.pref.BasicPreference
-        a:fragment="slions.pref.demo.PreferenceFragmentSliders"
-        a:icon="@drawable/ic_sliders_outline"
-        a:title="@string/fragment_sliders_title" />
+        x:fragment="slions.pref.demo.PreferenceFragmentSliders"
+        x:icon="@drawable/ic_sliders_outline"
+        x:title="@string/fragment_sliders_title" />
 
     <Preference
-        a:fragment="slions.pref.demo.PreferenceFragmentMessages"
-        a:icon="@drawable/messages"
+        x:fragment="slions.pref.demo.PreferenceFragmentMessages"
+        x:icon="@drawable/messages"
         a:key="messages_header"
-        a:title="@string/messages_header" />
+        x:title="@string/messages_header" />
 
     <slions.pref.BasicPreference
-        a:fragment="slions.pref.demo.PreferenceFragmentSync"
-        a:icon="@drawable/sync"
+        x:fragment="slions.pref.demo.PreferenceFragmentSync"
+        x:icon="@drawable/sync"
         a:key="sync_header"
-        a:title="@string/sync_header" />
+        x:title="@string/sync_header" />
 
 
 </PreferenceScreen>
+
