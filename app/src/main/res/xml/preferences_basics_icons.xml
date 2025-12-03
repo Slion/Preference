@@ -4,7 +4,7 @@
 
     <!-- =============== ICON TESTS =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         android:title="Icons">
 
         <x.BasicPreference
@@ -48,7 +48,7 @@
             a:summaryMaxLines="3"
             a:summaryEllipsize="end" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
 </PreferenceScreen>
 

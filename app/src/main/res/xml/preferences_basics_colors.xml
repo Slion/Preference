@@ -4,7 +4,7 @@
 
     <!-- =============== TITLE TEXT COLOR =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Title Text Color"
         a:iconSpaceReserved="false">
 
@@ -108,7 +108,7 @@
             a:titleTextColor="?attr/colorPrimary"
             a:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
 </PreferenceScreen>
 

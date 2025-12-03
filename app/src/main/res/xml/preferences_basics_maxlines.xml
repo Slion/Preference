@@ -4,7 +4,7 @@
 
     <!-- =============== MULTI-LINE SUMMARY TESTS =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Summary Max Lines"
         a:iconSpaceReserved="false">
 
@@ -44,11 +44,11 @@
             a:summaryEllipsize="end"
             a:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
     <!-- =============== MULTI-LINE TITLE TESTS =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Title Max Lines"
         a:iconSpaceReserved="false">
 
@@ -84,7 +84,7 @@
             a:titleEllipsize="end"
             a:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
 </PreferenceScreen>
 

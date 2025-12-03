@@ -4,7 +4,7 @@
 
     <!-- =============== TEXT MODES =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Text Modes"
         a:iconSpaceReserved="false">
 
@@ -61,7 +61,7 @@
             a:summaryMode="selectable"
             a:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
 </PreferenceScreen>
 

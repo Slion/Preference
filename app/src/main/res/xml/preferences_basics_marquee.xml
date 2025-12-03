@@ -4,7 +4,7 @@
 
     <!-- =============== MARQUEE CONFIGURATION =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Summary Marquee"
         a:iconSpaceReserved="false">
 
@@ -38,9 +38,9 @@
             a:summaryMarqueeRepeatLimit="1"
             a:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Title Marquee"
         a:iconSpaceReserved="false">
 
@@ -62,7 +62,7 @@
             a:titleMarqueeRepeatLimit="5"
             a:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
 </PreferenceScreen>
 

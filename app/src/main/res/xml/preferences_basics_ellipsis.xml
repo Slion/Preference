@@ -4,7 +4,7 @@
 
     <!-- =============== SUMMARY ELLIPSIS TESTS =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Summary Ellipsis Modes"
         a:iconSpaceReserved="false">
 
@@ -54,11 +54,11 @@
             a:summaryMarqueeRepeatLimit="-1"
             a:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
     <!-- =============== TITLE ELLIPSIS TESTS =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Title Ellipsis Modes"
         a:iconSpaceReserved="false">
 
@@ -103,7 +103,7 @@
             a:titleMarqueeRepeatLimit="-1"
             a:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
 </PreferenceScreen>
 

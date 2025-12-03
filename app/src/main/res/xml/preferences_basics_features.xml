@@ -4,7 +4,7 @@
 
     <!-- =============== SPECIAL FEATURES =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Special Features"
         a:iconSpaceReserved="false">
 
@@ -65,7 +65,7 @@
             a:swapTitleSummary="false"
             a:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
 </PreferenceScreen>
 

@@ -37,7 +37,7 @@ For cleaner and more concise XML preference files, you can use shorter namespace
 <PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
     xmlns:x="http://schemas.android.com/apk/res-auto">
     
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Settings"
         x:iconSpaceReserved="false">
         
@@ -47,7 +47,7 @@ For cleaner and more concise XML preference files, you can use shorter namespace
             a:summary="Configure something"
             x:iconSpaceReserved="false" />
             
-    </PreferenceCategory>
+    </x.PreferenceCategory>
     
 </PreferenceScreen>
 ```

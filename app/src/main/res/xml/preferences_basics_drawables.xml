@@ -4,7 +4,7 @@
 
     <!-- =============== TITLE DRAWABLES =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Title Drawables"
         a:iconSpaceReserved="false">
 
@@ -139,7 +139,7 @@
             a:titleDrawablePadding="0dp"
             a:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
 </PreferenceScreen>
 

@@ -4,7 +4,7 @@
 
     <!-- =============== TITLE & SUMMARY COMBINATIONS =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Title &amp; Summary Combinations"
         a:iconSpaceReserved="false">
 
@@ -49,7 +49,7 @@
             a:summary="Summary with Icon, No Title"
             a:icon="@drawable/ic_sliders_outline" />
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
 </PreferenceScreen>
 

@@ -4,7 +4,7 @@
 
     <!-- =============== TEXT BEHAVIOR =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Text Behavior"
         x:iconSpaceReserved="false">
 
@@ -60,11 +60,11 @@
                 a:value="@string/fragment_basics_modes_title" />
         </Preference>
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
     <!-- =============== VISUAL ELEMENTS =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Visual Elements"
         x:iconSpaceReserved="false">
 
@@ -107,11 +107,11 @@
                 a:value="@string/fragment_basics_colors_title" />
         </Preference>
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
     <!-- =============== ADVANCED FEATURES =============== -->
 
-    <PreferenceCategory
+    <x.PreferenceCategory
         a:title="Advanced Features"
         x:iconSpaceReserved="false">
 
@@ -141,7 +141,7 @@
                 a:value="@string/fragment_basics_features_title" />
         </Preference>
 
-    </PreferenceCategory>
+    </x.PreferenceCategory>
 
 </PreferenceScreen>
 
