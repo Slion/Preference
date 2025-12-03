@@ -1,5 +1,5 @@
 
-package slions.pref
+package x
 
 
 import android.annotation.SuppressLint
@@ -35,14 +35,14 @@ abstract class PreferenceActivityBase : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         Timber.d("onCreate")
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
+        setContentView(x.R.layout.activity_settings)
 
         responsive = ResponsiveSettingsFragment()
 
         // That could be useful at some point
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.settings, responsive)
+            .replace(x.R.id.settings, responsive)
             .runOnCommit {
                 responsive.childFragmentManager.addOnBackStackChangedListener {
                     // Triggers when a sub menu is opened, portrait and Landscape settings for instance
@@ -53,7 +53,7 @@ abstract class PreferenceActivityBase : AppCompatActivity() {
 
         // Set our toolbar as action bar so that our title is displayed
         // See: https://stackoverflow.com/questions/27665018/what-is-the-difference-between-action-bar-and-newly-introduced-toolbar
-        setSupportActionBar(findViewById(R.id.settings_toolbar))
+        setSupportActionBar(findViewById(x.R.id.settings_toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         //supportActionBar?.setDisplayShowTitleEnabled(true)
 
@@ -148,7 +148,7 @@ abstract class PreferenceActivityBase : AppCompatActivity() {
         } else if (responsive.childFragmentManager.fragments.isNotEmpty() && responsive.slidingPaneLayout.isOpen && !responsive.slidingPaneLayout.isSlideable) {
             responsive.childFragmentManager.fragments.first()
         } else {
-            supportFragmentManager.findFragmentById(R.id.settings)
+            supportFragmentManager.findFragmentById(x.R.id.settings)
         }
 
     }

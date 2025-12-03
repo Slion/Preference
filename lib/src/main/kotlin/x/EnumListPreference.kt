@@ -20,13 +20,13 @@
  * All Rights Reserved.
  */
 
-package slions.pref
+package x
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.preference.ListPreference
 import timber.log.Timber
 import android.content.SharedPreferences
+import androidx.preference.ListPreference
 
 /**
  * [EnumListPreference] makes it easier to setup a [ListPreference] from an enum class.
@@ -52,9 +52,9 @@ class EnumListPreference (context: Context, attrs: AttributeSet) : ListPreferenc
 
     init {
         // Get attributes from XML
-        val attributes = context.obtainStyledAttributes(attrs, R.styleable.EnumListPreference)
+        val attributes = context.obtainStyledAttributes(attrs, x.R.styleable.EnumListPreference)
         attributes.let {
-            enumClassName = it.getString(R.styleable.EnumListPreference_enumClassName).toString()
+            enumClassName = it.getString(x.R.styleable.EnumListPreference_enumClassName).toString()
             it.recycle()
             Timber.d(enumClassName)
         }

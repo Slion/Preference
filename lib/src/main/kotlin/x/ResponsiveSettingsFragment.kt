@@ -1,4 +1,4 @@
-package slions.pref
+package x
 
 
 import android.annotation.SuppressLint
@@ -11,6 +11,7 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceHeaderFragmentCompat
 import slions.ihs
 import timber.log.Timber
+import x.BasicPreference
 
 
 /**
@@ -148,10 +149,10 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
 
             childFragmentManager.commit {
                 setReorderingAllowed(true)
-                setCustomAnimations(R.anim.slide_in_from_right,
-                    R.anim.slide_out_to_left,
-                    R.anim.slide_in_from_left,
-                    R.anim.slide_out_to_right)
+                setCustomAnimations(x.R.anim.slide_in_from_right,
+                    x.R.anim.slide_out_to_left,
+                    x.R.anim.slide_in_from_left,
+                    x.R.anim.slide_out_to_right)
                 replace(androidx.preference.R.id.preferences_detail, frag)
                 addToBackStack(null)
             }
@@ -196,10 +197,10 @@ class ResponsiveSettingsFragment : PreferenceHeaderFragmentCompat() {
             // The opening of the pane itself is the animation
             if (slidingPaneLayout.isOpen) {
                 // Define animations when opening settings from our root left pane
-                setCustomAnimations(R.anim.slide_in_from_right,
-                    R.anim.slide_out_to_left,
-                    R.anim.slide_in_from_left,
-                    R.anim.slide_out_to_right)
+                setCustomAnimations(x.R.anim.slide_in_from_right,
+                    x.R.anim.slide_out_to_left,
+                    x.R.anim.slide_in_from_left,
+                    x.R.anim.slide_out_to_right)
             }
             replace(androidx.preference.R.id.preferences_detail, fragment!!)
             slidingPaneLayout.openPane()

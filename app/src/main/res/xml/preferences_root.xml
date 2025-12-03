@@ -1,8 +1,8 @@
 <PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
     xmlns:x="http://schemas.android.com/apk/res-auto">
 
-    <slions.pref.BasicPreference
-        x:fragment="slions.pref.PreferenceFragmentExtra"
+    <x.BasicPreference
+        x:fragment="x.PreferenceFragmentExtra"
         x:icon="@drawable/ic_short_text_outline"
         x:title="@string/fragment_basics_title">
         <extra
@@ -11,14 +11,14 @@
         <extra
             a:name="title"
             a:value="@string/fragment_basics_title" />
-    </slions.pref.BasicPreference>
+    </x.BasicPreference>
 
-    <slions.pref.BasicPreference
+    <x.BasicPreference
         x:fragment="slions.pref.demo.PreferenceFragmentSwitches"
         x:icon="@drawable/ic_check_circle_outline"
         x:title="@string/fragment_switches_title" />
 
-    <slions.pref.BasicPreference
+    <x.BasicPreference
         x:fragment="slions.pref.demo.PreferenceFragmentSliders"
         x:icon="@drawable/ic_sliders_outline"
         x:title="@string/fragment_sliders_title" />
@@ -29,7 +29,7 @@
         a:key="messages_header"
         x:title="@string/messages_header" />
 
-    <slions.pref.BasicPreference
+    <x.BasicPreference
         x:fragment="slions.pref.demo.PreferenceFragmentSync"
         x:icon="@drawable/sync"
         a:key="sync_header"

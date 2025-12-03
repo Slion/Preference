@@ -8,21 +8,21 @@
         a:title="Title Drawables"
         a:iconSpaceReserved="false">
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_start"
             a:title="Drawable at Start"
             a:summary="Title has a drawable at the start (left in LTR)"
             a:titleDrawableStart="@drawable/ic_check_circle_outline"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_end"
             a:title="Drawable at End"
             a:summary="Title has a drawable at the end (right in LTR)"
             a:titleDrawableEnd="@drawable/ic_sliders_outline"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_start_end"
             a:title="Drawables at Both Ends"
             a:summary="Title has drawables at both start and end"
@@ -30,21 +30,21 @@
             a:titleDrawableEnd="@drawable/ic_sliders_outline"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_top"
             a:title="Top Drawable"
             a:summary="Title has a drawable at the top"
             a:titleDrawableTop="@drawable/ic_check_circle_outline"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_bottom"
             a:title="Bottom Drawable"
             a:summary="Title has a drawable at the bottom"
             a:titleDrawableBottom="@drawable/ic_sliders_outline"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_all"
             a:title="All Drawables"
             a:summary="Title has drawables on all four sides"
@@ -54,7 +54,7 @@
             a:titleDrawableBottom="@drawable/sync"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_multiline"
             a:title="Multi-line Title with Start Drawable that spans multiple lines to demonstrate how drawables work with longer titles"
             a:summary="Multi-line title with drawable at start"
@@ -62,14 +62,14 @@
             a:titleDrawableStart="@drawable/ic_check_circle_outline"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_no_summary"
             a:title="Title with Drawable, No Summary"
             a:titleDrawableStart="@drawable/ic_check_circle_outline"
             a:titleDrawableEnd="@drawable/ic_sliders_outline"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_ellipsize"
             a:title="Long Title with Drawable that will be truncated with ellipsis at the end when it's too long"
             a:summary="Single-line title with drawable and ellipsis"
@@ -78,7 +78,7 @@
             a:titleDrawableStart="@drawable/ic_short_text_outline"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_marquee"
             a:title="Long Scrolling Title with Drawable at Start using marquee effect to scroll continuously"
             a:summary="Title with marquee and drawable"
@@ -88,7 +88,7 @@
             a:titleDrawableStart="@drawable/ic_check_circle_outline"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_selectable"
             a:title="Selectable Title with Drawable"
             a:summary="Long press the title to select and copy text"
@@ -97,14 +97,14 @@
             a:titleDrawableEnd="@drawable/sync"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_with_icon"
             a:title="Title Drawable with Preference Icon"
             a:summary="Combines preference icon with title drawables"
             a:icon="@drawable/ic_sliders_outline"
             a:titleDrawableStart="@drawable/ic_check_circle_outline" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_no_icon_space"
             a:title="Title Drawable, No Icon Space"
             a:summary="Title drawable without reserving icon space"
@@ -112,7 +112,7 @@
             a:titleDrawableStart="@drawable/ic_short_text_outline"
             a:titleDrawableEnd="@drawable/sync" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_custom_padding_16dp"
             a:title="Custom Padding 16dp"
             a:summary="Title drawable with 16dp padding (default is 8dp)"
@@ -121,7 +121,7 @@
             a:titleDrawablePadding="16dp"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_custom_padding_4dp"
             a:title="Custom Padding 4dp"
             a:summary="Title drawable with reduced 4dp padding"
@@ -130,7 +130,7 @@
             a:titleDrawablePadding="4dp"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_drawable_no_padding"
             a:title="No Padding (0dp)"
             a:summary="Title drawable with no padding between drawable and text"

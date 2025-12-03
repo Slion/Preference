@@ -1,5 +1,5 @@
 
-package slions.pref
+package x
 
 import android.annotation.SuppressLint
 import com.google.android.material.R as MR
@@ -64,7 +64,7 @@ import java.util.*
  * max`)
  * can be set directly on the preference widget layout.
  */
-class SliderPreference @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = R.attr.sliderPreferenceStyle, defStyleRes: Int = 0) :
+class SliderPreference @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = x.R.attr.sliderPreferenceStyle, defStyleRes: Int = 0) :
     Preference(context, attrs, defStyleAttr, defStyleRes) {
 
     var mSeekBarValue = 0F
@@ -171,9 +171,9 @@ class SliderPreference @JvmOverloads constructor(context: Context, attrs: Attrib
     override fun onBindViewHolder(view: PreferenceViewHolder) {
         super.onBindViewHolder(view)
         view.itemView.setOnKeyListener(mSeekBarKeyListener)
-        mSlider = view.findViewById(R.id.slider) as Slider
+        mSlider = view.findViewById(x.R.id.slider) as Slider
 
-        mSeekBarValueTextView = view.findViewById(R.id.seekbar_value) as TextView
+        mSeekBarValueTextView = view.findViewById(x.R.id.seekbar_value) as TextView
         val tv = mSeekBarValueTextView!!
 
         if (mShowSeekBarValue) {
@@ -537,9 +537,9 @@ class SliderPreference @JvmOverloads constructor(context: Context, attrs: Attrib
         }
 
         // Get SliderPreference attributes from XML
-        val sliderPrefAttributes = context.obtainStyledAttributes(attrs, R.styleable.SliderPreference, defStyleAttr, defStyleRes)
+        val sliderPrefAttributes = context.obtainStyledAttributes(attrs, x.R.styleable.SliderPreference, defStyleAttr, defStyleRes)
         sliderPrefAttributes.let {
-            val format = it.getString(R.styleable.SliderPreference_format)
+            val format = it.getString(x.R.styleable.SliderPreference_format)
             if (format!=null) {
                 // Create a formatter using format provided in settings
                 formatter = MostBasicLabelFormatter(format);

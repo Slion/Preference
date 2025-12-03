@@ -8,7 +8,7 @@
         a:title="Text Modes"
         a:iconSpaceReserved="false">
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="mode_normal"
             a:title="Normal Mode (Default)"
             a:summary="Default mode with ellipsis truncation when text is too long"
@@ -17,7 +17,7 @@
             a:summaryMode="normal"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="mode_scrollable_single"
             a:title="Scrollable Mode - Single Line"
             a:summary="This is a very long single line that you can scroll horizontally by swiping left and right"
@@ -26,7 +26,7 @@
             a:summaryMode="scrollable"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="mode_scrollable_multi"
             a:title="Scrollable Mode - Multi Line"
             a:summary="Line 1: Multi-line scrollable text.\nLine 2: You can scroll vertically.\nLine 3: Swipe up and down.\nLine 4: More content here.\nLine 5: Keep scrolling.\nLine 6: Almost there.\nLine 7: One more line.\nLine 8: End of content."
@@ -35,7 +35,7 @@
             a:summaryMode="scrollable"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="mode_selectable_single"
             a:title="Selectable Mode - Single Line"
             a:summary="Single line selectable text - long press to select and copy (also horizontally scrollable)"
@@ -44,7 +44,7 @@
             a:summaryMode="selectable"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="mode_selectable_multi"
             a:title="Selectable Mode - Multi Line"
             a:summary="Multi-line selectable text.\nLong press to select and copy. Also scrollable vertically.\nLine 3: Swipe up and down.\nLine 4: More content here.\nLine 5: Keep scrolling.\nLine 6: Almost there.\nLine 7: One more line.\nLine 8: End of content."            a:isSingleLineSummary="false"
@@ -52,7 +52,7 @@
             a:summaryMode="selectable"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="mode_both_selectable"
             a:title="This title is selectable - long press to select"
             a:summary="Both title and summary in selectable mode (also scrollable)"

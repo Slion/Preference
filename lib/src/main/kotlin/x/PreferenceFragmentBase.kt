@@ -1,4 +1,4 @@
-package slions.pref
+package x
 
 import android.content.Context
 import android.os.Bundle
@@ -24,7 +24,7 @@ abstract class PreferenceFragmentBase : PreferenceFragmentCompat() {
         var theme = tv.resourceId
         if (theme == 0) {
             // Fallback to default theme.
-            theme = R.style.PreferenceThemeOverlay_Slions
+            theme = x.R.style.PreferenceThemeOverlay_Slions
         }
 
         requireContext().theme.applyStyle(theme, false)

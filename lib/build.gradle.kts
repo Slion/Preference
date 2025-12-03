@@ -10,7 +10,7 @@ val libVersion = "0.2.0"
 
 android {
     // Notably define R class namespace
-    namespace = "slions.pref"
+    namespace = "x"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

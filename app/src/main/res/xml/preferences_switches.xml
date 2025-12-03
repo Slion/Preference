@@ -2,21 +2,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:a="http://schemas.android.com/apk/res-auto">
 
-    <slions.pref.SwitchPreference
+    <x.SwitchPreference
         a:icon="@drawable/ic_check_circle_outline"
         a:key="switch_demo"
         a:title="With summary"
         a:summaryOn="That switch is on"
         a:summaryOff="That switch is off"/>
 
-    <slions.pref.SwitchPreference
+    <x.SwitchPreference
         a:title="With summary no icon"
         a:summaryOn="That switch is on"
         a:summaryOff="That switch is off"
         a:iconSpaceReserved="false"
         />
 
-    <slions.pref.SwitchPreference
+    <x.SwitchPreference
         a:title="Long single line title should be truncated"
         a:summaryOn="That switch is on"
         a:summaryOff="That switch is off"
@@ -24,13 +24,13 @@
         a:singleLineTitle="true"
         />
 
-    <slions.pref.SwitchPreference
+    <x.SwitchPreference
         a:iconSpaceReserved="true"
         a:title="No summary"
         />
 
 
-    <slions.pref.SwitchPreference
+    <x.SwitchPreference
         a:iconSpaceReserved="false"
         a:title="Master switch"
         a:key="master_switch"
@@ -38,13 +38,13 @@
         a:summaryOff="Dependencies are disabled"
         />
 
-    <slions.pref.SwitchPreference
+    <x.SwitchPreference
         a:iconSpaceReserved="false"
         a:title="Depends on the above"
         a:dependency="master_switch"
         />
 
-    <slions.pref.SwitchPreference
+    <x.SwitchPreference
         a:iconSpaceReserved="false"
         a:title="Master switch reverse"
         a:key="master_switch_reverse"
@@ -53,7 +53,7 @@
         a:summaryOff="Dependencies are enabled"
         />
 
-    <slions.pref.SwitchPreference
+    <x.SwitchPreference
         a:iconSpaceReserved="false"
         a:title="Depends on the above"
         a:dependency="master_switch_reverse"

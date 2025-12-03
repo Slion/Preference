@@ -14,7 +14,7 @@ dependencies {
 
 ## Usage
 
-Make sure your preference fragments are derived from `slions.pref.PreferenceFragmentBase`.
+Make sure your preference fragments are derived from `x.PreferenceFragmentBase`.
 This will notably take care of using a compatible `preferenceTheme` if none was specified in your theme styles. Failing to do so or using an incompatible `preferenceTheme` can lead to crashes.
 
 ### XML Namespace Aliases
@@ -65,7 +65,7 @@ Instead of creating a dedicated fragment class for each preference screen, you c
     a:key="my_settings"
     a:title="My Settings"
     a:summary="Configure my settings"
-    a:fragment="slions.pref.PreferenceFragmentExtra"
+    a:fragment="x.PreferenceFragmentExtra"
     x:iconSpaceReserved="false">
     <extra
         a:name="screen"
@@ -114,6 +114,49 @@ You can define your own `preferenceTheme` attribute in your theme styles. Like s
 ## Features
 
 Run and explore the demo application and code documentation for more information.
+
+### Package Naming
+
+All custom preference classes in this library use the package name `x` for maximum brevity in XML declarations. This unconventional choice is intentional and serves a specific purpose.
+
+**Why `x`?**
+
+Preference XML files can become verbose and difficult to read when using full package paths. By using the single-letter package name `x`, we achieve:
+
+- **Conciseness:** `<x.BasicPreference>` vs `<net.slions.android.preference.BasicPreference>`
+- **Readability:** Less visual clutter in your XML files
+- **Consistency:** Matches our namespace alias convention (`xmlns:x="http://schemas.android.com/apk/res-auto"`)
+
+**XML Usage:**
+
+```xml
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
+    xmlns:x="http://schemas.android.com/apk/res-auto">
+    
+    <x.BasicPreference
+        a:key="my_basic_pref"
+        a:title="Basic Preference"
+        x:iconSpaceReserved="false" />
+        
+    <x.EnumListPreference
+        a:key="my_enum_pref"
+        a:title="Enum Preference" />
+        
+    <x.SliderPreference
+        a:key="my_slider_pref"
+        a:title="Slider Preference" />
+        
+</PreferenceScreen>
+```
+
+**Available Classes:**
+
+All custom preference classes can be referenced using the `x.` prefix:
+- `x.BasicPreference`
+- `x.EnumListPreference`
+- `x.SliderPreference`
+- `x.PreferenceFragmentBase`
+- `x.PreferenceFragmentExtra`
 
 ### BasicPreference
 

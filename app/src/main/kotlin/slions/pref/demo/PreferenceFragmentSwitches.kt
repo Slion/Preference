@@ -1,7 +1,7 @@
 package slions.pref.demo
 
 import android.os.Bundle
-import slions.pref.PreferenceFragmentBase
+import x.PreferenceFragmentBase
 
 class PreferenceFragmentSwitches : PreferenceFragmentBase() {
 

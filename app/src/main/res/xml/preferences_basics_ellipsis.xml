@@ -8,7 +8,7 @@
         a:title="Summary Ellipsis Modes"
         a:iconSpaceReserved="false">
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="summary_ellipsize_end"
             a:title="Summary: Ellipsis at End"
             a:summary="This is a single line summary that will be truncated with ellipsis at the end if the text is too long to fit on screen"
@@ -17,7 +17,7 @@
             a:summaryEllipsize="end"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="summary_ellipsize_start"
             a:title="Summary: Ellipsis at Start"
             a:summary="This is a single line summary that will be truncated with ellipsis at the start if too long to fit on screen"
@@ -26,7 +26,7 @@
             a:summaryEllipsize="start"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="summary_ellipsize_middle"
             a:title="Summary: Ellipsis in Middle"
             a:summary="This is a single line summary that will be truncated with ellipsis in the middle if too long to fit on screen"
@@ -35,7 +35,7 @@
             a:summaryEllipsize="middle"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="summary_ellipsize_none"
             a:title="Summary: No Ellipsis"
             a:summary="This is a single line summary with no ellipsis, text will just be cut off without indication when too long"
@@ -44,7 +44,7 @@
             a:summaryEllipsize="none"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="summary_ellipsize_marquee"
             a:title="Summary: Marquee Scrolling"
             a:summary="This is a single line summary with marquee effect that will scroll continuously if the text is too long to fit on screen"
@@ -62,7 +62,7 @@
         a:title="Title Ellipsis Modes"
         a:iconSpaceReserved="false">
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_ellipsize_end"
             a:title="This is a very long title that will be truncated with ellipsis at the end if it's too long to fit"
             a:summary="Title: Ellipsis at End"
@@ -70,7 +70,7 @@
             a:titleEllipsize="end"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_ellipsize_start"
             a:title="This is a very long title that will be truncated with ellipsis at the start if it's too long to fit"
             a:summary="Title: Ellipsis at Start"
@@ -78,7 +78,7 @@
             a:titleEllipsize="start"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_ellipsize_middle"
             a:title="This is a very long title that will be truncated with ellipsis in the middle if it's too long to fit"
             a:summary="Title: Ellipsis in Middle"
@@ -86,7 +86,7 @@
             a:titleEllipsize="middle"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_ellipsize_none"
             a:title="This is a very long title with no ellipsis that will just be cut off without indication when too long"
             a:summary="Title: No Ellipsis"
@@ -94,7 +94,7 @@
             a:titleEllipsize="none"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_ellipsize_marquee"
             a:title="This is a very long title that will scroll with marquee effect continuously across the screen when too long"
             a:summary="Title: Marquee Scrolling"

@@ -1,7 +1,7 @@
 package slions.pref.demo
 
-import slions.pref.PreferenceActivityBase
-import slions.pref.PreferenceFragmentBase
+import x.PreferenceActivityBase
+import x.PreferenceFragmentBase
 
 
 /**

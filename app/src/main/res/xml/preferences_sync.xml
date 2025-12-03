@@ -1,10 +1,10 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <slions.pref.SwitchPreference
+    <x.SwitchPreference
         app:key="sync"
         app:title="@string/sync_title" />
 
-    <slions.pref.SwitchPreference
+    <x.SwitchPreference
         app:dependency="sync"
         app:key="attachment"
         app:summaryOff="@string/attachment_summary_off"

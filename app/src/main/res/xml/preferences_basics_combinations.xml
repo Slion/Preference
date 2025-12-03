@@ -8,30 +8,30 @@
         a:title="Title &amp; Summary Combinations"
         a:iconSpaceReserved="false">
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="both_title_summary"
             a:title="With Both Title and Summary"
             a:summary="This preference has both a title and a summary text"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_only"
             a:title="Title Only - No Summary"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="summary_only"
             a:summary="Summary Only - No Title"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_multiline_no_summary"
             a:title="Multi-line Title without Summary: This is a long title that spans multiple lines to demonstrate how titles work when there is no summary text"
             a:titleMaxLines="3"
             a:titleEllipsize="end"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="summary_multiline_no_title"
             a:summary="Multi-line Summary without Title: This is a long summary that spans multiple lines to demonstrate how summaries work when there is no title text provided"
             a:isSingleLineSummary="false"
@@ -39,12 +39,12 @@
             a:summaryEllipsize="end"
             a:iconSpaceReserved="false" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="title_with_icon_no_summary"
             a:title="Title with Icon, No Summary"
             a:icon="@drawable/ic_check_circle_outline" />
 
-        <slions.pref.BasicPreference
+        <x.BasicPreference
             a:key="summary_with_icon_no_title"
             a:summary="Summary with Icon, No Title"
             a:icon="@drawable/ic_sliders_outline" />

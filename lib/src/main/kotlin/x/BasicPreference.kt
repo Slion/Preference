@@ -3,7 +3,7 @@
  * All Rights Reserved.
  */
 
-package slions.pref
+package x
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -47,20 +47,20 @@ class BasicPreference :
     @SuppressLint("RestrictedApi")
     fun construct(ctx: Context, attrs: AttributeSet?) {
         //Timber.d("construct")
-        val a = context.obtainStyledAttributes(attrs, R.styleable.BasicPreference)
-        breadcrumb = TypedArrayUtils.getText(a, R.styleable.BasicPreference_breadcrumb,0) ?: ""
-        displayedTitle = TypedArrayUtils.getText(a, R.styleable.BasicPreference_displayedTitle,0) ?: ""
-        swapTitleSummary = a.getBoolean(R.styleable.BasicPreference_swapTitleSummary, false)
-        isSingleLineSummary = a.getBoolean(R.styleable.BasicPreference_isSingleLineSummary, false)
-        summaryMaxLines = a.getInt(R.styleable.BasicPreference_summaryMaxLines, 100)
-        titleMaxLines = a.getInt(R.styleable.BasicPreference_titleMaxLines, 1)
+        val a = context.obtainStyledAttributes(attrs, x.R.styleable.BasicPreference)
+        breadcrumb = TypedArrayUtils.getText(a, x.R.styleable.BasicPreference_breadcrumb,0) ?: ""
+        displayedTitle = TypedArrayUtils.getText(a, x.R.styleable.BasicPreference_displayedTitle,0) ?: ""
+        swapTitleSummary = a.getBoolean(x.R.styleable.BasicPreference_swapTitleSummary, false)
+        isSingleLineSummary = a.getBoolean(x.R.styleable.BasicPreference_isSingleLineSummary, false)
+        summaryMaxLines = a.getInt(x.R.styleable.BasicPreference_summaryMaxLines, 100)
+        titleMaxLines = a.getInt(x.R.styleable.BasicPreference_titleMaxLines, 1)
 
         // Get marquee repeat limits (-1 = infinite)
-        summaryMarqueeRepeatLimit = a.getInt(R.styleable.BasicPreference_summaryMarqueeRepeatLimit, -1)
-        titleMarqueeRepeatLimit = a.getInt(R.styleable.BasicPreference_titleMarqueeRepeatLimit, -1)
+        summaryMarqueeRepeatLimit = a.getInt(x.R.styleable.BasicPreference_summaryMarqueeRepeatLimit, -1)
+        titleMarqueeRepeatLimit = a.getInt(x.R.styleable.BasicPreference_titleMarqueeRepeatLimit, -1)
 
         // Get mode attributes and set corresponding flags
-        val summaryModeValue = a.getInt(R.styleable.BasicPreference_summaryMode, MODE_NORMAL)
+        val summaryModeValue = a.getInt(x.R.styleable.BasicPreference_summaryMode, MODE_NORMAL)
         when (summaryModeValue) {
             MODE_SCROLLABLE -> {
                 summaryScrollable = true
@@ -78,7 +78,7 @@ class BasicPreference :
             }
         }
 
-        val titleModeValue = a.getInt(R.styleable.BasicPreference_titleMode, MODE_NORMAL)
+        val titleModeValue = a.getInt(x.R.styleable.BasicPreference_titleMode, MODE_NORMAL)
         when (titleModeValue) {
             MODE_SCROLLABLE -> {
                 titleScrollable = true
@@ -101,7 +101,7 @@ class BasicPreference :
         if (summaryScrollable || summaryTextSelectable) {
             summaryEllipsize = null
         } else {
-            val summaryEllipsizeValue = a.getInt(R.styleable.BasicPreference_summaryEllipsize, 0)
+            val summaryEllipsizeValue = a.getInt(x.R.styleable.BasicPreference_summaryEllipsize, 0)
             summaryEllipsize = when (summaryEllipsizeValue) {
                 1 -> TextUtils.TruncateAt.START
                 2 -> TextUtils.TruncateAt.MIDDLE
@@ -114,7 +114,7 @@ class BasicPreference :
         if (titleScrollable || titleTextSelectable) {
             titleEllipsize = null
         } else {
-            val titleEllipsizeValue = a.getInt(R.styleable.BasicPreference_titleEllipsize, 0)
+            val titleEllipsizeValue = a.getInt(x.R.styleable.BasicPreference_titleEllipsize, 0)
             titleEllipsize = when (titleEllipsizeValue) {
                 1 -> TextUtils.TruncateAt.START
                 2 -> TextUtils.TruncateAt.MIDDLE
@@ -125,16 +125,16 @@ class BasicPreference :
         }
 
         // Get title drawables
-        titleDrawableStart = a.getResourceId(R.styleable.BasicPreference_titleDrawableStart, 0)
-        titleDrawableEnd = a.getResourceId(R.styleable.BasicPreference_titleDrawableEnd, 0)
-        titleDrawableTop = a.getResourceId(R.styleable.BasicPreference_titleDrawableTop, 0)
-        titleDrawableBottom = a.getResourceId(R.styleable.BasicPreference_titleDrawableBottom, 0)
+        titleDrawableStart = a.getResourceId(x.R.styleable.BasicPreference_titleDrawableStart, 0)
+        titleDrawableEnd = a.getResourceId(x.R.styleable.BasicPreference_titleDrawableEnd, 0)
+        titleDrawableTop = a.getResourceId(x.R.styleable.BasicPreference_titleDrawableTop, 0)
+        titleDrawableBottom = a.getResourceId(x.R.styleable.BasicPreference_titleDrawableBottom, 0)
 
         // Get title drawable padding (default 8dp)
-        titleDrawablePadding = a.getDimensionPixelSize(R.styleable.BasicPreference_titleDrawablePadding, titleDrawablePadding)
+        titleDrawablePadding = a.getDimensionPixelSize(x.R.styleable.BasicPreference_titleDrawablePadding, titleDrawablePadding)
 
         // Get title text color (0 means not set, use theme default)
-        titleTextColor = a.getColor(R.styleable.BasicPreference_titleTextColor, 0)
+        titleTextColor = a.getColor(x.R.styleable.BasicPreference_titleTextColor, 0)
 
         a.recycle()
         if (breadcrumb.isEmpty()) {
