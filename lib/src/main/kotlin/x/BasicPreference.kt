@@ -51,7 +51,7 @@ class BasicPreference :
         breadcrumb = TypedArrayUtils.getText(a, x.R.styleable.BasicPreference_breadcrumb,0) ?: ""
         displayedTitle = TypedArrayUtils.getText(a, x.R.styleable.BasicPreference_displayedTitle,0) ?: ""
         swapTitleSummary = a.getBoolean(x.R.styleable.BasicPreference_swapTitleSummary, false)
-        isSingleLineSummary = a.getBoolean(x.R.styleable.BasicPreference_isSingleLineSummary, false)
+        isSingleLineSummary = a.getBoolean(x.R.styleable.BasicPreference_singleLineSummary, false)
         summaryMaxLines = a.getInt(x.R.styleable.BasicPreference_summaryMaxLines, 100)
         titleMaxLines = a.getInt(x.R.styleable.BasicPreference_titleMaxLines, 1)
 

@@ -35,7 +35,7 @@
             a:title="Icon with Multi-line Summary"
             a:summary="This preference has an icon and a multi-line summary. This demonstrates how icons work with longer text that wraps to multiple lines in the summary area."
             a:icon="@drawable/ic_sliders_outline"
-            a:isSingleLineSummary="false"
+            a:singleLineSummary="false"
             a:summaryMaxLines="3"
             a:summaryEllipsize="end" />
 
@@ -44,7 +44,7 @@
             a:title="No Icon Space, Multi-line"
             a:summary="No icon space reserved with multi-line summary. This demonstrates full width text usage when icon space is not reserved, allowing more content to be displayed."
             a:iconSpaceReserved="false"
-            a:isSingleLineSummary="false"
+            a:singleLineSummary="false"
             a:summaryMaxLines="3"
             a:summaryEllipsize="end" />
 

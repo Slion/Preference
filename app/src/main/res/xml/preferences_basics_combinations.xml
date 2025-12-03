@@ -34,7 +34,7 @@
         <x.BasicPreference
             a:key="summary_multiline_no_title"
             a:summary="Multi-line Summary without Title: This is a long summary that spans multiple lines to demonstrate how summaries work when there is no title text provided"
-            a:isSingleLineSummary="false"
+            a:singleLineSummary="false"
             a:summaryMaxLines="3"
             a:summaryEllipsize="end"
             a:iconSpaceReserved="false" />

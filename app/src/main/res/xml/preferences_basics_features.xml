@@ -57,7 +57,7 @@
             a:summary="This is a comprehensive example showing all available properties working together: displayedTitle, multi-line summary, custom max lines, breadcrumb, and more features."
             a:displayedTitle="Custom Display Title"
             a:breadcrumb="Settings > Basics > Examples"
-            a:isSingleLineSummary="false"
+            a:singleLineSummary="false"
             a:summaryMaxLines="4"
             a:titleMaxLines="2"
             a:summaryEllipsize="end"

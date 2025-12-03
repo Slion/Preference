@@ -23,6 +23,11 @@
         x:icon="@drawable/ic_sliders_outline"
         x:title="@string/fragment_sliders_title" />
 
+    <x.BasicPreference
+        x:fragment="slions.pref.demo.PreferenceFragmentCategories"
+        x:icon="@drawable/ic_short_text_outline"
+        x:title="@string/fragment_categories_title" />
+
     <Preference
         x:fragment="slions.pref.demo.PreferenceFragmentMessages"
         x:icon="@drawable/messages"

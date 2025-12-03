@@ -12,7 +12,7 @@
             a:key="summary_max_lines_1"
             a:title="Summary Max Lines: 1"
             a:summary="This is a single line summary that will be truncated with ellipsis at the end if the text is too long to fit on screen"
-            a:isSingleLineSummary="true"
+            a:singleLineSummary="true"
             a:summaryMaxLines="1"
             a:summaryEllipsize="end"
             a:iconSpaceReserved="false" />
@@ -21,7 +21,7 @@
             a:key="summary_max_lines_2"
             a:title="Summary Max Lines: 2"
             a:summary="This is a two line summary example that demonstrates text wrapping with ellipsis applied at the end of the second line when text exceeds available space"
-            a:isSingleLineSummary="false"
+            a:singleLineSummary="false"
             a:summaryMaxLines="2"
             a:summaryEllipsize="end"
             a:iconSpaceReserved="false" />
@@ -30,7 +30,7 @@
             a:key="summary_max_lines_3"
             a:title="Summary Max Lines: 3"
             a:summary="This is a three line summary example. This demonstrates how to display multiple lines of text in the summary area. It can wrap to show more detailed information to the user with proper ellipsis at the end."
-            a:isSingleLineSummary="false"
+            a:singleLineSummary="false"
             a:summaryMaxLines="3"
             a:summaryEllipsize="end"
             a:iconSpaceReserved="false" />
@@ -39,7 +39,7 @@
             a:key="summary_max_lines_4"
             a:title="Summary Max Lines: 4"
             a:summary="Line one of this extended summary text. Line two continues with more information about this preference item. Line three adds even more details for demonstration purposes. Line four concludes this multi-line example with final remarks and ellipsis at the end."
-            a:isSingleLineSummary="false"
+            a:singleLineSummary="false"
             a:summaryMaxLines="4"
             a:summaryEllipsize="end"
             a:iconSpaceReserved="false" />

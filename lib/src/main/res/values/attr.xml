@@ -12,7 +12,7 @@
         <attr name="swapTitleSummary" format="boolean" />
 
         <!-- If true, summary text will be single line. If false, summary can wrap to multiple lines. -->
-        <attr name="isSingleLineSummary" format="boolean" />
+        <attr name="singleLineSummary" format="boolean" />
 
         <!-- Maximum number of lines for summary text. Default is 100. -->
         <attr name="summaryMaxLines" format="integer" />
@@ -108,6 +108,26 @@
     <declare-styleable name="SwitchPreference">
         <!-- Default style for switch preferences. -->
         <attr name="switchPreferenceStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="PreferenceCategory">
+        <!-- If true, summary text will be single line. If false, summary can wrap to multiple lines. Default is false. -->
+        <attr name="singleLineSummary" />
+
+        <!-- Maximum number of lines for summary text. Default is 10. -->
+        <attr name="summaryMaxLines" />
+
+        <!-- If true, summary text will be displayed in all caps. Default is false. -->
+        <attr name="allCapsSummary" format="boolean" />
+
+        <!-- If true, title text will be single line. If false, title can wrap to multiple lines. Default is true. -->
+        <attr name="singleLineTitle" format="boolean" />
+
+        <!-- Maximum number of lines for title text. Default is 1. -->
+        <attr name="titleMaxLines" />
+
+        <!-- If true, title text will be displayed in all caps. Default is true. -->
+        <attr name="allCapsTitle" format="boolean" />
     </declare-styleable>
 
 </resources>

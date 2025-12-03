@@ -50,6 +50,7 @@
     <string name="sync_header">Sync</string>
     <string name="fragment_switches_title">Switches</string>
     <string name="fragment_sliders_title">Sliders</string>
+    <string name="fragment_categories_title">Categories</string>
     <string name="fragment_basics_title">Basics</string>
     <string name="fragment_basics_ellipsis_title">Ellipsis Modes</string>
     <string name="fragment_basics_marquee_title">Marquee Configuration</string>
