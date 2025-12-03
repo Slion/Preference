@@ -134,6 +134,10 @@ class Preference : androidx.preference.Preference {
         // Get title text color (0 means not set, use theme default)
         titleTextColor = a.getColor(x.R.styleable.Preference_titleTextColor, 0)
 
+        // Get all caps options (default: false)
+        isAllCapsTitle = a.getBoolean(x.R.styleable.Preference_allCapsTitle, false)
+        isAllCapsSummary = a.getBoolean(x.R.styleable.Preference_allCapsSummary, false)
+
         a.recycle()
         if (breadcrumb.isEmpty()) {
             breadcrumb = title ?: summary ?: ""
@@ -194,6 +198,12 @@ class Preference : androidx.preference.Preference {
     // Custom text color for title (0 means not set, use theme default)
     var titleTextColor: Int = 0
 
+    // Control all caps for title (default: false)
+    var isAllCapsTitle: Boolean = false
+
+    // Control all caps for summary (default: false)
+    var isAllCapsSummary: Boolean = false
+
     /**
      * Set the title text color from a color resource.
      * @param colorResId Color resource ID (e.g., R.color.my_color)
@@ -241,6 +251,7 @@ class Preference : androidx.preference.Preference {
         summary.isSingleLine = isSingleLineSummary
         summary.maxLines = summaryMaxLines
         summary.ellipsize = summaryEllipsize
+        summary.isAllCaps = isAllCapsSummary
 
         // Enable scrolling for summary if requested
         if (summaryScrollable) {
@@ -268,6 +279,7 @@ class Preference : androidx.preference.Preference {
         // Configure title
         title.maxLines = titleMaxLines
         title.ellipsize = titleEllipsize
+        title.isAllCaps = isAllCapsTitle
 
         // Enable scrolling for title if requested
         if (titleScrollable) {

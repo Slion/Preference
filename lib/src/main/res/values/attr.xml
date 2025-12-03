@@ -91,6 +91,12 @@
 
         <!-- Custom text color for the title. If not set, uses the theme default. -->
         <attr name="titleTextColor" format="color|reference" />
+
+        <!-- If true, title text will be displayed in all caps. Default is false. -->
+        <attr name="allCapsTitle" format="boolean" />
+
+        <!-- If true, summary text will be displayed in all caps. Default is false. -->
+        <attr name="allCapsSummary" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="SliderPreference">
@@ -118,7 +124,7 @@
         <attr name="summaryMaxLines" />
 
         <!-- If true, summary text will be displayed in all caps. Default is false. -->
-        <attr name="allCapsSummary" format="boolean" />
+        <attr name="allCapsSummary" />
 
         <!-- If true, title text will be single line. If false, title can wrap to multiple lines. Default is true. -->
         <attr name="singleLineTitle" format="boolean" />
@@ -127,7 +133,7 @@
         <attr name="titleMaxLines" />
 
         <!-- If true, title text will be displayed in all caps. Default is true. -->
-        <attr name="allCapsTitle" format="boolean" />
+        <attr name="allCapsTitle" />
     </declare-styleable>
 
 </resources>

@@ -59,6 +59,7 @@
     <string name="fragment_basics_icons_title">Icons</string>
     <string name="fragment_basics_drawables_title">Title Drawables</string>
     <string name="fragment_basics_colors_title">Title Text Colors</string>
+    <string name="fragment_basics_allcaps_title">All Caps Options</string>
     <string name="fragment_basics_combinations_title">Title &amp; Summary Combinations</string>
     <string name="fragment_basics_features_title">Special Features</string>
     <string name="pref_title_properties">Properties</string>

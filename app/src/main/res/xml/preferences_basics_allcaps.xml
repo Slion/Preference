@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:a="http://schemas.android.com/apk/res-auto">
+
+    <!-- =============== ALL CAPS TESTS =============== -->
+
+    <x.PreferenceCategory
+        a:title="Preference All Caps"
+        a:iconSpaceReserved="false">
+
+        <x.Preference
+            a:key="allcaps_normal"
+            a:title="Normal Preference"
+            a:summary="Both title and summary in normal case (defaults)"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="allcaps_title"
+            a:title="Title in all caps"
+            a:summary="Only the title is in all caps"
+            a:allCapsTitle="true"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="allcaps_summary"
+            a:title="Summary in all caps"
+            a:summary="Only the summary is in all caps"
+            a:allCapsSummary="true"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="allcaps_both"
+            a:title="Both in all caps"
+            a:summary="Both title and summary are in all caps"
+            a:allCapsTitle="true"
+            a:allCapsSummary="true"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="allcaps_multiline"
+            a:title="Multi-line summary in all caps"
+            a:summary="This is a multi-line summary that will be displayed in all caps. This demonstrates how the all caps feature works with longer text that wraps to multiple lines."
+            a:allCapsSummary="true"
+            a:singleLineSummary="false"
+            a:summaryMaxLines="3"
+            a:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+</PreferenceScreen>
+

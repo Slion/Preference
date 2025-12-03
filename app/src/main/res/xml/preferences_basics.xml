@@ -107,6 +107,19 @@
                 a:value="@string/fragment_basics_colors_title" />
         </Preference>
 
+        <Preference
+            a:title="@string/fragment_basics_allcaps_title"
+            a:summary="Control all caps display for title and summary text"
+            a:fragment="x.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_allcaps" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_allcaps_title" />
+        </Preference>
+
     </x.PreferenceCategory>
 
     <!-- =============== ADVANCED FEATURES =============== -->

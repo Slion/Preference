@@ -102,5 +102,49 @@
             x:summary="Preference with fully customized category parent" />
     </x.PreferenceCategory>
 
+    <!-- Category All Caps Tests -->
+    <x.PreferenceCategory
+        x:title="Category All Caps Tests"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            x:title="Normal Category Title"
+            x:summary="Category title is in normal case (not all caps)" />
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        x:title="This Category Title Is All Caps"
+        x:allCapsTitle="true"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            x:title="Category with All Caps Title"
+            x:summary="The parent category has allCapsTitle set to true" />
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        x:title="Category with All Caps Summary"
+        x:summary="This summary is displayed in all caps"
+        x:allCapsSummary="true"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            x:title="Category with All Caps Summary"
+            x:summary="The parent category has allCapsSummary set to true" />
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        x:title="Both Title and Summary All Caps"
+        x:summary="This summary is also in all caps"
+        x:allCapsTitle="true"
+        x:allCapsSummary="true"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            x:title="Category with Both All Caps"
+            x:summary="The parent category has both allCapsTitle and allCapsSummary set to true" />
+    </x.PreferenceCategory>
+
+
 </PreferenceScreen>
 
