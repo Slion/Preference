@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="BasicPreference">
+    <declare-styleable name="Preference">
         <!-- Custom breadcrumb text for navigation context. If empty, defaults to title or summary. -->
         <attr name="breadcrumb" format="string" />
 

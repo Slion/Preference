@@ -7,30 +7,30 @@
     <x.PreferenceCategory
         android:title="Icons">
 
-        <x.BasicPreference
+        <x.Preference
             a:key="icon_default"
             a:title="Default Icon Behavior"
             a:summary="Icon space is reserved by default even without an icon" />
 
-        <x.BasicPreference
+        <x.Preference
             a:key="icon_space_reserved_no_icon"
             a:title="Icon Space Reserved, No Icon"
             a:summary="Explicitly reserves icon space but displays no icon"
             a:iconSpaceReserved="true" />
 
-        <x.BasicPreference
+        <x.Preference
             a:key="icon_with_icon"
             a:title="With Icon"
             a:summary="This preference has an icon displayed"
             a:icon="@drawable/ic_check_circle_outline" />
 
-        <x.BasicPreference
+        <x.Preference
             a:key="icon_no_space_reserved"
             a:title="No Icon Space Reserved"
             a:summary="Icon space is not reserved, text uses full width"
             a:iconSpaceReserved="false" />
 
-        <x.BasicPreference
+        <x.Preference
             a:key="icon_with_icon_multiline"
             a:title="Icon with Multi-line Summary"
             a:summary="This preference has an icon and a multi-line summary. This demonstrates how icons work with longer text that wraps to multiple lines in the summary area."
@@ -39,7 +39,7 @@
             a:summaryMaxLines="3"
             a:summaryEllipsize="end" />
 
-        <x.BasicPreference
+        <x.Preference
             a:key="icon_no_space_multiline"
             a:title="No Icon Space, Multi-line"
             a:summary="No icon space reserved with multi-line summary. This demonstrates full width text usage when icon space is not reserved, allowing more content to be displayed."

@@ -123,7 +123,7 @@ All custom preference classes in this library use the package name `x` for maxim
 
 Preference XML files can become verbose and difficult to read when using full package paths. By using the single-letter package name `x`, we achieve:
 
-- **Conciseness:** `<x.BasicPreference>` vs `<net.slions.android.preference.BasicPreference>`
+- **Conciseness:** `<x.Preference>` vs `<net.slions.android.preference.Preference>`
 - **Readability:** Less visual clutter in your XML files
 - **Consistency:** Matches our namespace alias convention (`xmlns:x="http://schemas.android.com/apk/res-auto"`)
 
@@ -133,7 +133,7 @@ Preference XML files can become verbose and difficult to read when using full pa
 <PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
     xmlns:x="http://schemas.android.com/apk/res-auto">
     
-    <x.BasicPreference
+    <x.Preference
         a:key="my_basic_pref"
         a:title="Basic Preference"
         x:iconSpaceReserved="false" />
@@ -152,21 +152,21 @@ Preference XML files can become verbose and difficult to read when using full pa
 **Available Classes:**
 
 All custom preference classes can be referenced using the `x.` prefix:
-- `x.BasicPreference`
+- `x.Preference`
 - `x.EnumListPreference`
 - `x.SliderPreference`
 - `x.PreferenceFragmentBase`
 - `x.PreferenceFragmentExtra`
 
-### BasicPreference
+### x.Preference
 
 Extend the basic preference with convenient features and tricks.
 
-### EnumListPreference
+### x.EnumListPreference
 
 Easily build a list preference from an enum.
 
-### SliderPreference
+### x.SliderPreference
 
 Preference using a [Material Slider](https://m2.material.io/components/sliders#usage).
 

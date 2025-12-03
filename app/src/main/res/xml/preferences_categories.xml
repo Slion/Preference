@@ -7,11 +7,11 @@
         x:title="Standard Category"
         x:summary="This is a standard category with default settings: single line title (all caps), multi-line summary (normal case)">
 
-        <x.BasicPreference
+        <x.Preference
             x:title="Preference 1"
             x:summary="First preference in standard category" />
 
-        <x.BasicPreference
+        <x.Preference
             x:title="Preference 2"
             x:summary="Second preference in standard category" />
     </x.PreferenceCategory>
@@ -23,7 +23,7 @@
         x:singleLineTitle="false"
         x:titleMaxLines="3">
 
-        <x.BasicPreference
+        <x.Preference
             x:title="Preference A"
             x:summary="Preference in multi-line title category" />
     </x.PreferenceCategory>
@@ -35,7 +35,7 @@
         x:singleLineSummary="true"
         x:summaryMaxLines="1">
 
-        <x.BasicPreference
+        <x.Preference
             x:title="Preference B"
             x:summary="Preference with parent having single-line summary" />
     </x.PreferenceCategory>
@@ -47,7 +47,7 @@
         x:singleLineSummary="false"
         x:summaryMaxLines="2">
 
-        <x.BasicPreference
+        <x.Preference
             x:title="Preference C"
             x:summary="Preference with parent having 2-line summary" />
     </x.PreferenceCategory>
@@ -59,7 +59,7 @@
         x:singleLineSummary="false"
         x:summaryMaxLines="4">
 
-        <x.BasicPreference
+        <x.Preference
             x:title="Preference D"
             x:summary="Preference with parent having 4-line summary" />
     </x.PreferenceCategory>
@@ -70,7 +70,7 @@
         x:summary="This summary text will be displayed in all caps"
         x:allCapsSummary="true">
 
-        <x.BasicPreference
+        <x.Preference
             x:title="Preference E"
             x:summary="Preference with parent having all caps summary" />
     </x.PreferenceCategory>
@@ -81,7 +81,7 @@
         x:summary="Title is not in all caps"
         x:allCapsTitle="false">
 
-        <x.BasicPreference
+        <x.Preference
             x:title="Preference F"
             x:summary="Preference with parent having normal case title" />
     </x.PreferenceCategory>
@@ -97,7 +97,7 @@
         x:allCapsTitle="false"
         x:allCapsSummary="false">
 
-        <x.BasicPreference
+        <x.Preference
             x:title="Preference G"
             x:summary="Preference with fully customized category parent" />
     </x.PreferenceCategory>

@@ -37,7 +37,7 @@
 
 <!--    Define styles for each of our custom preferences-->
     <style name="PreferenceThemeOverlay.Slions" parent="PreferenceThemeOverlay">
-        <item name="preferenceStyle">@style/Slions.Preference.BasicPreference</item>
+        <item name="preferenceStyle">@style/Slions.Preference.Preference</item>
         <item name="preferenceCategoryStyle">@style/Slions.Preference.PreferenceCategory</item>
         <item name="sliderPreferenceStyle">@style/Slions.Preference.SliderPreference</item>
         <item name="switchPreferenceStyle">@style/Slions.Preference.SwitchPreference</item>
