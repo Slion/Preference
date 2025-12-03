@@ -46,4 +46,10 @@
 <!--        <item name="android:layout" tools:ignore="PrivateResource">@layout/preference_layout</item>-->
 <!--    </style>-->
 
+    <!-- Text appearance for PreferenceCategory title -->
+    <style name="TextAppearance.Slions.PreferenceCategory" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 </resources>

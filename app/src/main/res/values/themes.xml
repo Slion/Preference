@@ -1,11 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.App.Light" parent="Theme.Slions.Preference" >
+    <style name="Theme.App.Light" parent="Theme.Slions.Preference.Large" >
         <!-- Customize your light theme here. -->
         <!--        <item name="colorPrimary">#FF0000</item>-->
     </style>
 
-    <style name="Theme.App.Dark" parent="Theme.Slions.Preference" >
+    <style name="Theme.App.Dark" parent="Theme.Slions.Preference.Large" >
         <!-- Customize your dark theme here. -->
         <!--        <item name="colorPrimary">#FF0000</item>-->
     </style>
