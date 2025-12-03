@@ -23,18 +23,23 @@ class PreferenceCategory : androidx.preference.PreferenceCategory {
     var titleMaxLines: Int = 1
     var isAllCapsTitle: Boolean = true
 
-    constructor(ctx: Context, attrs: AttributeSet?, defStyle: Int) : super(ctx, attrs, defStyle) {
-        construct(attrs)
+    constructor(ctx: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(ctx, attrs, defStyleAttr) {
+        construct(attrs, defStyleAttr, 0)
     }
 
     constructor(ctx: Context, attrs: AttributeSet?) : super(ctx, attrs) {
-        construct(attrs)
+        construct(attrs, androidx.preference.R.attr.preferenceCategoryStyle, 0)
     }
 
     constructor(ctx: Context) : super(ctx) {}
 
-    private fun construct(attrs: AttributeSet?) {
-        val a = context.obtainStyledAttributes(attrs, R.styleable.PreferenceCategory)
+    private fun construct(attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+        val a = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.PreferenceCategory,
+            defStyleAttr,
+            defStyleRes
+        )
 
         isSingleLineSummary = a.getBoolean(R.styleable.PreferenceCategory_singleLineSummary, false)
         summaryMaxLines = a.getInt(R.styleable.PreferenceCategory_summaryMaxLines, 10)

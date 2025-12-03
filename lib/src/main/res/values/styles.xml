@@ -18,11 +18,18 @@
         <item name="iconSpaceReserved">false</item>
     </style>
 
-    <!-- Define default values for PreferenceCategory -->
+    <!--
+    Define default values for PreferenceCategory
+    Also used by x.PreferenceCategory
+    -->
     <style name="Slions.Preference.PreferenceCategory" parent="Preference.Category.Material">
         <item name="allowDividerAbove">true</item>
         <item name="allowDividerBelow">false</item>
         <item name="iconSpaceReserved">false</item>
+        <item name="singleLineTitle">true</item>
+        <item name="singleLineSummary">false</item>
+        <item name="summaryMaxLines">10</item>
+        <item name="allCapsTitle">true</item>
     </style>
 
     <!-- Define default values for our SwitchPreference, notably the layout -->
