@@ -3,7 +3,10 @@ package x
 import android.content.Context
 import android.os.Bundle
 import android.util.TypedValue
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.preference.PreferenceFragmentCompat
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Base class that should be used by all preference fragments.
@@ -48,5 +51,25 @@ abstract class PreferenceFragmentBase : PreferenceFragmentCompat() {
      * Was needed during creation.
      */
     open fun title(aContext: Context) : String = aContext.resources.getString(titleResourceId())
+
+    /**
+     * Override to enable fading edges (fade in/out borders) on the RecyclerView.
+     */
+    override fun onCreateRecyclerView(
+        inflater: LayoutInflater,
+        parent: ViewGroup,
+        savedInstanceState: Bundle?
+    ): RecyclerView {
+        val recyclerView = super.onCreateRecyclerView(inflater, parent, savedInstanceState)
+
+        // Enable vertical fading edges
+        recyclerView.isVerticalFadingEdgeEnabled = true
+
+        // Set the fade edge length (in pixels)
+        // You can adjust this value to make the fade longer or shorter
+        recyclerView.setFadingEdgeLength(resources.getDimensionPixelSize(x.R.dimen.preference_fade_edge_length))
+
+        return recyclerView
+    }
 
 }

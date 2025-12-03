@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fade edge length for preference RecyclerView -->
+    <!-- Controls the size of the fade in/out effect at top and bottom borders -->
+    <dimen name="preference_fade_edge_length">32dp</dimen>
+</resources>
+
