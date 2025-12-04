@@ -1,5 +1,7 @@
 # Preference
 
+[![Build](https://github.com/Slion/Preference/actions/workflows/ci.yml/badge.svg)](https://github.com/Slion/Preference/actions/workflows/ci.yml)
+
 Slions Preference is an Android Kotlin library which builds upon [Jetpack Preference](https://developer.android.com/jetpack/androidx/releases/preference) and [Material Components](https://github.com/material-components/material-components-android). Notably used by [Fulguris](http://fulguris.slions.net).
 
 ## Setup
