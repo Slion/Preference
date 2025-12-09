@@ -50,7 +50,13 @@ abstract class PreferenceFragmentBase : PreferenceFragmentCompat() {
      * Allow to fetch title before we are attached to our own context.
      * Was needed during creation.
      */
-    open fun title(aContext: Context) : String = aContext.resources.getString(titleResourceId())
+    open fun title(aContext: Context) : String {
+        if (titleResourceId()!=0)  {
+            return aContext.resources.getString(titleResourceId())
+        } else {
+            return ""
+        }
+    }
 
     /**
      * Override to enable fading edges (fade in/out borders) on the RecyclerView.

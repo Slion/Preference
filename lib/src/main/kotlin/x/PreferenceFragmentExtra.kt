@@ -1,5 +1,6 @@
 package x
 
+import android.content.Context
 import android.os.Bundle
 
 /**
@@ -48,7 +49,10 @@ class PreferenceFragmentExtra : PreferenceFragmentBase() {
         return 0
     }
 
-    override fun title(): String {
+    /**
+     *
+     */
+    override fun title(aContext: Context) : String {
         val args = arguments ?: throw IllegalArgumentException(
             "PreferenceFragmentExtra requires arguments. Pass title via arguments with key '$EXTRA_TITLE'"
         )
@@ -62,6 +66,7 @@ class PreferenceFragmentExtra : PreferenceFragmentBase() {
 
         return title
     }
+
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         val args = arguments ?: throw IllegalArgumentException(
