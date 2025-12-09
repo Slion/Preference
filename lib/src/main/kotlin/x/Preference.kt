@@ -326,5 +326,8 @@ class Preference : androidx.preference.Preference {
         title.setCompoundDrawablesRelativeWithIntrinsicBounds(titleDrawableStart, titleDrawableTop, titleDrawableEnd, titleDrawableBottom)
         title.compoundDrawablePadding = titleDrawablePadding
 
+        // Override the copy listener to avoid duplicate copy messages
+        holder.itemView.setOnCreateContextMenuListener(if (isCopyingEnabled) x.OnPreferenceCopyListener(this) else null)
+        holder.itemView.isLongClickable = isCopyingEnabled
     }
 }

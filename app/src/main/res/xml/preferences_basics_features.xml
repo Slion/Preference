@@ -9,6 +9,12 @@
         a:iconSpaceReserved="false">
 
         <x.Preference
+            a:title="Long press to copy"
+            a:summary="Long press to copy summary without duplicate messages"
+            a:enableCopying="true"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
             a:key="example_displayed_title"
             a:title="Sort Key Title"
             a:summary="This preference uses displayedTitle to show a different title than the one used for sorting"
