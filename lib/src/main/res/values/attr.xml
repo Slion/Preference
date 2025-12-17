@@ -115,6 +115,33 @@
 
         <!-- Custom text color for the summary. If not set, uses the theme default. -->
         <attr name="summaryTextColor" format="color|reference" />
+
+        <!-- Top padding for the preference item content. -->
+        <attr name="paddingTop" format="dimension" />
+
+        <!-- Bottom padding for the preference item content. -->
+        <attr name="paddingBottom" format="dimension" />
+
+        <!-- Start padding for the preference item content (left in LTR, right in RTL). -->
+        <attr name="paddingStart" format="dimension" />
+
+        <!-- End padding for the preference item content (right in LTR, left in RTL). -->
+        <attr name="paddingEnd" format="dimension" />
+
+        <!-- Vertical padding for the preference item content. Sets both top and bottom padding. -->
+        <attr name="paddingVertical" format="dimension" />
+
+        <!-- Horizontal padding for the preference item content. Sets both start and end padding. -->
+        <attr name="paddingHorizontal" format="dimension" />
+
+        <!-- Override the minimum height of the preference item. Default uses ?android:attr/listPreferredItemHeightSmall from theme. -->
+        <attr name="minHeight" format="dimension" />
+
+        <!-- Override the horizontal padding from theme. Sets both left/start and right/end padding, overriding listPreferredItemPaddingLeft/Start/Right/End. -->
+        <attr name="horizontalPadding" format="dimension" />
+
+        <!-- Override the vertical padding inside the content area (the RelativeLayout containing title/summary). -->
+        <attr name="verticalPadding" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="SliderPreference">
@@ -152,6 +179,33 @@
 
         <!-- If true, title text will be displayed in all caps. Default is true. -->
         <attr name="allCapsTitle" />
+
+        <!-- Top padding for the category item content. -->
+        <attr name="paddingTop" />
+
+        <!-- Bottom padding for the category item content. -->
+        <attr name="paddingBottom" />
+
+        <!-- Start padding for the category item content (left in LTR, right in RTL). -->
+        <attr name="paddingStart" />
+
+        <!-- End padding for the category item content (right in LTR, left in RTL). -->
+        <attr name="paddingEnd" />
+
+        <!-- Vertical padding for the category item content. Sets both top and bottom padding. -->
+        <attr name="paddingVertical" />
+
+        <!-- Horizontal padding for the category item content. Sets both start and end padding. -->
+        <attr name="paddingHorizontal" />
+
+        <!-- Override the minimum height of the category item. Default uses ?android:attr/listPreferredItemHeightSmall from theme. -->
+        <attr name="minHeight" />
+
+        <!-- Override the horizontal padding from theme. Sets both left/start and right/end padding, overriding listPreferredItemPaddingLeft/Start/Right/End. -->
+        <attr name="horizontalPadding" />
+
+        <!-- Override the vertical padding inside the content area (the RelativeLayout containing title/summary). -->
+        <attr name="verticalPadding" />
     </declare-styleable>
 
 </resources>

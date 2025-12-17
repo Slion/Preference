@@ -150,6 +150,24 @@ class Preference : androidx.preference.Preference {
         isAllCapsTitle = a.getBoolean(x.R.styleable.Preference_allCapsTitle, false)
         isAllCapsSummary = a.getBoolean(x.R.styleable.Preference_allCapsSummary, false)
 
+        // Get padding dimensions
+        val paddingVerticalAttr = a.getDimensionPixelSize(x.R.styleable.Preference_paddingVertical, -1)
+        val paddingHorizontalAttr = a.getDimensionPixelSize(x.R.styleable.Preference_paddingHorizontal, -1)
+
+        paddingTop = a.getDimensionPixelSize(x.R.styleable.Preference_paddingTop,
+            if (paddingVerticalAttr != -1) paddingVerticalAttr else -1)
+        paddingBottom = a.getDimensionPixelSize(x.R.styleable.Preference_paddingBottom,
+            if (paddingVerticalAttr != -1) paddingVerticalAttr else -1)
+        paddingStart = a.getDimensionPixelSize(x.R.styleable.Preference_paddingStart,
+            if (paddingHorizontalAttr != -1) paddingHorizontalAttr else -1)
+        paddingEnd = a.getDimensionPixelSize(x.R.styleable.Preference_paddingEnd,
+            if (paddingHorizontalAttr != -1) paddingHorizontalAttr else -1)
+
+        // Get layout override dimensions
+        minHeight = a.getDimensionPixelSize(x.R.styleable.Preference_minHeight, -1)
+        horizontalPadding = a.getDimensionPixelSize(x.R.styleable.Preference_horizontalPadding, -1)
+        verticalPadding = a.getDimensionPixelSize(x.R.styleable.Preference_verticalPadding, -1)
+
         a.recycle()
         if (breadcrumb.isEmpty()) {
             breadcrumb = title ?: summary ?: ""
@@ -227,6 +245,17 @@ class Preference : androidx.preference.Preference {
 
     // Control all caps for summary (default: false)
     var isAllCapsSummary: Boolean = false
+
+    // Padding properties for the preference item content
+    var paddingTop: Int = -1
+    var paddingBottom: Int = -1
+    var paddingStart: Int = -1
+    var paddingEnd: Int = -1
+
+    // Layout override properties for fine-grained spacing control
+    var minHeight: Int = -1
+    var horizontalPadding: Int = -1
+    var verticalPadding: Int = -1
 
     /**
      * Set the title text color from a color resource.
@@ -306,6 +335,46 @@ class Preference : androidx.preference.Preference {
 
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
+
+        // Apply layout overrides for spacing control
+        if (minHeight != -1) {
+            holder.itemView.minimumHeight = minHeight
+        }
+
+        if (horizontalPadding != -1) {
+            // Override the horizontal padding from theme
+            val currentTop = holder.itemView.paddingTop
+            val currentBottom = holder.itemView.paddingBottom
+            holder.itemView.setPaddingRelative(horizontalPadding, currentTop, horizontalPadding, currentBottom)
+        }
+
+        // Apply vertical padding to the content area (RelativeLayout with title/summary)
+        if (verticalPadding != -1) {
+            // Find the RelativeLayout that contains title and summary
+            val contentView = holder.itemView.findViewById<android.view.ViewGroup>(android.R.id.widget_frame)?.parent
+            if (contentView is android.view.ViewGroup && contentView !is androidx.preference.PreferenceViewHolder) {
+                // This should be the RelativeLayout
+                for (i in 0 until contentView.childCount) {
+                    val child = contentView.getChildAt(i)
+                    if (child is android.widget.RelativeLayout) {
+                        val currentStart = child.paddingStart
+                        val currentEnd = child.paddingEnd
+                        child.setPaddingRelative(currentStart, verticalPadding, currentEnd, verticalPadding)
+                        break
+                    }
+                }
+            }
+        }
+
+        // Apply padding to the item view
+        if (paddingTop != -1 || paddingBottom != -1 || paddingStart != -1 || paddingEnd != -1) {
+            val currentTop = if (paddingTop != -1) paddingTop else holder.itemView.paddingTop
+            val currentBottom = if (paddingBottom != -1) paddingBottom else holder.itemView.paddingBottom
+            val currentStart = if (paddingStart != -1) paddingStart else holder.itemView.paddingStart
+            val currentEnd = if (paddingEnd != -1) paddingEnd else holder.itemView.paddingEnd
+            holder.itemView.setPaddingRelative(currentStart, currentTop, currentEnd, currentBottom)
+        }
+
         val summary = holder.findViewById(android.R.id.summary) as TextView
         val title = holder.findViewById(android.R.id.title) as TextView
 

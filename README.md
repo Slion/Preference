@@ -204,6 +204,104 @@ preference.setSummaryTextColorResource(R.color.my_color)
 preference.titleTextColor = 0xFF0000FF.toInt()  // Direct color value
 ```
 
+#### Item Spacing (Padding)
+
+Adjust the internal spacing of preference content using padding attributes:
+
+**Padding attributes** (control spacing *inside* items):
+```xml
+<!-- Individual padding -->
+<x.Preference
+    a:title="Custom Padding"
+    x:paddingTop="20dp"
+    x:paddingBottom="20dp"
+    x:paddingStart="24dp"
+    x:paddingEnd="24dp" />
+
+<!-- Convenient shorthand for vertical or horizontal -->
+<x.Preference
+    a:title="Vertical Padding"
+    x:paddingVertical="16dp" />  <!-- Sets both top and bottom -->
+
+<x.Preference
+    a:title="Horizontal Padding"
+    x:paddingHorizontal="32dp" />  <!-- Sets both start and end -->
+```
+
+**Common use cases:**
+
+```xml
+<!-- Create compact item layout -->
+<x.Preference
+    a:title="Compact item"
+    x:paddingVertical="4dp"
+    x:paddingHorizontal="8dp" />
+
+<!-- Create spacious item layout -->
+<x.Preference
+    a:title="Spacious item"
+    x:paddingVertical="24dp"
+    x:paddingHorizontal="32dp" />
+```
+
+**Available attributes:**
+- Padding: `paddingTop`, `paddingBottom`, `paddingStart`, `paddingEnd`, `paddingVertical`, `paddingHorizontal`
+
+**Note:** The shorthand attributes (`paddingVertical`, `paddingHorizontal`) are applied first, then individual directional attributes override them if specified.
+
+#### Layout Overrides for Dense Layouts
+
+To **reduce** spacing below theme defaults (which the margin/padding attributes cannot do), use these layout override attributes that directly control the underlying layout parameters:
+
+**Layout override attributes:**
+```xml
+<!-- Reduce minimum height (default is usually 48dp from theme) -->
+<x.Preference
+    a:title="Compact Item"
+    x:minHeight="24dp" />
+
+<!-- Reduce horizontal padding (overrides listPreferredItemPaddingLeft/Right/Start/End) -->
+<x.Preference
+    a:title="Less Side Padding"
+    x:horizontalPadding="8dp" />
+
+<!-- Reduce vertical content padding (space around title/summary, default is 16dp) -->
+<x.Preference
+    a:title="Tight Content"
+    x:verticalPadding="4dp" />
+```
+
+**Create ultra-compact dense lists:**
+```xml
+<x.PreferenceCategory
+    a:title="Dense Information"
+    x:minHeight="0dp"
+    x:verticalPadding="2dp">
+    
+    <x.Preference
+        a:title="Dense Item 1"
+        a:summary="Very compact"
+        x:minHeight="20dp"
+        x:verticalPadding="2dp" />
+        
+    <x.Preference
+        a:title="Dense Item 2"
+        a:summary="Fits more items on screen"
+        x:minHeight="20dp"
+        x:verticalPadding="2dp" />
+        
+</x.PreferenceCategory>
+```
+
+**Key differences:**
+- **Padding attributes**: Add space on top of defaults (good for increasing spacing)
+- **Layout override attributes**: Replace theme defaults (good for reducing spacing below defaults)
+
+**Available layout override attributes:**
+- `minHeight` - Override minimum height (replaces `?android:attr/listPreferredItemHeightSmall`)
+- `horizontalPadding` - Override left/right padding from theme
+- `verticalPadding` - Override top/bottom padding of the content area containing title and summary
+
 ### x.EnumListPreference
 
 Easily build a list preference from an enum.

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
+    xmlns:x="http://schemas.android.com/apk/res-auto">
+
+    <!-- =============== ITEM SPACING =============== -->
+
+    <x.PreferenceCategory
+        a:title="Padding Examples"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Default Padding"
+            a:summary="This preference has no custom padding"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Large Vertical Padding"
+            a:summary="This preference has 24dp vertical padding inside"
+            x:paddingVertical="24dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Large Horizontal Padding"
+            a:summary="This preference has 32dp horizontal padding inside"
+            x:paddingHorizontal="32dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Custom Padding"
+            a:summary="Different padding on each side"
+            x:paddingTop="16dp"
+            x:paddingBottom="8dp"
+            x:paddingStart="24dp"
+            x:paddingEnd="24dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Compact Padding"
+            a:summary="This preference has minimal padding (4dp)"
+            x:paddingVertical="4dp"
+            x:paddingHorizontal="4dp"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Combined Padding Examples"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Multiple Padding Types"
+            a:summary="This combines different padding attributes"
+            x:paddingVertical="20dp"
+            x:paddingHorizontal="16dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Tight Padding"
+            a:summary="This has minimal 4dp padding"
+            x:paddingVertical="4dp"
+            x:paddingHorizontal="4dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Loose Padding"
+            a:summary="This has large 24dp padding"
+            x:paddingVertical="24dp"
+            x:paddingHorizontal="32dp"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Category with Padding"
+        x:paddingVertical="16dp"
+        x:paddingHorizontal="24dp"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Default Preference"
+            a:summary="Notice the category header has extra padding"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Compact Category"
+        x:paddingVertical="4dp"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Compact Preference 1"
+            a:summary="Category and preferences both use minimal padding"
+            x:paddingVertical="4dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Compact Preference 2"
+            a:summary="Items with tight padding"
+            x:paddingVertical="4dp"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <!-- =============== LAYOUT OVERRIDES =============== -->
+
+    <x.PreferenceCategory
+        a:title="Layout Override Examples"
+        a:summary="Override theme attributes for fine-grained control"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Default Layout"
+            a:summary="Uses theme defaults for minHeight and padding"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Reduced Min Height"
+            a:summary="minHeight=32dp (default is usually 48dp)"
+            x:minHeight="32dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Very Compact Height"
+            a:summary="minHeight=24dp - minimal height"
+            x:minHeight="24dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Reduced Horizontal Padding"
+            a:summary="horizontalPadding=8dp (overrides theme padding)"
+            x:horizontalPadding="8dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Reduced Vertical Content Padding"
+            a:summary="verticalPadding=4dp (reduces space around title/summary)"
+            x:verticalPadding="4dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Ultra Compact"
+            a:summary="All layout overrides combined for minimal spacing"
+            x:minHeight="24dp"
+            x:horizontalPadding="8dp"
+            x:verticalPadding="4dp"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Dense List Example"
+        a:summary="Compact layout for dense information display"
+        x:minHeight="0dp"
+        x:verticalPadding="2dp"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Dense Item 1"
+            a:summary="Very compact vertical spacing"
+            x:minHeight="20dp"
+            x:verticalPadding="2dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Dense Item 2"
+            a:summary="Perfect for lists with many items"
+            x:minHeight="20dp"
+            x:verticalPadding="2dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Dense Item 3"
+            a:summary="Reduces wasted vertical space"
+            x:minHeight="20dp"
+            x:verticalPadding="2dp"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Dense Item 4"
+            a:summary="Maintains readability while being compact"
+            x:minHeight="20dp"
+            x:verticalPadding="2dp"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+</PreferenceScreen>
+

@@ -62,6 +62,7 @@
     <string name="fragment_basics_allcaps_title">All Caps Options</string>
     <string name="fragment_basics_combinations_title">Title &amp; Summary Combinations</string>
     <string name="fragment_basics_features_title">Special Features</string>
+    <string name="fragment_basics_spacing_title">Item Spacing</string>
     <string name="pref_title_properties">Properties</string>
 
     <!-- Messages Preferences -->

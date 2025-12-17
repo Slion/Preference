@@ -154,6 +154,19 @@
                 a:value="@string/fragment_basics_features_title" />
         </Preference>
 
+        <Preference
+            a:title="@string/fragment_basics_spacing_title"
+            a:summary="Control margins and padding to adjust spacing between items"
+            a:fragment="x.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_basics_spacing" />
+            <extra
+                a:name="title"
+                a:value="@string/fragment_basics_spacing_title" />
+        </Preference>
+
     </x.PreferenceCategory>
 
 </PreferenceScreen>
