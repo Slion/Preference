@@ -51,6 +51,7 @@
     <string name="fragment_switches_title">Switches</string>
     <string name="fragment_sliders_title">Sliders</string>
     <string name="fragment_categories_title">Categories</string>
+    <string name="fragment_themes_title">Theme Overlays</string>
     <string name="fragment_basics_title">Basics</string>
     <string name="fragment_basics_ellipsis_title">Ellipsis Modes</string>
     <string name="fragment_basics_marquee_title">Marquee Configuration</string>
@@ -63,6 +64,8 @@
     <string name="fragment_basics_combinations_title">Title &amp; Summary Combinations</string>
     <string name="fragment_basics_features_title">Special Features</string>
     <string name="fragment_basics_spacing_title">Item Spacing</string>
+    <string name="fragment_spacing_compact_title">Compact Spacing (Theme)</string>
+    <string name="fragment_spacing_dense_title">Dense Spacing (Theme)</string>
     <string name="pref_title_properties">Properties</string>
 
     <!-- Messages Preferences -->

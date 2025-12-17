@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
+    xmlns:x="http://schemas.android.com/apk/res-auto">
+
+    <!-- This screen uses PreferenceThemeOverlay.Slions.Dense theme -->
+    <!-- All preferences automatically use: minHeight=24dp, horizontalPadding=8dp -->
+
+    <x.PreferenceCategory
+        a:title="Dense Theme Demo"
+        a:summary="This entire screen uses PreferenceThemeOverlay.Slions.Dense"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Sample Preference 1"
+            a:summary="Ultra-compact spacing for information-dense layouts"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Sample Preference 2"
+            a:summary="All items use 24dp min height (vs default 48dp)"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Sample Preference 3"
+            a:summary="Horizontal padding is 8dp (vs default 16dp)"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Sample Preference 4"
+            a:summary="Fits significantly more items on screen"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Information Dense List"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Configuration 1"
+            a:summary="System parameter alpha"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Configuration 2"
+            a:summary="System parameter beta"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Configuration 3"
+            a:summary="System parameter gamma"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Configuration 4"
+            a:summary="System parameter delta"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Configuration 5"
+            a:summary="System parameter epsilon"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Configuration 6"
+            a:summary="System parameter zeta"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Configuration 7"
+            a:summary="System parameter eta"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Configuration 8"
+            a:summary="System parameter theta"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Theme Override"
+        a:summary="Applied via PreferenceFragmentSpacingDense.onCreate()"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="How It Works"
+            a:summary="Override themeOverride() to return x.R.style.PreferenceThemeOverlay_Slions_Dense"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Use Case"
+            a:summary="Perfect for settings with many options or debug screens"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Screen Real Estate"
+            a:summary="Maximizes visible items while maintaining readability"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Even More Items"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Debug Option 1"
+            a:summary="Advanced debugging parameter"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Debug Option 2"
+            a:summary="Logging level configuration"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Debug Option 3"
+            a:summary="Performance monitoring"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Debug Option 4"
+            a:summary="Memory diagnostics"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Debug Option 5"
+            a:summary="Network inspection"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Debug Option 6"
+            a:summary="Thread analysis"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Debug Option 7"
+            a:summary="Cache management"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Debug Option 8"
+            a:summary="Storage utilization"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Debug Option 9"
+            a:summary="Battery optimization"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Debug Option 10"
+            a:summary="Background task scheduler"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Comparison"
+        a:summary="Compare with default spacing to see the difference"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Vertical Space Saved"
+            a:summary="Each item saves 24dp in height (50% reduction)"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Horizontal Space Saved"
+            a:summary="Each side saves 8dp in padding (50% reduction)"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Screen Capacity"
+            a:summary="Approximately 2x more items visible on screen"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+</PreferenceScreen>
+

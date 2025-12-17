@@ -53,4 +53,32 @@
 
     </style>
 
+    <!-- Compact spacing variant - moderately reduced spacing -->
+    <style name="PreferenceThemeOverlay.Slions.Compact" parent="PreferenceThemeOverlay.Slions">
+        <!-- Reduce minimum height from default 48dp to 36dp -->
+        <item name="android:listPreferredItemHeightSmall">0dp</item>
+        <!-- Reduce horizontal padding from default 16dp to 12dp -->
+<!--        <item name="android:listPreferredItemPaddingLeft">12dp</item>-->
+<!--        <item name="android:listPreferredItemPaddingStart">12dp</item>-->
+<!--        <item name="android:listPreferredItemPaddingRight">12dp</item>-->
+<!--        <item name="android:listPreferredItemPaddingEnd">12dp</item>-->
+        <!-- Set vertical padding for preference content (overrides hardcoded 16dp) -->
+        <item name="preferencePaddingVertical">6dp</item>
+<!--        <item name="preferenceCategoryPaddingVertical">6dp</item>-->
+    </style>
+
+    <!-- Dense spacing variant - significantly reduced spacing for information-dense layouts -->
+    <style name="PreferenceThemeOverlay.Slions.Dense" parent="PreferenceThemeOverlay.Slions">
+        <!-- Reduce minimum height to 24dp for ultra-compact display -->
+        <item name="android:listPreferredItemHeightSmall">0dp</item>
+        <!-- Reduce horizontal padding to 8dp -->
+<!--        <item name="android:listPreferredItemPaddingLeft">8dp</item>-->
+<!--        <item name="android:listPreferredItemPaddingStart">8dp</item>-->
+<!--        <item name="android:listPreferredItemPaddingRight">8dp</item>-->
+<!--        <item name="android:listPreferredItemPaddingEnd">8dp</item>-->
+        <!-- Set vertical padding for preference content (overrides hardcoded 16dp) -->
+        <item name="preferencePaddingVertical">0dp</item>
+<!--        <item name="preferenceCategoryPaddingVertical">0dp</item>-->
+    </style>
+
 </resources>

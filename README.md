@@ -249,6 +249,69 @@ Adjust the internal spacing of preference content using padding attributes:
 
 **Note:** The shorthand attributes (`paddingVertical`, `paddingHorizontal`) are applied first, then individual directional attributes override them if specified.
 
+#### Theme Overlays for Screen-Wide Spacing
+
+For consistent spacing across an entire preference screen, use **theme overlays** instead of setting attributes on individual preferences:
+
+**Built-in theme overlays:**
+
+1. **PreferenceThemeOverlay.Slions** (default) - Standard spacing
+   - Uses default Android values (48dp height, 16dp padding)
+2. **PreferenceThemeOverlay.Slions.Compact** - Moderately reduced spacing
+   - `minHeight`: 36dp (vs default 48dp)
+   - `horizontalPadding`: 12dp (vs default 16dp)
+   - `preferenceVerticalPadding`: 6dp (vs default 16dp)
+3. **PreferenceThemeOverlay.Slions.Dense** - Ultra-compact spacing
+   - `minHeight`: 24dp (vs default 48dp)
+   - `horizontalPadding`: 8dp (vs default 16dp)
+   - `preferenceVerticalPadding`: 0dp (vs default 16dp)
+
+**Custom theme attributes:**
+
+You can also set these attributes in your own theme:
+
+```xml
+<style name="MyCustomPreferenceTheme" parent="PreferenceThemeOverlay.Slions">
+    <!-- Control vertical padding for all preferences -->
+    <item name="preferenceVerticalPadding">8dp</item>
+    <!-- Control vertical padding for category items -->
+    <item name="preferenceCategoryVerticalPadding">4dp</item>
+</style>
+```
+
+**Usage in your fragment:**
+
+```kotlin
+class MyPreferenceFragment : PreferenceFragmentBase() {
+
+    override fun titleResourceId() = R.string.my_settings_title
+
+    override fun themeOverride(): Int {
+        // Apply compact theme overlay to this entire screen
+        return x.R.style.PreferenceThemeOverlay_Slions_Compact
+    }
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.my_preferences, rootKey)
+    }
+}
+```
+
+**Benefits:**
+- ✅ Apply spacing to entire screen with one line of code
+- ✅ No need to set attributes on individual preferences
+- ✅ Consistent spacing automatically inherited by all items
+- ✅ Easy to maintain and modify
+- ✅ Clean XML files without repetitive attributes
+
+**When to use which approach:**
+
+| Approach | Use Case |
+|----------|----------|
+| **Theme overlay** | Consistent spacing for entire screen, quick setup |
+| **Per-item padding attributes** | Fine-grained control, specific items need different spacing |
+| **Per-item layout overrides** | Individual preferences need custom minimum height |
+
 #### Layout Overrides for Dense Layouts
 
 To **reduce** spacing below theme defaults (which the margin/padding attributes cannot do), use these layout override attributes that directly control the underlying layout parameters:

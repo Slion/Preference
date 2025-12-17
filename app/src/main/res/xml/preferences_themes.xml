@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
+    xmlns:x="http://schemas.android.com/apk/res-auto">
+
+    <x.PreferenceCategory
+        a:title="Theme Overlay Demos"
+        a:summary="Apply different spacing themes to entire screens"
+        x:iconSpaceReserved="false">
+
+        <Preference
+            a:title="Default Spacing"
+            a:summary="Standard spacing (48dp height, 16dp padding)"
+            a:fragment="x.PreferenceFragmentExtra"
+            x:iconSpaceReserved="false">
+            <extra
+                a:name="screen"
+                a:value="@xml/preferences_themes_default" />
+            <extra
+                a:name="title"
+                a:value="Default Spacing Theme" />
+        </Preference>
+
+        <Preference
+            a:title="@string/fragment_spacing_compact_title"
+            a:summary="Moderately reduced spacing (36dp height, 12dp padding)"
+            a:fragment="slions.pref.demo.PreferenceFragmentSpacingCompact"
+            x:iconSpaceReserved="false" />
+
+        <Preference
+            a:title="@string/fragment_spacing_dense_title"
+            a:summary="Ultra-compact spacing (24dp height, 8dp padding)"
+            a:fragment="slions.pref.demo.PreferenceFragmentSpacingDense"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="About Theme Overlays"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="What are Theme Overlays?"
+            a:summary="Theme overlays let you change spacing for an entire screen without setting attributes on individual preferences"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="How to Use"
+            a:summary="Override themeOverride() in your fragment to return the desired theme style resource ID"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Benefits"
+            a:summary="Clean XML, consistent spacing, easy maintenance, single point of control"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+</PreferenceScreen>
+

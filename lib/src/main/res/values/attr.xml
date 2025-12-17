@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Theme-level attributes for preference spacing control -->
+    <!-- These can be set in your theme to apply globally to all preferences -->
+    <attr name="preferencePaddingVertical" format="dimension" />
+    <attr name="preferenceCategoryPaddingVertical" format="dimension" />
+
     <declare-styleable name="Preference">
         <!-- Custom breadcrumb text for navigation context. If empty, defaults to title or summary. -->
         <attr name="breadcrumb" format="string" />

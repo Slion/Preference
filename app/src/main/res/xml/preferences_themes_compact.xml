@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
+    xmlns:x="http://schemas.android.com/apk/res-auto">
+
+    <!-- This screen uses PreferenceThemeOverlay.Slions.Compact theme -->
+    <!-- All preferences automatically use: minHeight=36dp, horizontalPadding=12dp -->
+
+    <x.PreferenceCategory
+        a:title="Compact Theme Demo"
+        a:summary="This entire screen uses PreferenceThemeOverlay.Slions.Compact"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Sample Preference 1"
+            a:summary="Notice the moderately reduced spacing throughout this screen"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Sample Preference 2"
+            a:summary="All items use 36dp min height (vs default 48dp)"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Sample Preference 3"
+            a:summary="Horizontal padding is 12dp (vs default 16dp)"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Sample Preference 4"
+            a:summary="Good balance between space efficiency and readability"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Mixed Content"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Settings Option"
+            a:summary="Enable this feature"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Another Setting"
+            a:summary="Configure application behavior"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Advanced Options"
+            a:summary="Fine-tune performance parameters"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="User Preferences"
+            a:summary="Customize your experience"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Privacy Settings"
+            a:summary="Control data sharing and permissions"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Theme Override"
+        a:summary="Applied via PreferenceFragmentSpacingCompact.onCreate()"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="How It Works"
+            a:summary="Override themeOverride() to return x.R.style.PreferenceThemeOverlay_Slions_Compact"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Benefits"
+            a:summary="Apply spacing to entire screen without per-item attributes"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Consistency"
+            a:summary="All preferences inherit the same spacing automatically"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="More Items"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Item 1"
+            a:summary="Demonstrating consistent spacing"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Item 2"
+            a:summary="Throughout the entire screen"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Item 3"
+            a:summary="Without individual attributes"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Item 4"
+            a:summary="Clean and maintainable"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Item 5"
+            a:summary="Fits more content on screen"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+</PreferenceScreen>
+

@@ -18,19 +18,33 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class PreferenceFragmentBase : PreferenceFragmentCompat() {
 
     /**
+     * Override this to provide a custom theme for this preference screen.
+     * Return 0 to use the default theme resolution logic.
+     */
+    open fun themeOverride(): Int = 0
+
+    /**
      * Needed to apply our own default preference theme if none specified in activity theme styles.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        val tv = TypedValue()
-        requireContext().theme.resolveAttribute(androidx.preference.R.attr.preferenceTheme, tv, true)
-        var theme = tv.resourceId
+        // Check if subclass wants to override the theme
+        var theme = themeOverride()
+
         if (theme == 0) {
-            // Fallback to default theme.
-            theme = x.R.style.PreferenceThemeOverlay_Slions
+            // Use theme from activity or fallback to default
+            val tv = TypedValue()
+            requireContext().theme.resolveAttribute(androidx.preference.R.attr.preferenceTheme, tv, true)
+            theme = tv.resourceId
+            if (theme == 0) {
+                // Fallback to default theme.
+                theme = x.R.style.PreferenceThemeOverlay_Slions
+            }
         }
 
-        requireContext().theme.applyStyle(theme, false)
+        // Apply the theme to the activity's context
+        // This needs to happen before super.onCreate() which initializes preferences
+        requireActivity().theme.applyStyle(theme, true)
 
         super.onCreate(savedInstanceState)
     }

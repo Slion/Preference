@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
+    xmlns:x="http://schemas.android.com/apk/res-auto">
+
+    <!-- This screen uses the default PreferenceThemeOverlay.Slions theme -->
+    <!-- All preferences use: minHeight=48dp, horizontalPadding=16dp -->
+
+    <x.PreferenceCategory
+        a:title="Default Theme Demo"
+        a:summary="This screen uses standard PreferenceThemeOverlay.Slions spacing"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Sample Preference 1"
+            a:summary="This is the standard default spacing used throughout the app"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Sample Preference 2"
+            a:summary="All items use 48dp min height (Android standard)"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Sample Preference 3"
+            a:summary="Horizontal padding is 16dp (Android standard)"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Sample Preference 4"
+            a:summary="This provides good readability and comfortable tap targets"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="Comparison"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Default Spacing"
+            a:summary="Comfortable reading, good for most apps"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="More Items"
+            a:summary="About 10-12 items fit on a typical phone screen"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Android Guidelines"
+            a:summary="Follows Material Design guidelines for list items"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Tap Targets"
+            a:summary="48dp minimum height ensures comfortable tapping"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <x.PreferenceCategory
+        a:title="More Sample Items"
+        x:iconSpaceReserved="false">
+
+        <x.Preference
+            a:title="Setting 1"
+            a:summary="Example preference item"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Setting 2"
+            a:summary="Example preference item"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Setting 3"
+            a:summary="Example preference item"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Setting 4"
+            a:summary="Example preference item"
+            x:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:title="Setting 5"
+            a:summary="Example preference item"
+            x:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+</PreferenceScreen>
+

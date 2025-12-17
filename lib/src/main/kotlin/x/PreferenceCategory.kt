@@ -85,6 +85,28 @@ class PreferenceCategory : androidx.preference.PreferenceCategory {
     override fun onBindViewHolder(holder: PreferenceViewHolder) {
         super.onBindViewHolder(holder)
 
+        // Find the RelativeLayout that contains title and summary (hardcoded padding in preference_material.xml)
+        // The layout structure is: LinearLayout -> RelativeLayout (with title/summary) + LinearLayout (widget_frame)
+        // So we need to find the RelativeLayout that contains the title
+        val titleView = holder.findViewById(android.R.id.title)
+        val relativeLayout = titleView?.parent as? android.widget.RelativeLayout
+
+        // Check if theme defines custom vertical padding for preference categories
+        if (relativeLayout != null) {
+            val tv = android.util.TypedValue()
+            if (context.theme.resolveAttribute(R.attr.preferenceCategoryPaddingVertical, tv, true)) {
+                // Theme specifies padding - use it
+                val themePadding = tv.getDimension(context.resources.displayMetrics).toInt()
+                relativeLayout.setPaddingRelative(
+                    relativeLayout.paddingStart,
+                    themePadding,
+                    relativeLayout.paddingEnd,
+                    themePadding
+                )
+            }
+            // If attribute not defined in theme, leave the default padding from layout
+        }
+
         // Apply layout overrides for spacing control
         if (minHeight != -1) {
             holder.itemView.minimumHeight = minHeight
@@ -99,19 +121,10 @@ class PreferenceCategory : androidx.preference.PreferenceCategory {
 
         // Apply vertical padding to the content area (RelativeLayout with title/summary)
         if (verticalPadding != -1) {
-            // Find the RelativeLayout that contains title and summary
-            val contentView = holder.itemView.findViewById<android.view.ViewGroup>(android.R.id.widget_frame)?.parent
-            if (contentView is android.view.ViewGroup && contentView !is androidx.preference.PreferenceViewHolder) {
-                // This should be the RelativeLayout
-                for (i in 0 until contentView.childCount) {
-                    val child = contentView.getChildAt(i)
-                    if (child is android.widget.RelativeLayout) {
-                        val currentStart = child.paddingStart
-                        val currentEnd = child.paddingEnd
-                        child.setPaddingRelative(currentStart, verticalPadding, currentEnd, verticalPadding)
-                        break
-                    }
-                }
+            if (relativeLayout != null) {
+                val currentStart = relativeLayout.paddingStart
+                val currentEnd = relativeLayout.paddingEnd
+                relativeLayout.setPaddingRelative(currentStart, verticalPadding, currentEnd, verticalPadding)
             }
         }
 

@@ -28,6 +28,18 @@
         x:icon="@drawable/ic_short_text_outline"
         x:title="@string/fragment_categories_title" />
 
+    <x.Preference
+        x:fragment="x.PreferenceFragmentExtra"
+        x:icon="@drawable/ic_sliders_outline"
+        x:title="@string/fragment_themes_title">
+        <extra
+            a:name="screen"
+            a:value="@xml/preferences_themes" />
+        <extra
+            a:name="title"
+            a:value="@string/fragment_themes_title" />
+    </x.Preference>
+
     <Preference
         x:fragment="slions.pref.demo.PreferenceFragmentMessages"
         x:icon="@drawable/messages"
