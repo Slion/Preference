@@ -141,5 +141,183 @@
 
     </x.PreferenceCategory>
 
+    <!-- =============== SUMMARY DRAWABLES =============== -->
+
+    <x.PreferenceCategory
+        a:title="Summary Drawables"
+        a:iconSpaceReserved="false">
+
+        <x.Preference
+            a:key="summary_drawable_start"
+            a:title="Drawable at Start"
+            a:summary="Summary has a drawable at the start (left in LTR)"
+            a:summaryDrawableStart="@drawable/ic_check_circle_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_end"
+            a:title="Drawable at End"
+            a:summary="Summary has a drawable at the end (right in LTR)"
+            a:summaryDrawableEnd="@drawable/ic_sliders_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_start_end"
+            a:title="Drawables at Both Ends"
+            a:summary="Summary has drawables at both start and end"
+            a:summaryDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableEnd="@drawable/ic_sliders_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_top"
+            a:title="Top Drawable"
+            a:summary="Summary has a drawable at the top"
+            a:summaryDrawableTop="@drawable/ic_check_circle_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_bottom"
+            a:title="Bottom Drawable"
+            a:summary="Summary has a drawable at the bottom"
+            a:summaryDrawableBottom="@drawable/ic_sliders_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_all"
+            a:title="All Drawables"
+            a:summary="Summary has drawables on all four sides"
+            a:summaryDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableTop="@drawable/messages"
+            a:summaryDrawableEnd="@drawable/ic_sliders_outline"
+            a:summaryDrawableBottom="@drawable/sync"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_multiline"
+            a:title="Multi-line Summary with Drawable"
+            a:summary="This is a multi-line summary that spans multiple lines to demonstrate how drawables work with longer summary text and how they align"
+            a:summaryMaxLines="3"
+            a:summaryDrawableStart="@drawable/ic_check_circle_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_no_title"
+            a:summary="Summary with drawable but no title text"
+            a:summaryDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableEnd="@drawable/ic_sliders_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_ellipsize"
+            a:title="Ellipsis Summary with Drawable"
+            a:summary="This is a long single-line summary with a drawable that will be truncated with ellipsis at the end when it's too long to fit on a single line"
+            a:singleLineSummary="true"
+            a:summaryEllipsize="end"
+            a:summaryDrawableStart="@drawable/ic_short_text_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_marquee"
+            a:title="Marquee Summary with Drawable"
+            a:summary="This is a long scrolling summary with a drawable at the start using marquee effect to scroll continuously"
+            a:singleLineSummary="true"
+            a:summaryEllipsize="marquee"
+            a:summaryMarqueeRepeatLimit="-1"
+            a:summaryDrawableStart="@drawable/ic_check_circle_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_selectable"
+            a:title="Selectable Summary with Drawable"
+            a:summary="Long press this summary to select and copy the text. It has drawables at both ends."
+            a:summaryMode="selectable"
+            a:summaryDrawableStart="@drawable/messages"
+            a:summaryDrawableEnd="@drawable/sync"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_custom_padding_16dp"
+            a:title="Custom Padding 16dp"
+            a:summary="Summary drawable with 16dp padding (default is 8dp)"
+            a:summaryDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableEnd="@drawable/ic_sliders_outline"
+            a:summaryDrawablePadding="16dp"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_custom_padding_4dp"
+            a:title="Custom Padding 4dp"
+            a:summary="Summary drawable with reduced 4dp padding"
+            a:summaryDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableEnd="@drawable/ic_sliders_outline"
+            a:summaryDrawablePadding="4dp"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_drawable_no_padding"
+            a:title="No Padding (0dp)"
+            a:summary="Summary drawable with no padding between drawable and text"
+            a:summaryDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableEnd="@drawable/ic_sliders_outline"
+            a:summaryDrawablePadding="0dp"
+            a:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <!-- =============== COMBINED TITLE AND SUMMARY DRAWABLES =============== -->
+
+    <x.PreferenceCategory
+        a:title="Combined Title and Summary Drawables"
+        a:iconSpaceReserved="false">
+
+        <x.Preference
+            a:key="both_drawables_basic"
+            a:title="Both Have Drawables"
+            a:summary="Both title and summary have start drawables"
+            a:titleDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableStart="@drawable/ic_sliders_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="both_drawables_all_sides"
+            a:title="All Sides on Both"
+            a:summary="Both title and summary have drawables on all four sides"
+            a:titleDrawableStart="@drawable/ic_check_circle_outline"
+            a:titleDrawableEnd="@drawable/messages"
+            a:summaryDrawableStart="@drawable/ic_sliders_outline"
+            a:summaryDrawableEnd="@drawable/sync"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="both_drawables_multiline"
+            a:title="Multi-line title with drawable that spans multiple lines to show how it works"
+            a:summary="Multi-line summary with drawable that also spans multiple lines to demonstrate alignment and spacing"
+            a:titleMaxLines="2"
+            a:summaryMaxLines="2"
+            a:titleDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableStart="@drawable/ic_sliders_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="both_drawables_different_padding"
+            a:title="Different Padding for Each"
+            a:summary="Title has 4dp padding, summary has 16dp padding"
+            a:titleDrawableStart="@drawable/ic_check_circle_outline"
+            a:titleDrawablePadding="4dp"
+            a:summaryDrawableStart="@drawable/ic_sliders_outline"
+            a:summaryDrawablePadding="16dp"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="both_drawables_with_icon"
+            a:title="With Preference Icon"
+            a:summary="Combines preference icon with both title and summary drawables"
+            a:icon="@drawable/sync"
+            a:titleDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableStart="@drawable/ic_sliders_outline" />
+
+    </x.PreferenceCategory>
+
 </PreferenceScreen>
 

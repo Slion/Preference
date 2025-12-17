@@ -164,6 +164,46 @@ All custom preference classes can be referenced using the `x.` prefix:
 
 Extend the basic preference with convenient features and tricks.
 
+#### Title and Summary Drawables
+
+Add compound drawables to title and summary text with customizable padding:
+
+```xml
+<x.Preference
+    a:title="Title with Drawables"
+    a:summary="Summary with Drawables"
+    x:titleDrawableStart="@drawable/ic_star"
+    x:titleDrawableEnd="@drawable/ic_arrow"
+    x:titleDrawablePadding="8dp"
+    x:summaryDrawableStart="@drawable/ic_info"
+    x:summaryDrawableEnd="@drawable/ic_check"
+    x:summaryDrawablePadding="4dp" />
+```
+
+**Available attributes:**
+- Title: `titleDrawableStart`, `titleDrawableEnd`, `titleDrawableTop`, `titleDrawableBottom`, `titleDrawablePadding`
+- Summary: `summaryDrawableStart`, `summaryDrawableEnd`, `summaryDrawableTop`, `summaryDrawableBottom`, `summaryDrawablePadding`
+
+#### Text Colors
+
+Customize title and summary text colors using color values or theme attributes:
+
+```xml
+<x.Preference
+    a:title="Colored Title"
+    a:summary="Colored Summary"
+    x:titleTextColor="?attr/colorPrimary"
+    x:summaryTextColor="#FF0000" />
+```
+
+**Programmatic usage:**
+
+```kotlin
+preference.setTitleTextColorFromTheme(R.attr.colorPrimary)
+preference.setSummaryTextColorResource(R.color.my_color)
+preference.titleTextColor = 0xFF0000FF.toInt()  // Direct color value
+```
+
 ### x.EnumListPreference
 
 Easily build a list preference from an enum.

@@ -110,5 +110,136 @@
 
     </x.PreferenceCategory>
 
+    <!-- =============== SUMMARY TEXT COLOR =============== -->
+
+    <x.PreferenceCategory
+        a:title="Summary Text Color"
+        a:iconSpaceReserved="false">
+
+        <!-- Hard-coded color examples -->
+        <x.Preference
+            a:key="summary_color_red"
+            a:title="Red Summary Text"
+            a:summary="Hard-coded red color (#FFFF0000)"
+            a:summaryTextColor="#FFFF0000"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_color_blue"
+            a:title="Blue Summary Text"
+            a:summary="Hard-coded blue color (#FF0000FF)"
+            a:summaryTextColor="#FF0000FF"
+            a:iconSpaceReserved="false" />
+
+        <!-- Theme color examples -->
+        <x.Preference
+            a:key="summary_color_primary"
+            a:title="Theme Primary Color"
+            a:summary="Uses ?attr/colorPrimary from theme"
+            a:summaryTextColor="?attr/colorPrimary"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_color_secondary"
+            a:title="Theme Secondary Color"
+            a:summary="Uses ?attr/colorSecondary from theme"
+            a:summaryTextColor="?attr/colorSecondary"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_color_accent"
+            a:title="Theme Accent Color"
+            a:summary="Uses ?attr/colorAccent from theme"
+            a:summaryTextColor="?attr/colorAccent"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_color_error"
+            a:title="Theme Error Color"
+            a:summary="Uses ?attr/colorError from theme"
+            a:summaryTextColor="?attr/colorError"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_color_text_primary"
+            a:title="Theme Text Primary"
+            a:summary="Uses ?android:attr/textColorPrimary from theme"
+            a:summaryTextColor="?android:attr/textColorPrimary"
+            a:iconSpaceReserved="false" />
+
+        <!-- Combined with other features -->
+        <x.Preference
+            a:key="summary_color_theme_with_drawable"
+            a:title="Theme Color with Drawable"
+            a:summary="Combines theme color with drawables"
+            a:summaryTextColor="?attr/colorPrimary"
+            a:summaryDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableEnd="@drawable/ic_sliders_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_color_theme_multiline"
+            a:title="Multi-line Summary with Theme Color"
+            a:summary="This is a multi-line summary with theme color that spans multiple lines to demonstrate how theme colors work with longer summary text"
+            a:summaryMaxLines="2"
+            a:summaryTextColor="?attr/colorSecondary"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="summary_color_theme_marquee"
+            a:title="Theme Colored Marquee Summary"
+            a:summary="This is a very long scrolling summary text with theme color that demonstrates marquee effect with colored text"
+            a:singleLineSummary="true"
+            a:summaryEllipsize="marquee"
+            a:summaryMarqueeRepeatLimit="-1"
+            a:summaryTextColor="?attr/colorPrimary"
+            a:iconSpaceReserved="false" />
+
+    </x.PreferenceCategory>
+
+    <!-- =============== COMBINED TITLE AND SUMMARY COLORS =============== -->
+
+    <x.PreferenceCategory
+        a:title="Combined Title and Summary Colors"
+        a:iconSpaceReserved="false">
+
+        <x.Preference
+            a:key="both_colors_different"
+            a:title="Different Colors"
+            a:summary="Title and summary have different theme colors"
+            a:titleTextColor="?attr/colorPrimary"
+            a:summaryTextColor="?attr/colorSecondary"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="both_colors_with_drawables"
+            a:title="Colors with Drawables"
+            a:summary="Both have theme colors and drawables"
+            a:titleTextColor="?attr/colorPrimary"
+            a:summaryTextColor="?attr/colorAccent"
+            a:titleDrawableStart="@drawable/ic_check_circle_outline"
+            a:summaryDrawableStart="@drawable/ic_sliders_outline"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="both_colors_multiline"
+            a:title="Multi-line title with theme color that spans multiple lines"
+            a:summary="Multi-line summary with different theme color that also spans multiple lines"
+            a:titleMaxLines="2"
+            a:summaryMaxLines="2"
+            a:titleTextColor="?attr/colorError"
+            a:summaryTextColor="?attr/colorSecondary"
+            a:iconSpaceReserved="false" />
+
+        <x.Preference
+            a:key="both_colors_with_icon"
+            a:title="Colors with Icon"
+            a:summary="Combines preference icon with colored title and summary"
+            a:icon="@drawable/sync"
+            a:titleTextColor="?attr/colorPrimary"
+            a:summaryTextColor="?attr/colorAccent" />
+
+    </x.PreferenceCategory>
+
 </PreferenceScreen>
 

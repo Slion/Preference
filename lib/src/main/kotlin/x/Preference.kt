@@ -134,6 +134,18 @@ class Preference : androidx.preference.Preference {
         // Get title text color (0 means not set, use theme default)
         titleTextColor = a.getColor(x.R.styleable.Preference_titleTextColor, 0)
 
+        // Get summary drawables
+        summaryDrawableStart = a.getResourceId(x.R.styleable.Preference_summaryDrawableStart, 0)
+        summaryDrawableEnd = a.getResourceId(x.R.styleable.Preference_summaryDrawableEnd, 0)
+        summaryDrawableTop = a.getResourceId(x.R.styleable.Preference_summaryDrawableTop, 0)
+        summaryDrawableBottom = a.getResourceId(x.R.styleable.Preference_summaryDrawableBottom, 0)
+
+        // Get summary drawable padding (default 8dp)
+        summaryDrawablePadding = a.getDimensionPixelSize(x.R.styleable.Preference_summaryDrawablePadding, summaryDrawablePadding)
+
+        // Get summary text color (0 means not set, use theme default)
+        summaryTextColor = a.getColor(x.R.styleable.Preference_summaryTextColor, 0)
+
         // Get all caps options (default: false)
         isAllCapsTitle = a.getBoolean(x.R.styleable.Preference_allCapsTitle, false)
         isAllCapsSummary = a.getBoolean(x.R.styleable.Preference_allCapsSummary, false)
@@ -198,6 +210,18 @@ class Preference : androidx.preference.Preference {
     // Custom text color for title (0 means not set, use theme default)
     var titleTextColor: Int = 0
 
+    // Drawables for summary text
+    var summaryDrawableStart: Int = 0
+    var summaryDrawableEnd: Int = 0
+    var summaryDrawableTop: Int = 0
+    var summaryDrawableBottom: Int = 0
+
+    // Padding between summary drawables and text (default 8dp)
+    var summaryDrawablePadding: Int = (8 * context.resources.displayMetrics.density).toInt()
+
+    // Custom text color for summary (0 means not set, use theme default)
+    var summaryTextColor: Int = 0
+
     // Control all caps for title (default: false)
     var isAllCapsTitle: Boolean = false
 
@@ -239,6 +263,44 @@ class Preference : androidx.preference.Preference {
      */
     fun clearTitleTextColor() {
         titleTextColor = 0
+        notifyChanged()
+    }
+
+    /**
+     * Set the summary text color from a color resource.
+     * @param colorResId Color resource ID (e.g., R.color.my_color)
+     */
+    fun setSummaryTextColorResource(colorResId: Int) {
+        summaryTextColor = androidx.core.content.ContextCompat.getColor(context, colorResId)
+        notifyChanged()
+    }
+
+    /**
+     * Set the summary text color from a theme attribute.
+     * @param attrResId Theme attribute resource ID (e.g., R.attr.colorPrimary, android.R.attr.textColorPrimary)
+     */
+    fun setSummaryTextColorFromTheme(attrResId: Int) {
+        val typedValue = android.util.TypedValue()
+        if (context.theme.resolveAttribute(attrResId, typedValue, true)) {
+            summaryTextColor = if (typedValue.type >= android.util.TypedValue.TYPE_FIRST_COLOR_INT &&
+                typedValue.type <= android.util.TypedValue.TYPE_LAST_COLOR_INT) {
+                // It's a color value
+                typedValue.data
+            } else if (typedValue.resourceId != 0) {
+                // It's a resource reference
+                androidx.core.content.ContextCompat.getColor(context, typedValue.resourceId)
+            } else {
+                0
+            }
+            notifyChanged()
+        }
+    }
+
+    /**
+     * Clear the custom summary text color and use the default theme color.
+     */
+    fun clearSummaryTextColor() {
+        summaryTextColor = 0
         notifyChanged()
     }
 
@@ -325,6 +387,15 @@ class Preference : androidx.preference.Preference {
         // Apply drawables to title
         title.setCompoundDrawablesRelativeWithIntrinsicBounds(titleDrawableStart, titleDrawableTop, titleDrawableEnd, titleDrawableBottom)
         title.compoundDrawablePadding = titleDrawablePadding
+
+        // Apply custom summary text color if set
+        if (summaryTextColor != 0) {
+            summary.setTextColor(summaryTextColor)
+        }
+
+        // Apply drawables to summary
+        summary.setCompoundDrawablesRelativeWithIntrinsicBounds(summaryDrawableStart, summaryDrawableTop, summaryDrawableEnd, summaryDrawableBottom)
+        summary.compoundDrawablePadding = summaryDrawablePadding
 
         // Override the copy listener to avoid duplicate copy messages
         holder.itemView.setOnCreateContextMenuListener(if (isCopyingEnabled) x.OnPreferenceCopyListener(this) else null)

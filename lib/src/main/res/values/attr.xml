@@ -97,6 +97,24 @@
 
         <!-- If true, summary text will be displayed in all caps. Default is false. -->
         <attr name="allCapsSummary" format="boolean" />
+
+        <!-- Drawable to display at the start of the summary text (left in LTR, right in RTL). -->
+        <attr name="summaryDrawableStart" format="reference" />
+
+        <!-- Drawable to display at the end of the summary text (right in LTR, left in RTL). -->
+        <attr name="summaryDrawableEnd" format="reference" />
+
+        <!-- Drawable to display at the top of the summary text. -->
+        <attr name="summaryDrawableTop" format="reference" />
+
+        <!-- Drawable to display at the bottom of the summary text. -->
+        <attr name="summaryDrawableBottom" format="reference" />
+
+        <!-- Padding between summary drawables and text. Default is 8dp. -->
+        <attr name="summaryDrawablePadding" format="dimension" />
+
+        <!-- Custom text color for the summary. If not set, uses the theme default. -->
+        <attr name="summaryTextColor" format="color|reference" />
     </declare-styleable>
 
     <declare-styleable name="SliderPreference">
