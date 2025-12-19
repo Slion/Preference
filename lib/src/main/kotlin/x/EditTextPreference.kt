@@ -126,6 +126,24 @@ class EditTextPreference : AndroidXEditTextPreference {
         )
 
         a.recycle()
+
+        // Set up automatic summary formatting with prefix/suffix if they are defined
+        if (prefixText != null || suffixText != null) {
+            summaryProvider = SummaryProvider<AndroidXEditTextPreference> { preference ->
+                val value = preference.text
+                if (value.isNullOrEmpty()) {
+                    // No value - show placeholder or nothing
+                    null
+                } else {
+                    // Format with prefix and/or suffix
+                    buildString {
+                        prefixText?.let { append(it) }
+                        append(value)
+                        suffixText?.let { append(it) }
+                    }
+                }
+            }
+        }
     }
 
     companion object {

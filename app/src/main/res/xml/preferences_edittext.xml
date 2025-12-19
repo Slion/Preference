@@ -210,17 +210,17 @@
     <x.EditTextPreference
         a:key="weight"
         a:title="Weight"
-        a:summary="%s kg"
         a:dialogTitle="Enter Weight"
         a:inputType="numberDecimal"
-        x:hint="0.0"
-        x:suffixText="kg"
-        x:useSimpleSummaryProvider="true" />
+        x:hint="Tell us"
+        x:suffixText=" kg"
+        x:textGravity="right"
+        />
+
 
     <x.EditTextPreference
         a:key="url"
         a:title="URL"
-        a:summary="%s"
         a:dialogTitle="Enter URL"
         a:inputType="textUri"
         x:hint="example.com"
@@ -230,11 +230,22 @@
     <x.EditTextPreference
         a:key="percentage"
         a:title="Percentage"
-        a:summary="%s%%"
         a:dialogTitle="Enter Percentage"
         a:inputType="number"
         x:hint="0"
         x:suffixText="%"
+        x:useSimpleSummaryProvider="true" />
+
+    <x.EditTextPreference
+        a:key="temperature"
+        a:title="Temperature"
+        a:summary="Temperature range"
+        a:dialogTitle="Enter Temperature"
+        a:dialogMessage="Prefix and suffix automatically shown in summary"
+        a:inputType="numberDecimal"
+        x:hint="0.0"
+        x:prefixText="From "
+        x:suffixText="°C"
         x:useSimpleSummaryProvider="true" />
 
     <x.PreferenceCategory
