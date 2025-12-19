@@ -100,9 +100,19 @@ abstract class PreferenceFragmentBase : PreferenceFragmentCompat() {
      * with rounded corners, elevation, and Material buttons.
      */
     override fun onDisplayPreferenceDialog(preference: Preference) {
-        // Use Material dialog for EditTextPreference
-        if (preference is EditTextPreference) {
-            val dialogFragment = MaterialEditTextPreferenceDialogFragmentCompat.newInstance(preference.key)
+        // Use Material dialog for EditTextPreference (both our custom and androidx versions)
+        if (preference is androidx.preference.EditTextPreference) {
+            // Get inputType - if it's our custom EditTextPreference, use its inputType property
+            val inputType = if (preference is x.EditTextPreference) {
+                preference.inputType
+            } else {
+                android.text.InputType.TYPE_CLASS_TEXT
+            }
+
+            val dialogFragment = MaterialEditTextPreferenceDialogFragmentCompat.newInstance(
+                preference.key,
+                inputType
+            )
             @Suppress("DEPRECATION")
             dialogFragment.setTargetFragment(this, 0)
             dialogFragment.show(parentFragmentManager, "MaterialEditTextPreferenceDialog")

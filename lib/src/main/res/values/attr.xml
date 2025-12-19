@@ -9,12 +9,15 @@
     <!-- EditTextPreference attributes -->
     <attr name="hint" format="string" />
     <attr name="selectAllOnFocus" format="boolean" />
+    <attr name="inputType" format="integer" />
 
     <declare-styleable name="EditTextPreference">
         <!-- Hint text to display in the EditText -->
         <attr name="hint" />
         <!-- Whether to select all text when dialog opens -->
         <attr name="selectAllOnFocus" />
+        <!-- Input type for the EditText (text, textPassword, textEmailAddress, phone, number, etc.) -->
+        <attr name="inputType" />
         <!-- Android standard attributes -->
         <attr name="android:inputType" />
         <attr name="android:maxLength" />

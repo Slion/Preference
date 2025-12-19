@@ -29,15 +29,32 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         val textInputLayout = view.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.text_input_layout)
         mEditText = view.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.text_input_edit_text)
 
+        // Get inputType from arguments
+        val inputType = arguments?.getInt(ARG_INPUT_TYPE, android.text.InputType.TYPE_CLASS_TEXT)
+            ?: android.text.InputType.TYPE_CLASS_TEXT
+
         // Configure the TextInputLayout
         textInputLayout.apply {
-            // Set hint from dialog title if available, otherwise use preference title
-            hint = editTextPreference.dialogTitle?.toString() ?: editTextPreference.title?.toString()
+            // Set hint only if it's our custom EditTextPreference with a hint attribute
+            if (editTextPreference is x.EditTextPreference && editTextPreference.hint != null) {
+                hint = editTextPreference.hint
+            } else {
+                // No hint - leave it empty for clean look
+                hint = null
+            }
+
+            // Configure password visibility toggle if it's a password field
+            if (isPasswordInputType(inputType)) {
+                endIconMode = com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE
+            } else {
+                endIconMode = com.google.android.material.textfield.TextInputLayout.END_ICON_NONE
+            }
         }
 
         // Configure the EditText
         mEditText?.apply {
             setText(editTextPreference.text)
+            setInputType(inputType)  // Apply the input type!
             // Select all text on focus for easier editing
             setSelectAllOnFocus(true)
             requestFocus()
@@ -97,11 +114,22 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         }
     }
 
+    private fun isPasswordInputType(inputType: Int): Boolean {
+        val variation = inputType and android.text.InputType.TYPE_MASK_VARIATION
+        return (variation == android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD ||
+                variation == android.text.InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD ||
+                variation == android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD ||
+                variation == android.text.InputType.TYPE_NUMBER_VARIATION_PASSWORD)
+    }
+
     companion object {
-        fun newInstance(key: String): MaterialEditTextPreferenceDialogFragmentCompat {
+        private const val ARG_INPUT_TYPE = "input_type"
+
+        fun newInstance(key: String, inputType: Int = android.text.InputType.TYPE_CLASS_TEXT): MaterialEditTextPreferenceDialogFragmentCompat {
             val fragment = MaterialEditTextPreferenceDialogFragmentCompat()
-            val bundle = Bundle(1)
+            val bundle = Bundle(2)
             bundle.putString(ARG_KEY, key)
+            bundle.putInt(ARG_INPUT_TYPE, inputType)
             fragment.arguments = bundle
             return fragment
         }
