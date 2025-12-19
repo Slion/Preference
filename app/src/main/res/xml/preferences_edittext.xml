@@ -66,6 +66,29 @@
         x:useSimpleSummaryProvider="true" />
 
     <x.PreferenceCategory
+        a:title="Text Field Styles"
+        a:summary="Outlined vs Filled styles"
+        x:iconSpaceReserved="false" />
+
+    <x.EditTextPreference
+        a:key="style_outlined"
+        a:title="Outlined Style (Default)"
+        a:summary="Material Design 3 outlined text field"
+        a:dialogTitle="Outlined Style"
+        a:dialogMessage="This uses the outlined style with border"
+        x:hint="Outlined text field"
+        x:boxStyle="outlined" />
+
+    <x.EditTextPreference
+        a:key="style_filled"
+        a:title="Filled Style"
+        a:summary="Material Design 3 filled text field"
+        a:dialogTitle="Filled Style"
+        a:dialogMessage="This uses the filled style with background"
+        x:hint="Filled text field"
+        x:boxStyle="filled" />
+
+    <x.PreferenceCategory
         a:title="Hint Demonstrations"
         a:summary="Shows preferences with and without hints"
         x:iconSpaceReserved="false" />

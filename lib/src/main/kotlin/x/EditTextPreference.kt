@@ -36,6 +36,9 @@ class EditTextPreference : AndroidXEditTextPreference {
     var hint: String? = null
         private set
 
+    var boxStyle: Int = BOX_STYLE_OUTLINED
+        private set
+
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int)
             : super(context, attrs, defStyleAttr, defStyleRes) {
         init(context, attrs, defStyleAttr, defStyleRes)
@@ -77,7 +80,15 @@ class EditTextPreference : AndroidXEditTextPreference {
             )
         }
 
+        // Read boxStyle attribute (0 = outlined, 1 = filled)
+        boxStyle = a.getInt(R.styleable.EditTextPreference_boxStyle, BOX_STYLE_OUTLINED)
+
         a.recycle()
+    }
+
+    companion object {
+        const val BOX_STYLE_OUTLINED = 0
+        const val BOX_STYLE_FILLED = 1
     }
 }
 

@@ -10,6 +10,10 @@
     <attr name="hint" format="string" />
     <attr name="selectAllOnFocus" format="boolean" />
     <attr name="inputType" format="integer" />
+    <attr name="boxStyle" format="enum">
+        <enum name="outlined" value="0" />
+        <enum name="filled" value="1" />
+    </attr>
 
     <declare-styleable name="EditTextPreference">
         <!-- Hint text to display in the EditText -->
@@ -18,6 +22,8 @@
         <attr name="selectAllOnFocus" />
         <!-- Input type for the EditText (text, textPassword, textEmailAddress, phone, number, etc.) -->
         <attr name="inputType" />
+        <!-- Box style for the TextInputLayout (outlined or filled) -->
+        <attr name="boxStyle" />
         <!-- Android standard attributes -->
         <attr name="android:inputType" />
         <attr name="android:maxLength" />

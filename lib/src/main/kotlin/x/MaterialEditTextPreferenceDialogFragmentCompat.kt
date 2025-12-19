@@ -22,21 +22,34 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         val context = requireContext()
         val editTextPreference = preference as androidx.preference.EditTextPreference
 
-        // Inflate the Material Design 3 outlined TextInputLayout from XML
-        val inflater = android.view.LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.material_edittext_dialog, null, false)
-
-        val textInputLayout = view.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.text_input_layout)
-        mEditText = view.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.text_input_edit_text)
-
         // Get inputType from arguments
         val inputType = arguments?.getInt(ARG_INPUT_TYPE, android.text.InputType.TYPE_CLASS_TEXT)
             ?: android.text.InputType.TYPE_CLASS_TEXT
 
+        // Get boxStyle if it's our custom EditTextPreference
+        val boxStyle = if (editTextPreference is EditTextPreference) {
+            editTextPreference.boxStyle
+        } else {
+            EditTextPreference.BOX_STYLE_OUTLINED
+        }
+
+        // Inflate the appropriate layout based on style
+        val inflater = android.view.LayoutInflater.from(context)
+        val layoutResId = if (boxStyle == EditTextPreference.BOX_STYLE_FILLED) {
+            R.layout.material_edittext_dialog_filled
+        } else {
+            R.layout.material_edittext_dialog
+        }
+        val view = inflater.inflate(layoutResId, null, false)
+
+        val textInputLayout = view.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.text_input_layout)
+        mEditText = view.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.text_input_edit_text)
+
         // Configure the TextInputLayout
         textInputLayout.apply {
+
             // Set hint only if it's our custom EditTextPreference with a hint attribute
-            if (editTextPreference is x.EditTextPreference && editTextPreference.hint != null) {
+            if (editTextPreference is EditTextPreference && editTextPreference.hint != null) {
                 hint = editTextPreference.hint
             } else {
                 // No hint - leave it empty for clean look
