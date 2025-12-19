@@ -46,28 +46,12 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         mEditText = view.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.text_input_edit_text)
 
         // Configure the TextInputLayout
-        // Configure the TextInputLayout
         textInputLayout.apply {
-            // Set hint only if it's our custom EditTextPreference with a hint attribute
+            // Set hint and other attributes if available
             if (editTextPreference is EditTextPreference) {
-                if (editTextPreference.hint != null) {
-                    hint = editTextPreference.hint
-                } else {
-                    // No hint - leave it empty for clean look
-                    hint = null
-                }
-
-                // Set prefix text if specified
-                if (editTextPreference.prefixText != null) {
-                    prefixText = editTextPreference.prefixText
-                }
-
-                // Set suffix text if specified
-                if (editTextPreference.suffixText != null) {
-                    suffixText = editTextPreference.suffixText
-                }
-            } else {
-                hint = null
+                hint = editTextPreference.hint
+                prefixText = editTextPreference.prefixText
+                suffixText = editTextPreference.suffixText
             }
 
             // Configure password visibility toggle if it's a password field
@@ -93,7 +77,7 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
 
         // Wrap in a container with proper padding
         val container = android.widget.FrameLayout(context).apply {
-            setPadding(paddingHorizontal, 0, paddingHorizontal, 0)
+            setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, 0)
             addView(view)
         }
 
@@ -109,9 +93,6 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         val message = preference.dialogMessage
         if (message != null) {
             builder.setMessage(message)
-        } else {
-            // Add top padding to edit field when there's no message for proper spacing
-            container.setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, 0)
         }
 
         // Create and prepare the dialog
@@ -126,7 +107,7 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         dialog.create()
         // Patch our gap issue, see: https://github.com/material-components/material-components-android/issues/4981
         val contentPanel = dialog.findViewById<android.widget.FrameLayout>(androidx.appcompat.R.id.contentPanel)
-        contentPanel?.minimumHeight = (36 * context.resources.displayMetrics.density).toInt()
+        contentPanel?.minimumHeight = 0
 
         return dialog
     }
