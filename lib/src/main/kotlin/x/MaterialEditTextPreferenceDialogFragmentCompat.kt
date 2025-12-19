@@ -16,15 +16,40 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
  */
 class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogFragmentCompat() {
 
+    private var mEditText: com.google.android.material.textfield.TextInputEditText? = null
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val context = requireContext()
+        val editTextPreference = preference as androidx.preference.EditTextPreference
 
-        // Create the dialog content view
-        val dialogView = onCreateDialogView(context)
+        // Create Material TextInputLayout with TextInputEditText
+        val textInputLayout = com.google.android.material.textfield.TextInputLayout(context).apply {
+            layoutParams = android.view.ViewGroup.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+            )
 
-        // Bind the view with data
-        if (dialogView != null) {
-            onBindDialogView(dialogView)
+            // Set hint from dialog title if available, otherwise use preference title
+            hint = editTextPreference.dialogTitle?.toString() ?: editTextPreference.title?.toString()
+
+            // Create TextInputEditText
+            mEditText = com.google.android.material.textfield.TextInputEditText(context).apply {
+                setText(editTextPreference.text)
+                // Select all text on focus for easier editing
+                setSelectAllOnFocus(true)
+                requestFocus()
+            }
+
+            addView(mEditText)
+        }
+
+        val paddingHorizontal = (24 * context.resources.displayMetrics.density).toInt()
+        val paddingVertical = (24 * context.resources.displayMetrics.density).toInt()
+
+        // Wrap in a container with proper padding
+        val container = android.widget.FrameLayout(context).apply {
+            setPadding(paddingHorizontal, 0, paddingHorizontal, 0)
+            addView(textInputLayout)
         }
 
         // Use MaterialAlertDialogBuilder for Material Design 3 styling
@@ -33,32 +58,21 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
             .setIcon(preference.dialogIcon)
             .setPositiveButton(preference.positiveButtonText, this)
             .setNegativeButton(preference.negativeButtonText, this)
-            .setView(dialogView)
+            .setView(container)
 
-        // Hide the message view in the dialog layout to avoid duplication
-        dialogView?.findViewById<android.view.View>(android.R.id.message)?.visibility = android.view.View.GONE
-
-        // Add message using Material dialog's setMessage for proper Material styling
+        // Add message if available
         val message = preference.dialogMessage
         if (message != null) {
             builder.setMessage(message)
         } else {
-            // Add top margin to edit field when there's no message for proper spacing
-            val editView = dialogView?.findViewById<android.view.View>(android.R.id.edit)
-            if (editView != null) {
-                val layoutParams = editView.layoutParams as? android.view.ViewGroup.MarginLayoutParams
-                if (layoutParams != null) {
-                    val marginTop = (20 * context.resources.displayMetrics.density).toInt()
-                    layoutParams.topMargin = marginTop
-                    editView.layoutParams = layoutParams
-                }
-            }
+            // Add top padding to edit field when there's no message for proper spacing
+            container.setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, 0)
         }
 
         // Create and prepare the dialog
         val dialog = builder.create()
 
-        // Request input method to show keyboard for EditText
+        // Request input method to show keyboard
         dialog.window?.setSoftInputMode(
             android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
         )
@@ -70,6 +84,16 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         contentPanel?.minimumHeight = (36 * context.resources.displayMetrics.density).toInt()
 
         return dialog
+    }
+
+    override fun onDialogClosed(positiveResult: Boolean) {
+        if (positiveResult) {
+            val value = mEditText?.text?.toString()
+            val editTextPreference = preference as androidx.preference.EditTextPreference
+            if (editTextPreference.callChangeListener(value)) {
+                editTextPreference.text = value
+            }
+        }
     }
 
     companion object {
