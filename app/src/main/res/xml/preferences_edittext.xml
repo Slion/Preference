@@ -89,6 +89,50 @@
         x:boxStyle="filled" />
 
     <x.PreferenceCategory
+        a:title="Dialog Message Demonstrations"
+        a:summary="With/without dialog messages, long/short text"
+        x:iconSpaceReserved="false" />
+
+    <x.EditTextPreference
+        a:key="no_dialog_message"
+        a:title="No Dialog Message"
+        a:summary="Dialog has no message"
+        a:dialogTitle="No Message"
+        x:hint="Enter text" />
+
+    <x.EditTextPreference
+        a:key="short_dialog_message"
+        a:title="Short Dialog Message"
+        a:summary="Has brief dialog message"
+        a:dialogTitle="Short Message"
+        a:dialogMessage="Brief instruction."
+        x:hint="Enter text" />
+
+    <x.EditTextPreference
+        a:key="medium_dialog_message"
+        a:title="Medium Dialog Message"
+        a:summary="Has medium length message"
+        a:dialogTitle="Medium Message"
+        a:dialogMessage="This is a medium-length dialog message just two lines."
+        x:hint="Enter text" />
+
+    <x.EditTextPreference
+        a:key="long_dialog_message"
+        a:title="Long Dialog Message"
+        a:summary="Has lengthy dialog message"
+        a:dialogTitle="Long Message"
+        a:dialogMessage="This is a much longer dialog message that demonstrates how text wraps and displays when it exceeds the available space."
+        x:hint="Enter text" />
+
+    <x.EditTextPreference
+        a:key="multiline_dialog_message"
+        a:title="Multi-line Dialog Message"
+        a:summary="Message with line breaks"
+        a:dialogTitle="Multi-line Message"
+        a:dialogMessage="Line 1: First instruction.\nLine 2: Second instruction.\nLine 3: Third instruction.\n\nThis demonstrates explicit line breaks in the dialog message."
+        x:hint="Enter text" />
+
+    <x.PreferenceCategory
         a:title="Hint Demonstrations"
         a:summary="Shows preferences with and without hints"
         x:iconSpaceReserved="false" />
