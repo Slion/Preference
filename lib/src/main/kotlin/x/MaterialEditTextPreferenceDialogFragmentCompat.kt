@@ -87,6 +87,11 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
             setSelectAllOnFocus(true)
             requestFocus()
 
+            // Apply text gravity if it's our custom EditTextPreference
+            if (editTextPreference is EditTextPreference) {
+                gravity = editTextPreference.textGravity
+            }
+
             // Add text change listener for real-time validation
             if (editTextPreference is EditTextPreference && editTextPreference.validator != null) {
                 addTextChangedListener(object : android.text.TextWatcher {

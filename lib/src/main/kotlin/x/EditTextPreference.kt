@@ -54,6 +54,9 @@ class EditTextPreference : AndroidXEditTextPreference {
     var errorText: String? = null
         private set
 
+    var textGravity: Int = android.view.Gravity.START or android.view.Gravity.CENTER_VERTICAL
+        private set
+
     /**
      * Set a validator to check input before saving.
      * The validator receives the input text and returns null if valid,
@@ -115,6 +118,12 @@ class EditTextPreference : AndroidXEditTextPreference {
 
         // Read error text (can be set in XML for static validation)
         errorText = a.getString(R.styleable.EditTextPreference_errorText)
+
+        // Read text gravity (alignment)
+        textGravity = a.getInt(
+            R.styleable.EditTextPreference_textGravity,
+            android.view.Gravity.START or android.view.Gravity.CENTER_VERTICAL
+        )
 
         a.recycle()
     }

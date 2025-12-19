@@ -19,6 +19,15 @@
     <attr name="startIconDrawable" format="reference" />
     <attr name="endIconDrawable" format="reference" />
     <attr name="errorText" format="string" />
+    <attr name="textGravity" format="flags">
+        <flag name="start" value="0x00800003" />
+        <flag name="end" value="0x00800005" />
+        <flag name="left" value="0x03" />
+        <flag name="right" value="0x05" />
+        <flag name="center" value="0x01" />
+        <flag name="center_horizontal" value="0x01" />
+        <flag name="center_vertical" value="0x10" />
+    </attr>
 
     <declare-styleable name="EditTextPreference">
         <!-- Hint text to display in the EditText -->
@@ -39,6 +48,8 @@
         <attr name="endIconDrawable" />
         <!-- Error text to display when validation fails -->
         <attr name="errorText" />
+        <!-- Text alignment/gravity (start, end, left, right, center) -->
+        <attr name="textGravity" />
         <!-- Android standard attributes -->
         <attr name="android:inputType" />
         <attr name="android:maxLength" />

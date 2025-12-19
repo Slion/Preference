@@ -280,6 +280,58 @@
         x:suffixText="years" />
 
     <x.PreferenceCategory
+        a:title="Text Alignment Demonstrations"
+        a:summary="Different text alignments (gravity)"
+        x:iconSpaceReserved="false" />
+
+    <x.EditTextPreference
+        a:key="align_start"
+        a:title="Start Aligned (Default)"
+        a:summary="Text aligned to start"
+        a:dialogTitle="Start Alignment"
+        a:dialogMessage="Text is aligned to the start (left in LTR, right in RTL)"
+        x:hint="Start aligned text"
+        x:textGravity="start|center_vertical" />
+
+    <x.EditTextPreference
+        a:key="align_end"
+        a:title="End Aligned"
+        a:summary="Text aligned to end"
+        a:dialogTitle="End Alignment"
+        a:dialogMessage="Text is aligned to the end (right in LTR, left in RTL)"
+        x:hint="End aligned text"
+        x:textGravity="end|center_vertical" />
+
+    <x.EditTextPreference
+        a:key="align_center"
+        a:title="Center Aligned"
+        a:summary="Text centered"
+        a:dialogTitle="Center Alignment"
+        a:dialogMessage="Text is centered horizontally"
+        x:hint="Centered text"
+        x:textGravity="center" />
+
+    <x.EditTextPreference
+        a:key="align_right"
+        a:title="Right Aligned (Absolute)"
+        a:summary="Text aligned right"
+        a:dialogTitle="Right Alignment"
+        a:dialogMessage="Text is always aligned right (regardless of RTL)"
+        a:hint="Right aligned text"
+        x:textGravity="right|center_vertical" />
+
+    <x.EditTextPreference
+        a:key="align_number"
+        a:title="Number Right Aligned"
+        a:summary="Numbers typically right-aligned"
+        a:dialogTitle="Enter Amount"
+        a:dialogMessage="Numbers are often right-aligned for easier comparison"
+        a:inputType="numberDecimal"
+        x:hint="0.00"
+        x:prefixText="$"
+        x:textGravity="end|center_vertical" />
+
+    <x.PreferenceCategory
         a:title="Multi-line Text"
         x:iconSpaceReserved="false" />
 
