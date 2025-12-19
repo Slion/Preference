@@ -51,6 +51,16 @@ class EditTextPreference : AndroidXEditTextPreference {
     var endIconDrawable: Int = 0
         private set
 
+    var errorText: String? = null
+        private set
+
+    /**
+     * Set a validator to check input before saving.
+     * The validator receives the input text and returns null if valid,
+     * or an error message string if invalid.
+     */
+    var validator: ((String?) -> String?)? = null
+
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int)
             : super(context, attrs, defStyleAttr, defStyleRes) {
         init(context, attrs, defStyleAttr, defStyleRes)
@@ -102,6 +112,9 @@ class EditTextPreference : AndroidXEditTextPreference {
         // Read start and end icon drawables
         startIconDrawable = a.getResourceId(R.styleable.EditTextPreference_startIconDrawable, 0)
         endIconDrawable = a.getResourceId(R.styleable.EditTextPreference_endIconDrawable, 0)
+
+        // Read error text (can be set in XML for static validation)
+        errorText = a.getString(R.styleable.EditTextPreference_errorText)
 
         a.recycle()
     }

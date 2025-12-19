@@ -17,6 +17,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogFragmentCompat() {
 
     private var mEditText: com.google.android.material.textfield.TextInputEditText? = null
+    private var mTextInputLayout: com.google.android.material.textfield.TextInputLayout? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val context = requireContext()
@@ -42,11 +43,11 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         }
         val view = inflater.inflate(layoutResId, null, false)
 
-        val textInputLayout = view.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.text_input_layout)
+        mTextInputLayout = view.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.text_input_layout)
         mEditText = view.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.text_input_edit_text)
 
         // Configure the TextInputLayout
-        textInputLayout.apply {
+        mTextInputLayout?.apply {
             // Set hint and other attributes if available
             if (editTextPreference is EditTextPreference) {
                 hint = editTextPreference.hint
@@ -85,6 +86,23 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
             // Select all text on focus for easier editing
             setSelectAllOnFocus(true)
             requestFocus()
+
+            // Add text change listener for real-time validation
+            if (editTextPreference is EditTextPreference && editTextPreference.validator != null) {
+                addTextChangedListener(object : android.text.TextWatcher {
+                    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+                    override fun afterTextChanged(s: android.text.Editable?) {
+                        val errorMessage = editTextPreference.validator?.invoke(s?.toString())
+                        mTextInputLayout?.error = errorMessage
+                    }
+                })
+            }
+        }
+
+        // Set initial error text if specified in XML
+        if (editTextPreference is EditTextPreference && editTextPreference.errorText != null) {
+            mTextInputLayout?.error = editTextPreference.errorText
         }
 
 
@@ -132,6 +150,18 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         if (positiveResult) {
             val value = mEditText?.text?.toString()
             val editTextPreference = preference as androidx.preference.EditTextPreference
+
+            // Validate before saving if validator is set
+            if (editTextPreference is EditTextPreference && editTextPreference.validator != null) {
+                val errorMessage = editTextPreference.validator?.invoke(value)
+                if (errorMessage != null) {
+                    // Validation failed - show error but don't save
+                    mTextInputLayout?.error = errorMessage
+                    return
+                }
+            }
+
+            // Validation passed or no validator - save the value
             if (editTextPreference.callChangeListener(value)) {
                 editTextPreference.text = value
             }

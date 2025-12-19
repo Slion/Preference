@@ -238,6 +238,48 @@
         x:useSimpleSummaryProvider="true" />
 
     <x.PreferenceCategory
+        a:title="Validation Demonstrations"
+        a:summary="Input validation and error handling"
+        x:iconSpaceReserved="false" />
+
+    <x.EditTextPreference
+        a:key="validation_required"
+        a:title="Required Field"
+        a:summary="Must not be empty"
+        a:dialogTitle="Required Field"
+        a:dialogMessage="This field is required and cannot be empty"
+        x:hint="Enter value" />
+
+    <x.EditTextPreference
+        a:key="validation_email"
+        a:title="Email Validation"
+        a:summary="Must be valid email"
+        a:dialogTitle="Email Address"
+        a:dialogMessage="Enter a valid email address"
+        a:inputType="textEmailAddress"
+        x:hint="email@example.com"
+        x:startIconDrawable="@drawable/ic_email" />
+
+    <x.EditTextPreference
+        a:key="validation_length"
+        a:title="Length Validation"
+        a:summary="Minimum 6 characters"
+        a:dialogTitle="Password"
+        a:dialogMessage="Password must be at least 6 characters"
+        a:inputType="textPassword"
+        x:hint="Enter password" />
+
+    <x.EditTextPreference
+        a:key="validation_number_range"
+        a:title="Number Range"
+        a:summary="Between 1-100"
+        a:dialogTitle="Age"
+        a:dialogMessage="Enter age between 1 and 100"
+        a:inputType="number"
+        x:hint="Age"
+        x:suffixText="years" />
+
+    <x.PreferenceCategory
         a:title="Multi-line Text"
         x:iconSpaceReserved="false" />
 

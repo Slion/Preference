@@ -18,6 +18,7 @@
     <attr name="suffixText" format="string" />
     <attr name="startIconDrawable" format="reference" />
     <attr name="endIconDrawable" format="reference" />
+    <attr name="errorText" format="string" />
 
     <declare-styleable name="EditTextPreference">
         <!-- Hint text to display in the EditText -->
@@ -36,6 +37,8 @@
         <attr name="startIconDrawable" />
         <!-- End icon drawable (shown at the end of the text field, overrides password toggle) -->
         <attr name="endIconDrawable" />
+        <!-- Error text to display when validation fails -->
+        <attr name="errorText" />
         <!-- Android standard attributes -->
         <attr name="android:inputType" />
         <attr name="android:maxLength" />
