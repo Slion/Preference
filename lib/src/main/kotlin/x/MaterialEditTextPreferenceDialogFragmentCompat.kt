@@ -22,26 +22,27 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         val context = requireContext()
         val editTextPreference = preference as androidx.preference.EditTextPreference
 
-        // Create Material TextInputLayout with TextInputEditText
-        val textInputLayout = com.google.android.material.textfield.TextInputLayout(context).apply {
-            layoutParams = android.view.ViewGroup.LayoutParams(
-                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
-                android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-            )
+        // Inflate the Material Design 3 outlined TextInputLayout from XML
+        val inflater = android.view.LayoutInflater.from(context)
+        val view = inflater.inflate(R.layout.material_edittext_dialog, null, false)
 
+        val textInputLayout = view.findViewById<com.google.android.material.textfield.TextInputLayout>(R.id.text_input_layout)
+        mEditText = view.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.text_input_edit_text)
+
+        // Configure the TextInputLayout
+        textInputLayout.apply {
             // Set hint from dialog title if available, otherwise use preference title
             hint = editTextPreference.dialogTitle?.toString() ?: editTextPreference.title?.toString()
-
-            // Create TextInputEditText
-            mEditText = com.google.android.material.textfield.TextInputEditText(context).apply {
-                setText(editTextPreference.text)
-                // Select all text on focus for easier editing
-                setSelectAllOnFocus(true)
-                requestFocus()
-            }
-
-            addView(mEditText)
         }
+
+        // Configure the EditText
+        mEditText?.apply {
+            setText(editTextPreference.text)
+            // Select all text on focus for easier editing
+            setSelectAllOnFocus(true)
+            requestFocus()
+        }
+
 
         val paddingHorizontal = (24 * context.resources.displayMetrics.density).toInt()
         val paddingVertical = (24 * context.resources.displayMetrics.density).toInt()
@@ -49,7 +50,7 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         // Wrap in a container with proper padding
         val container = android.widget.FrameLayout(context).apply {
             setPadding(paddingHorizontal, 0, paddingHorizontal, 0)
-            addView(textInputLayout)
+            addView(view)
         }
 
         // Use MaterialAlertDialogBuilder for Material Design 3 styling
