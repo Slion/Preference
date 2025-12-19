@@ -3,5 +3,14 @@
     <!-- Fade edge length for preference RecyclerView -->
     <!-- Controls the size of the fade in/out effect at top and bottom borders -->
     <dimen name="preference_fade_edge_length">32dp</dimen>
+
+    <!--
+    Dialog padding for EditTextPreference
+    Not sure that's needed
+    -->
+    <dimen name="dialog_padding_horizontal">24dp</dimen>
+    <dimen name="dialog_padding_top">20dp</dimen>
+    <dimen name="dialog_padding_bottom">20dp</dimen>
 </resources>
+
 

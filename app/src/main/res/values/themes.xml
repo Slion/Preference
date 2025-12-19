@@ -3,11 +3,19 @@
     <style name="Theme.App.Light" parent="Theme.Slions.Preference.Large" >
         <!-- Customize your light theme here. -->
         <!--        <item name="colorPrimary">#FF0000</item>-->
+
+        <!-- Use Material AlertDialog for preference dialogs -->
+<!--        <item name="alertDialogTheme">@style/ThemeOverlay.Material3.MaterialAlertDialog</item>-->
+<!--        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Material3.MaterialAlertDialog</item>-->
     </style>
 
     <style name="Theme.App.Dark" parent="Theme.Slions.Preference.Large" >
         <!-- Customize your dark theme here. -->
         <!--        <item name="colorPrimary">#FF0000</item>-->
+
+        <!-- Use Material AlertDialog for preference dialogs -->
+<!--        <item name="alertDialogTheme">@style/ThemeOverlay.Material3.MaterialAlertDialog</item>-->
+<!--        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Material3.MaterialAlertDialog</item>-->
     </style>
 
     <style name="Theme.App.DayNight" parent="Theme.App.Light" />

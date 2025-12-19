@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:a="http://schemas.android.com/apk/res/android"
+    xmlns:x="http://schemas.android.com/apk/res-auto">
+
+    <x.PreferenceCategory
+        a:title="EditText Preference Demos"
+        a:summary="Text input using Material Design dialogs"
+        x:iconSpaceReserved="false" />
+
+    <EditTextPreference
+        a:key="user_name"
+        a:title="User Name"
+        a:summary="Current: %s"
+        a:defaultValue="John Doe"
+        a:dialogTitle="Enter Name"
+        a:dialogMessage="Please enter your full name"
+        x:useSimpleSummaryProvider="true" />
+
+    <EditTextPreference
+        a:key="email_address"
+        a:title="Email Address"
+        a:summary="%s"
+        a:defaultValue="user@example.com"
+        a:dialogTitle="Email"
+        a:dialogMessage="Enter your email address"
+        x:useSimpleSummaryProvider="true" />
+
+    <EditTextPreference
+        a:key="password"
+        a:title="Password"
+        a:summary="Tap to change password"
+        a:dialogTitle="Change Password"
+        a:dialogMessage="Enter a new password" />
+
+    <EditTextPreference
+        a:key="phone_number"
+        a:title="Phone Number"
+        a:summary="%s"
+        a:dialogTitle="Phone Number"
+        x:useSimpleSummaryProvider="true" />
+
+    <EditTextPreference
+        a:key="age"
+        a:title="Age"
+        a:summary="%s years old"
+        a:dialogTitle="Your Age"
+        a:dialogMessage="Enter your age (0-120)"
+        x:useSimpleSummaryProvider="true" />
+
+    <EditTextPreference
+        a:key="website"
+        a:title="Website"
+        a:summary="%s"
+        a:defaultValue="https://example.com"
+        a:dialogTitle="Website URL"
+        x:useSimpleSummaryProvider="true" />
+
+    <x.PreferenceCategory
+        a:title="Multi-line Text"
+        x:iconSpaceReserved="false" />
+
+    <EditTextPreference
+        a:key="bio"
+        a:title="Biography"
+        a:summary="Tap to edit your bio"
+        a:dialogTitle="Your Biography"
+        a:dialogMessage="Tell us about yourself..." />
+
+    <EditTextPreference
+        a:key="notes"
+        a:title="Notes"
+        a:summary="Tap to edit notes"
+        a:dialogTitle="Notes"
+        a:dialogMessage="Your notes..." />
+
+</PreferenceScreen>
+

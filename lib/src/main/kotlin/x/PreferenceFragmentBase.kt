@@ -6,6 +6,8 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.Preference
+import androidx.preference.EditTextPreference
 import androidx.recyclerview.widget.RecyclerView
 
 /**
@@ -90,6 +92,23 @@ abstract class PreferenceFragmentBase : PreferenceFragmentCompat() {
         recyclerView.setFadingEdgeLength(resources.getDimensionPixelSize(x.R.dimen.preference_fade_edge_length))
 
         return recyclerView
+    }
+
+    /**
+     * Override to use Material Design 3 dialogs for EditTextPreference.
+     * This ensures all EditTextPreference dialogs across the app have proper Material styling
+     * with rounded corners, elevation, and Material buttons.
+     */
+    override fun onDisplayPreferenceDialog(preference: Preference) {
+        // Use Material dialog for EditTextPreference
+        if (preference is EditTextPreference) {
+            val dialogFragment = MaterialEditTextPreferenceDialogFragmentCompat.newInstance(preference.key)
+            @Suppress("DEPRECATION")
+            dialogFragment.setTargetFragment(this, 0)
+            dialogFragment.show(parentFragmentManager, "MaterialEditTextPreferenceDialog")
+        } else {
+            super.onDisplayPreferenceDialog(preference)
+        }
     }
 
 }

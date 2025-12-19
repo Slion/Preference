@@ -6,6 +6,20 @@
     <attr name="preferencePaddingVertical" format="dimension" />
     <attr name="preferenceCategoryPaddingVertical" format="dimension" />
 
+    <!-- EditTextPreference attributes -->
+    <attr name="hint" format="string" />
+    <attr name="selectAllOnFocus" format="boolean" />
+
+    <declare-styleable name="EditTextPreference">
+        <!-- Hint text to display in the EditText -->
+        <attr name="hint" />
+        <!-- Whether to select all text when dialog opens -->
+        <attr name="selectAllOnFocus" />
+        <!-- Android standard attributes -->
+        <attr name="android:inputType" />
+        <attr name="android:maxLength" />
+    </declare-styleable>
+
     <declare-styleable name="Preference">
         <!-- Custom breadcrumb text for navigation context. If empty, defaults to title or summary. -->
         <attr name="breadcrumb" format="string" />

@@ -369,17 +369,74 @@ To **reduce** spacing below theme defaults (which the margin/padding attributes 
 
 Easily build a list preference from an enum.
 
+### EditTextPreference with Material Design 3
+
+The library automatically provides Material Design 3 dialogs for all `EditTextPreference` instances when you extend `PreferenceFragmentBase`.
+
+**Features:**
+- ✅ Material Design 3 dialogs with rounded corners
+- ✅ Proper elevation and shadows
+- ✅ Material buttons
+- ✅ Smooth animations
+- ✅ Summary placeholder (`%s` shows current value)
+- ✅ Simple summary provider support
+
+**Usage:**
+
+Simply use the standard androidx `EditTextPreference` in your XML:
+
+```xml
+<EditTextPreference
+    a:key="user_name"
+    a:title="User Name"
+    a:summary="Current: %s"
+    a:defaultValue="John Doe"
+    a:dialogTitle="Enter Name"
+    a:dialogMessage="Please enter your full name"
+    x:useSimpleSummaryProvider="true" />
+
+<!-- Email input -->
+<EditTextPreference
+    a:key="email"
+    a:title="Email Address"
+    a:summary="%s"
+    a:defaultValue="user@example.com"
+    a:dialogTitle="Email"
+    a:dialogMessage="Enter your email address"
+    x:useSimpleSummaryProvider="true" />
+
+<!-- Password (hidden) -->
+<EditTextPreference
+    a:key="password"
+    a:title="Password"
+    a:summary="Tap to change password"
+    a:dialogTitle="Change Password" />
+
+<!-- With message -->
+<EditTextPreference
+    a:key="bio"
+    a:title="Biography"
+    a:summary="Tap to edit your bio"
+    a:dialogTitle="Your Biography"
+    a:dialogMessage="Tell us about yourself..." />
+```
+
+**How it works:**
+
+`PreferenceFragmentBase` automatically intercepts `EditTextPreference` dialogs and displays them using `MaterialEditTextPreferenceDialogFragmentCompat`, which provides Material Design 3 styling.
+
+**No additional code needed!** Just extend `PreferenceFragmentBase` and use standard `EditTextPreference` in your XML.
+
+**Available attributes:**
+- `a:key` - Preference storage key
+- `a:title` - Title displayed in preference list
+- `a:summary` - Summary text (use `%s` to show current value)
+- `a:defaultValue` - Default text value
+- `a:dialogTitle` - Dialog header text
+- `a:dialogMessage` - Optional message shown in dialog (above the input field)
+- `x:useSimpleSummaryProvider` - Automatically use preference value as summary
+
 ### x.SliderPreference
 
 Preference using a [Material Slider](https://m2.material.io/components/sliders#usage).
 
-## Release 
-
-Increase the library version number from [`lib/build.gradle.kts`](lib/build.gradle.kts).
-
-Generate your upload package by running:<br> 
-`.\gradlew generateUploadPackage`
-
-If signing hangs and fails on Windows, launch Kleopatra to make sure `gpg-agent` is running.
-
-It outputs a file named `preference.zip` in the following folder `lib\build\distributions`. You can directly upload this ZIP file for publication on [Maven Central](https://central.sonatype.com/publishing).

@@ -52,6 +52,7 @@
     <string name="fragment_sliders_title">Sliders</string>
     <string name="fragment_categories_title">Categories</string>
     <string name="fragment_themes_title">Theme Overlays</string>
+    <string name="fragment_edittext_title">Edit Text</string>
     <string name="fragment_basics_title">Basics</string>
     <string name="fragment_basics_ellipsis_title">Ellipsis Modes</string>
     <string name="fragment_basics_marquee_title">Marquee Configuration</string>

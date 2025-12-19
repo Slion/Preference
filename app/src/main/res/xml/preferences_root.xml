@@ -24,6 +24,18 @@
         x:title="@string/fragment_sliders_title" />
 
     <x.Preference
+        x:fragment="x.PreferenceFragmentExtra"
+        x:icon="@drawable/ic_short_text_outline"
+        x:title="@string/fragment_edittext_title">
+        <extra
+            a:name="screen"
+            a:value="@xml/preferences_edittext" />
+        <extra
+            a:name="title"
+            a:value="@string/fragment_edittext_title" />
+    </x.Preference>
+
+    <x.Preference
         x:fragment="slions.pref.demo.PreferenceFragmentCategories"
         x:icon="@drawable/ic_short_text_outline"
         x:title="@string/fragment_categories_title" />
