@@ -45,6 +45,12 @@ class EditTextPreference : AndroidXEditTextPreference {
     var suffixText: String? = null
         private set
 
+    var startIconDrawable: Int = 0
+        private set
+
+    var endIconDrawable: Int = 0
+        private set
+
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int)
             : super(context, attrs, defStyleAttr, defStyleRes) {
         init(context, attrs, defStyleAttr, defStyleRes)
@@ -92,6 +98,10 @@ class EditTextPreference : AndroidXEditTextPreference {
         // Read prefix and suffix text
         prefixText = a.getString(R.styleable.EditTextPreference_prefixText)
         suffixText = a.getString(R.styleable.EditTextPreference_suffixText)
+
+        // Read start and end icon drawables
+        startIconDrawable = a.getResourceId(R.styleable.EditTextPreference_startIconDrawable, 0)
+        endIconDrawable = a.getResourceId(R.styleable.EditTextPreference_endIconDrawable, 0)
 
         a.recycle()
     }

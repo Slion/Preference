@@ -52,13 +52,29 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
                 hint = editTextPreference.hint
                 prefixText = editTextPreference.prefixText
                 suffixText = editTextPreference.suffixText
-            }
 
-            // Configure password visibility toggle if it's a password field
-            if (isPasswordInputType(inputType)) {
-                endIconMode = com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE
+                // Set start icon if specified
+                if (editTextPreference.startIconDrawable != 0) {
+                    startIconDrawable = context.getDrawable(editTextPreference.startIconDrawable)
+                }
+
+                // Set end icon if specified (overrides password toggle)
+                if (editTextPreference.endIconDrawable != 0) {
+                    endIconMode = com.google.android.material.textfield.TextInputLayout.END_ICON_CUSTOM
+                    endIconDrawable = context.getDrawable(editTextPreference.endIconDrawable)
+                } else if (isPasswordInputType(inputType)) {
+                    // Only show password toggle if no custom end icon is set
+                    endIconMode = com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE
+                } else {
+                    endIconMode = com.google.android.material.textfield.TextInputLayout.END_ICON_NONE
+                }
             } else {
-                endIconMode = com.google.android.material.textfield.TextInputLayout.END_ICON_NONE
+                // Standard EditTextPreference - just password toggle if needed
+                if (isPasswordInputType(inputType)) {
+                    endIconMode = com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE
+                } else {
+                    endIconMode = com.google.android.material.textfield.TextInputLayout.END_ICON_NONE
+                }
             }
         }
 

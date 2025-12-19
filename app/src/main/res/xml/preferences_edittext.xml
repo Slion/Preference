@@ -133,6 +133,46 @@
         x:hint="Enter text" />
 
     <x.PreferenceCategory
+        a:title="Icon Demonstrations"
+        a:summary="Start and end icons in text fields"
+        x:iconSpaceReserved="false" />
+
+    <x.EditTextPreference
+        a:key="search_with_icon"
+        a:title="Search with Icon"
+        a:summary="Has search icon"
+        a:dialogTitle="Search"
+        x:hint="Search..."
+        x:startIconDrawable="@drawable/ic_search" />
+
+    <x.EditTextPreference
+        a:key="email_with_icon"
+        a:title="Email with Icon"
+        a:summary="Has email icon"
+        a:dialogTitle="Email Address"
+        a:inputType="textEmailAddress"
+        x:hint="email@example.com"
+        x:startIconDrawable="@drawable/ic_email" />
+
+    <x.EditTextPreference
+        a:key="phone_with_icon"
+        a:title="Phone with Icons"
+        a:summary="Start and end icons"
+        a:dialogTitle="Phone Number"
+        a:inputType="phone"
+        x:hint="Phone number"
+        x:startIconDrawable="@drawable/ic_phone"
+        x:endIconDrawable="@drawable/ic_check" />
+
+    <x.EditTextPreference
+        a:key="location_with_icon"
+        a:title="Location with Icon"
+        a:summary="Has location icon"
+        a:dialogTitle="Location"
+        x:hint="Enter location"
+        x:endIconDrawable="@drawable/ic_location" />
+
+    <x.PreferenceCategory
         a:title="Hint Demonstrations"
         a:summary="Shows preferences with and without hints"
         x:iconSpaceReserved="false" />

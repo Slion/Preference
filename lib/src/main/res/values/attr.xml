@@ -16,6 +16,8 @@
     </attr>
     <attr name="prefixText" format="string" />
     <attr name="suffixText" format="string" />
+    <attr name="startIconDrawable" format="reference" />
+    <attr name="endIconDrawable" format="reference" />
 
     <declare-styleable name="EditTextPreference">
         <!-- Hint text to display in the EditText -->
@@ -30,6 +32,10 @@
         <attr name="prefixText" />
         <!-- Suffix text shown at the end of the text field -->
         <attr name="suffixText" />
+        <!-- Start icon drawable (shown at the start of the text field) -->
+        <attr name="startIconDrawable" />
+        <!-- End icon drawable (shown at the end of the text field, overrides password toggle) -->
+        <attr name="endIconDrawable" />
         <!-- Android standard attributes -->
         <attr name="android:inputType" />
         <attr name="android:maxLength" />
