@@ -31,31 +31,22 @@ import androidx.preference.EditTextPreference as AndroidXEditTextPreference
 class EditTextPreference : AndroidXEditTextPreference {
 
     var inputType: Int = InputType.TYPE_CLASS_TEXT
-        private set
 
     var hint: String? = null
-        private set
 
     var boxStyle: Int = BOX_STYLE_OUTLINED
-        private set
 
     var prefixText: String? = null
-        private set
 
     var suffixText: String? = null
-        private set
 
     var startIconDrawable: Int = 0
-        private set
 
     var endIconDrawable: Int = 0
-        private set
 
     var errorText: String? = null
-        private set
 
     var textGravity: Int = android.view.Gravity.START or android.view.Gravity.CENTER_VERTICAL
-        private set
 
     /**
      * Set a validator to check input before saving.
