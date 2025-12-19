@@ -46,13 +46,27 @@ class MaterialEditTextPreferenceDialogFragmentCompat : EditTextPreferenceDialogF
         mEditText = view.findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.text_input_edit_text)
 
         // Configure the TextInputLayout
+        // Configure the TextInputLayout
         textInputLayout.apply {
-
             // Set hint only if it's our custom EditTextPreference with a hint attribute
-            if (editTextPreference is EditTextPreference && editTextPreference.hint != null) {
-                hint = editTextPreference.hint
+            if (editTextPreference is EditTextPreference) {
+                if (editTextPreference.hint != null) {
+                    hint = editTextPreference.hint
+                } else {
+                    // No hint - leave it empty for clean look
+                    hint = null
+                }
+
+                // Set prefix text if specified
+                if (editTextPreference.prefixText != null) {
+                    prefixText = editTextPreference.prefixText
+                }
+
+                // Set suffix text if specified
+                if (editTextPreference.suffixText != null) {
+                    suffixText = editTextPreference.suffixText
+                }
             } else {
-                // No hint - leave it empty for clean look
                 hint = null
             }
 
