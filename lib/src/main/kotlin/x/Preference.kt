@@ -21,7 +21,7 @@ import androidx.preference.PreferenceViewHolder
  *
  * See: https://stackoverflow.com/questions/6729484/android-preference-summary-how-to-set-3-lines-in-summary
  */
-class Preference : androidx.preference.Preference {
+open class Preference : androidx.preference.Preference {
 
     // Mode constants
     companion object {
