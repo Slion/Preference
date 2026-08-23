@@ -24,6 +24,7 @@ import timber.log.Timber
 import java.lang.Float.max
 import java.lang.Float.min
 import java.util.*
+import kotlin.math.round
 
 
 /*
@@ -202,9 +203,12 @@ class SliderPreference @JvmOverloads constructor(context: Context, attrs: Attrib
             it.stepSize = stepSize
             it.labelBehavior = labelBehavior
             it.setLabelFormatter(formatter)
-            // Make sure our value is in range otherwise Slider will throw an exception
-            // That's defensive code which might be useful if your preference range did change
-            it.value = min(max(mSeekBarValue, valueFrom),valueTo)
+            // Make sure our value is in range AND aligned to the step grid, otherwise the Slider
+            // throws an exception. That's defensive code which is notably useful if our preference
+            // range or step did change since the value was persisted (e.g. a value stored by an
+            // earlier build no longer sits on the grid).
+            mSeekBarValue = snapToGrid(mSeekBarValue)
+            it.value = mSeekBarValue
         }
 
 
@@ -225,6 +229,20 @@ class SliderPreference @JvmOverloads constructor(context: Context, attrs: Attrib
         */
         updateLabelValue(mSeekBarValue)
         mSlider!!.isEnabled = isEnabled
+    }
+
+    /**
+     * Clamp [value] to [valueFrom, valueTo] and snap it to the step grid so the Material
+     * [Slider] accepts it: it requires value == valueFrom + n * stepSize (with a small float
+     * tolerance of 0.001) and throws an IllegalStateException otherwise.
+     */
+    private fun snapToGrid(value: Float): Float {
+        var v = min(max(value, valueFrom), valueTo)
+        if (stepSize > 0) {
+            v = round((v - valueFrom) / stepSize) * stepSize + valueFrom
+            v = min(max(v, valueFrom), valueTo)
+        }
+        return v
     }
 
     /**
